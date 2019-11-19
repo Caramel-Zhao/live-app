@@ -1,10 +1,17 @@
 <template>
-  <h1>user page</h1>
+  <div>
+    <h1>user page</h1>
+    <YT-footer></YT-footer>
+  </div>
 </template>
 
 <script>
+  import Footer from "../../components/Commom/Footer";
 export default {
-  name: "User"
+  name: "User",
+  components: {
+    [Footer.name]:Footer
+  }
 }
 </script>
 

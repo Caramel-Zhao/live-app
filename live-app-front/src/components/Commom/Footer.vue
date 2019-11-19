@@ -1,14 +1,14 @@
 <template>
   <div class="footer">
-    <span><i></i>首页</span>
+    <router-link tag="span" to="/home"><i></i>首页</router-link>
     <span class="live-img"><img src="../../assets/HomeImg/live.png" alt=""></span>
-    <span @click="goUser"><i></i>我的</span>
+    <router-link tag="span" to="/user"><i></i>我的</router-link>
   </div>
 </template>
 
 <script>
   export default {
-    name: "HomeFooter",
+    name: "YT-footer",
     methods:{
       goUser(){
         this.$router.push("user")
