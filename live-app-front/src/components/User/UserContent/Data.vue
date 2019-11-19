@@ -1,12 +1,13 @@
 <template>
-  <h1>user page</h1>
+  
 </template>
 
 <script>
 export default {
-  name: "User"
+    name:"Data"
 }
 </script>
 
-<style scoped>
+<style>
+
 </style>

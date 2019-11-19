@@ -1,12 +1,15 @@
 <template>
-  <h1>user page</h1>
+    <div>
+        <p>我的</p>
+    </div>
 </template>
 
 <script>
 export default {
-  name: "User"
+    name:"My"
 }
 </script>
 
-<style scoped>
+<style>
+
 </style>
