@@ -1,0 +1,84 @@
+[
+  {
+    "Nav":"关注",
+    "WaitingImg": "",
+    "Attention":[
+      {"UserImg": "","UserNmae": "羊村小霸王"},
+      {"UserImg": "","UserNmae": "羊村小霸王"},
+      {"UserImg": "","UserNmae": "羊村小霸王"},
+      {"UserImg": "","UserNmae": "羊村小霸王"}
+    ],
+    "SuggestedFollows": [
+      {"UserImg": "","UserName": "琪宝丫","UserAddress": "临汾市"},
+      {"UserImg": "","UserName": "琪宝丫","UserAddress": "临汾市"},
+      {"UserImg": "","UserName": "琪宝丫","UserAddress": "临汾市"},
+      {"UserImg": "","UserName": "琪宝丫","UserAddress": "临汾市"},
+      {"UserImg": "","UserName": "琪宝丫","UserAddress": "临汾市"},
+      {"UserImg": "","UserName": "琪宝丫","UserAddress": "临汾市"},
+      {"UserImg": "","UserName": "琪宝丫","UserAddress": "临汾市"},
+      {"UserImg": "","UserName": "琪宝丫","UserAddress": "临汾市"},
+      {"UserImg": "","UserName": "琪宝丫","UserAddress": "临汾市"},
+      {"UserImg": "","UserName": "琪宝丫","UserAddress": "临汾市"},
+      {"UserImg": "","UserName": "琪宝丫","UserAddress": "临汾市"},
+      {"UserImg": "","UserName": "琪宝丫","UserAddress": "临汾市"}
+    ]
+  },
+  {
+    "Nav":"推荐",
+    "Banner": [
+      {"img": ""},
+      {"img": ""},
+      {"img": ""},
+      {"img": ""}
+    ],
+    "AdvertisementImg": "",
+    "RecommendedList": [
+      {"UserImg": "","UserName": "风尚熙熙","UserAddress": "临汾市","UserTag": "魅力主播","NobleSign": ""},
+      {"UserImg": "","UserName": "风尚熙熙","UserAddress": "临汾市","UserTag": "魅力主播","NobleSign": ""},
+      {"UserImg": "","UserName": "风尚熙熙","UserAddress": "临汾市","UserTag": "魅力主播","NobleSign": ""},
+      {"UserImg": "","UserName": "风尚熙熙","UserAddress": "临汾市","UserTag": "魅力主播","NobleSign": ""},
+      {"UserImg": "","UserName": "风尚熙熙","UserAddress": "临汾市","UserTag": "魅力主播","NobleSign": ""},
+      {"UserImg": "","UserName": "风尚熙熙","UserAddress": "临汾市","UserTag": "魅力主播","NobleSign": ""},
+      {"UserImg": "","UserName": "风尚熙熙","UserAddress": "临汾市","UserTag": "魅力主播","NobleSign": ""},
+      {"UserImg": "","UserName": "风尚熙熙","UserAddress": "临汾市","UserTag": "魅力主播","NobleSign": ""},
+      {"UserImg": "","UserName": "风尚熙熙","UserAddress": "临汾市","UserTag": "魅力主播","NobleSign": ""},
+      {"UserImg": "","UserName": "风尚熙熙","UserAddress": "临汾市","UserTag": "魅力主播","NobleSign": ""},
+      {"UserImg": "","UserName": "风尚熙熙","UserAddress": "临汾市","UserTag": "魅力主播","NobleSign": ""},
+      {"UserImg": "","UserName": "风尚熙熙","UserAddress": "临汾市","UserTag": "魅力主播","NobleSign": ""}
+    ]
+  },
+  {
+    "Nav":"附近",
+    "RecommendedList": [
+      {"UserImg": "","UserName": "风尚熙熙","UserAddress": "11km","UserTag": "魅力主播","NobleSign": "","company": "风尚娱乐"},
+      {"UserImg": "","UserName": "风尚熙熙","UserAddress": "11km","UserTag": "魅力主播","NobleSign": "","company": "风尚娱乐"},
+      {"UserImg": "","UserName": "风尚熙熙","UserAddress": "11km","UserTag": "魅力主播","NobleSign": "","company": "风尚娱乐"},
+      {"UserImg": "","UserName": "风尚熙熙","UserAddress": "11km","UserTag": "魅力主播","NobleSign": "","company": "风尚娱乐"},
+      {"UserImg": "","UserName": "风尚熙熙","UserAddress": "11km","UserTag": "魅力主播","NobleSign": "","company": "风尚娱乐"},
+      {"UserImg": "","UserName": "风尚熙熙","UserAddress": "11km","UserTag": "魅力主播","NobleSign": "","company": "风尚娱乐"},
+      {"UserImg": "","UserName": "风尚熙熙","UserAddress": "11km","UserTag": "魅力主播","NobleSign": "","company": "风尚娱乐"},
+      {"UserImg": "","UserName": "风尚熙熙","UserAddress": "11km","UserTag": "魅力主播","NobleSign": "","company": "风尚娱乐"},
+      {"UserImg": "","UserName": "风尚熙熙","UserAddress": "11km","UserTag": "魅力主播","NobleSign": "","company": "风尚娱乐"},
+      {"UserImg": "","UserName": "风尚熙熙","UserAddress": "11km","UserTag": "魅力主播","NobleSign": "","company": "风尚娱乐"},
+      {"UserImg": "","UserName": "风尚熙熙","UserAddress": "11km","UserTag": "魅力主播","NobleSign": "","company": "风尚娱乐"},
+      {"UserImg": "","UserName": "风尚熙熙","UserAddress": "11km","UserTag": "魅力主播","NobleSign": "","company": "风尚娱乐"}
+    ]
+  },
+  {
+    "Nav":"新星",
+    "StartList": [
+      {"UserImg": "","UserName": "风尚熙熙","UserAddress": "大连市","UserTag": "魅力主播","NobleSign": "","company": "风尚娱乐"},
+      {"UserImg": "","UserName": "风尚熙熙","UserAddress": "大连市","UserTag": "魅力主播","NobleSign": "","company": "风尚娱乐"},
+      {"UserImg": "","UserName": "风尚熙熙","UserAddress": "大连市","UserTag": "魅力主播","NobleSign": "","company": "风尚娱乐"},
+      {"UserImg": "","UserName": "风尚熙熙","UserAddress": "大连市","UserTag": "魅力主播","NobleSign": "","company": "风尚娱乐"},
+      {"UserImg": "","UserName": "风尚熙熙","UserAddress": "大连市","UserTag": "魅力主播","NobleSign": "","company": "风尚娱乐"},
+      {"UserImg": "","UserName": "风尚熙熙","UserAddress": "大连市","UserTag": "魅力主播","NobleSign": "","company": "风尚娱乐"},
+      {"UserImg": "","UserName": "风尚熙熙","UserAddress": "大连市","UserTag": "魅力主播","NobleSign": "","company": "风尚娱乐"},
+      {"UserImg": "","UserName": "风尚熙熙","UserAddress": "大连市","UserTag": "魅力主播","NobleSign": "","company": "风尚娱乐"},
+      {"UserImg": "","UserName": "风尚熙熙","UserAddress": "大连市","UserTag": "魅力主播","NobleSign": "","company": "风尚娱乐"},
+      {"UserImg": "","UserName": "风尚熙熙","UserAddress": "大连市","UserTag": "魅力主播","NobleSign": "","company": "风尚娱乐"},
+      {"UserImg": "","UserName": "风尚熙熙","UserAddress": "大连市","UserTag": "魅力主播","NobleSign": "","company": "风尚娱乐"},
+      {"UserImg": "","UserName": "风尚熙熙","UserAddress": "大连市","UserTag": "魅力主播","NobleSign": "","company": "风尚娱乐"}
+    ]
+  }
+]
