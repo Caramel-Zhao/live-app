@@ -1,10 +1,10 @@
 <template>
-  <li></li>
+  
 </template>
 
 <script>
   export default {
-    name: "HomeNavItem"
+    name: "HomeAttentionList"
   }
 </script>
 
