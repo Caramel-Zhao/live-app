@@ -67,6 +67,6 @@
   }
   .swiper-pagination{
     position: fixed;
-    /*z-index:555;*/
+    z-index:555;
   }
 </style>
