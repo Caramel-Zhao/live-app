@@ -56,7 +56,7 @@
       }
     },
     mounted() {
-      // this.swiper.slideTo(3, 1000, false)
+      this.swiper.slideTo(0, 1000, false)
     }
   }
 </script>
@@ -66,7 +66,7 @@
     margin: 0.5rem 0;
   }
   .swiper-pagination{
-    position: fixed
-    z-index:555;
+    position: fixed;
+    /*z-index:555;*/
   }
 </style>

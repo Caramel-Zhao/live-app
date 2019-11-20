@@ -39,7 +39,7 @@
        background-size: 0.7rem 0.5rem;
      }
      .footer-user{
-       background: url("../../assets/HomeImg/footer.png") -54px 0px no-repeat;
+       background: url("../../assets/HomeImg/footer.png") -47px 0px no-repeat;
        background-size: 0.7rem 0.5rem;
      }
      .footer-index-active{
