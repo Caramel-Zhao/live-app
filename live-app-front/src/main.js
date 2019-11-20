@@ -10,6 +10,8 @@ require('vue-video-player/src/custom-theme.css')
 Vue.use(VideoPlayer)
 
 
+import '../public/css/reset.css'
+
 import VueAwesomeSwiper from 'vue-awesome-swiper'
 // require styles
 import 'swiper/dist/css/swiper.css'
