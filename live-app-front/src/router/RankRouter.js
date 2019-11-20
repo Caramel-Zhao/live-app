@@ -1,4 +1,4 @@
 export  default {
   path:"/rank",
-  component: ()=> import('../views/Rank/Rank')
+  component: ()=> import('../views/Rank/Rank'),
 }
