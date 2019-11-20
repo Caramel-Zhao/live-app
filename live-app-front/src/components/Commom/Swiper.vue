@@ -9,14 +9,14 @@
 </template>
 
 <script>
-  export default {
-    name: 'carrousel',
-    data() {
-      return {
-        swiperOption: {
+export default {
+  name: 'carrousel',
+  data () {
+    return {
+      swiperOption: {
 
-        }
       }
     }
   }
+}
 </script>

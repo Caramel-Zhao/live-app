@@ -1,18 +1,20 @@
 <template>
-<!--  <h1>rank</h1>-->
-  <Swiper />
+  <div>
+    <div class="nav">
+      <a>明星榜</a>
+      <a>财富榜</a>
+      <a>幸运榜</a>
+    </div>
+  </div>
 </template>
 
 <script>
-  import Swiper from "../../components/Commom/Swiper";
-  export default {
-    name: "Rank",
-    components: {
-      Swiper
-    }
-  }
+
+export default {
+  name: 'Rank',
+}
 </script>
 
-<style scoped>
-
+<!-- Add "scoped" attribute to limit CSS to this component only -->
+<style lang="scss" scoped>
 </style>

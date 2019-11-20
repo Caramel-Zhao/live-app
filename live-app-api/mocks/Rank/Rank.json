@@ -1,4 +1,6 @@
 [{
+  "RankNav":"明星榜",
+  "AllRank": ["日榜","周榜","月榜"],
   "day": [{
     "UserName": "张三",
     "UserImg": "img",
@@ -44,6 +46,8 @@
       "Charm": "12.444亿"}]
 },
   {
+    "RankNav":"财富榜",
+    "AllRank": ["日榜","周榜","月榜"],
     "day": [{
       "UserName": "张三",
       "UserImg": "img",
@@ -79,6 +83,8 @@
     }]
   },
   {
+    "RankNav":"幸运榜",
+    "AllRank": ["日榜","周榜","月榜"],
     "day": [{
       "UserName": "张三",
       "UserImg": "img",
