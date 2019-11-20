@@ -66,7 +66,7 @@
     margin: 0.5rem 0;
   }
   .swiper-pagination{
-    position: fixed
+    position: fixed;
     z-index:555;
   }
 </style>
