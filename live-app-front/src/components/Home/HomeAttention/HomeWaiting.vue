@@ -4,7 +4,7 @@
 
 <script>
   export default {
-    name: "HomeSeach"
+    name: "HomeWaiting"
   }
 </script>
 
