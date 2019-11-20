@@ -1,20 +1,21 @@
 <template>
-  <router-link tag="span" to="/rank">
+  <router-link tag="span" to="/search">
     <svg class="icon" aria-hidden="true">
-      <use xlink:href="#iconjiangbei"></use>
+      <use xlink:href="#icontubiao-"></use>
     </svg>
   </router-link>
 </template>
 
 <script>
   export default {
-    name: "HomeRank"
+    name: "HomeSearch"
   }
 </script>
 
 <style lang="scss" scoped>
   .icon{
-    width: 0.45rem;
-    height: 0.35rem;
+    width: 0.4rem;
+    height: 0.4rem;
+    padding-top:0.05rem;
   }
 </style>
