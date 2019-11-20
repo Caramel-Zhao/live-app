@@ -1,10 +1,12 @@
 <template>
-  
+  <div>
+    1111
+  </div>
 </template>
 
 <script>
 export default {
-    name:"Nobility"
+  name:"changepassword"
 }
 </script>
 

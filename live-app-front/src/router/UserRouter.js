@@ -8,7 +8,29 @@ export  default {
     },
     {
       path: "setting",
-      component: () => import('../views/User/Setting')
+      component: () => import('../views/User/Setting'),
+      children:[
+        {
+          path:"changepassword",
+          component:() => import('../components/User/Set/SetList/SetItem/changepassword')
+        },
+        {
+          path:"opinion",
+          component:() => import('../components/User/Set/SetList/SetItem/opinion')
+        },
+        {
+          path:"ContactUS",
+          component:() => import('../components/User/Set/SetList/SetItem/ContactUS')
+        },
+        {
+          path:"agreement",
+          component:() => import('../components/User/Set/SetList/SetItem/agreement')
+        },
+        {
+          path:"privacy",
+          component:() => import('../components/User/Set/SetList/SetItem/privacy')
+        }
+       ]
     },
     {
       path: "fans",
