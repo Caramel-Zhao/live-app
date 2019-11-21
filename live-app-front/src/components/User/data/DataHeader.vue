@@ -2,15 +2,13 @@
     <div>
         <div class="Dheader">
             <div class="Header-Left">
-                <router-link to="/user">
-                <div class="Left-icon">
+                <div class="Left-icon" @click="$router.back(-1)">
                     <svg class="icon bank" aria-hidden="true">
                         <use xlink:href="#iconarrow-left"></use>
                     </svg>
                 </div>
-                </router-link>
                 <div class="Right-Title">
-                    <span>编辑资料</span>
+                    <span>{{data}}</span>
                 </div>
             </div>
             <div class="Header-Right">
@@ -22,7 +20,8 @@
 
 <script>
     export default {
-        name: "DataHeader"
+        name: "DataHeader",
+        props: ["data"]
     }
 </script>
 

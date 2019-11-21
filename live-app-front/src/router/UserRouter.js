@@ -42,7 +42,23 @@ export  default {
     },
     {
       path: "data",
-      component: () => import('../views/User/Data')
+      component: () => import('../views/User/Data'),
+      children:[
+        {
+          path:"",
+          component:() =>import('../components/User/data/DataPage')
+        },
+        {
+          path: "name",
+          name:"name",
+          component: () =>import('../components/User/data/NamePage')
+        },
+        {
+          path: "autograph",
+          name:"autograph",
+          component: () =>import('../components/User/data/AutographPage')
+        }
+      ]
     },
     {
       path: "nobility",
