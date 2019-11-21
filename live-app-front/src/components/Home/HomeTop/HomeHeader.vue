@@ -1,22 +1,18 @@
 <template>
   <div class="home-header">
-    <home-search></home-search>
-<!--    <home-nav v-if="data" :data="data"></home-nav>-->
-    <home-rank></home-rank>
+    <HomeSearch/>
+    <HomeRank/>
   </div>
 </template>
 
 <script>
-  import HomeSearch from "./HomeHeader/HomeSearch";
-  import HomeNav from "./HomeHeader/HomeNav";
-  import HomeRank from "./HomeHeader/HomeRank";
+  import HomeSearch from "../HomeHeader/HomeSearch";
+  import HomeRank from "../HomeHeader/HomeRank";
   export default {
-    name: "HomeHeader",
-    props:["data"],
+    name: "home-header",
     components:{
-      [HomeSearch.name]:HomeSearch,
-      [HomeNav.name]:HomeNav,
-      [HomeRank.name]:HomeRank
+      HomeSearch,
+      HomeRank
     }
   }
 </script>

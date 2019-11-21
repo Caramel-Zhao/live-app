@@ -1,17 +1,13 @@
 <template>
-  <PullRefresh v-model="isLoading" @refresh="onRefresh">
-    <HomeList :data="8"></HomeList>
-  </PullRefresh>
+    <PullRefresh v-model="isLoading" @refresh="onRefresh"></PullRefresh>
 </template>
 
 <script>
   import { PullRefresh } from 'vant';
-  import HomeList from "./HomeList";
   export default {
-    name: "HomeNearBy",
+    name: "HomePullFresh",
     components:{
-      HomeList,
-      PullRefresh
+      PullRefresh,
     },
     data() {
       return {
@@ -21,6 +17,7 @@
     methods: {
       onRefresh() {
         setTimeout(() => {
+          this.$toast('刷新成功');
           this.isLoading = false;
         }, 500);
       }
@@ -28,10 +25,6 @@
   }
 </script>
 
-<style lang="scss" scoped>
-    /*.home-near {*/
-    /*  li{*/
-    /*  background: red;*/
-    /*}*/
-    /*}*/
+<style scoped>
+
 </style>
