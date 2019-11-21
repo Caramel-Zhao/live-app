@@ -1,7 +1,7 @@
 <template>
   <div class="SetList">
             <ul class="setlist-ul">
-                <router-link :to="'/user/setting/changepassword'" tag="div">
+                <router-link :to="'/user/setter/changepassword'" tag="div">
                 <li>
                     <div><p>修改密码</p></div>
                     <div>
@@ -11,7 +11,7 @@
                     </div>
                 </li>
                 </router-link>
-                <router-link :to="'/user/setting/opinion'" tag="div">
+                <router-link :to="'/user/setter/opinion'" tag="div">
                 <li>
                     <div><p>意见反馈</p></div>
                     <div>
@@ -21,7 +21,7 @@
                     </div>
                 </li>
                 </router-link>
-                <router-link :to="'/user/setting/ContactUS'" tag="div">
+                <router-link :to="'/user/setter/ContactUS'" tag="div">
                 <li>
                     <div><p>联系我们</p></div>
                     <div>
@@ -31,7 +31,7 @@
                     </div>
                 </li>
                 </router-link>
-                <router-link :to="'/user/setting/agreement'" tag="div">
+                <router-link :to="'/user/setter/agreement'" tag="div">
                 <li>
                     <div><p>用户注册协议</p></div>
                     <div>
@@ -41,7 +41,7 @@
                     </div>
                 </li>
                 </router-link>
-                <router-link :to="'/user/setting/privacy'" tag="div">
+                <router-link :to="'/user/setter/privacy'" tag="div">
                 <li>
                     <div><p>用户隐私协议</p></div>
                     <div>
