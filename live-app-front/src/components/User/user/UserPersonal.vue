@@ -1,8 +1,9 @@
 <template>
+<router-link :to="'/user/fans'" tag="div">
     <div class="person">
         <div class="ico">
             <div>
-                <img src="../../assets/img/2.jpg" alt="">
+                <img src="../../../assets/img/2.jpg" alt="">
             </div>
             <div>
                 <span class="name">Su丶SuSu</span>
@@ -26,6 +27,7 @@
             </div>
         </div>
     </div>
+</router-link>
 </template>
 
 <script>

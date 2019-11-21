@@ -23,19 +23,19 @@
 </template>
 
 <script>
-import header from "../../components/User/UserHeader"
-import personal from "../../components/User/UserPersonal"
-import SystemMessages from "../../components/User/SystemMessages"
-import Data from "../../components/User/Data"
-import Nobility from "../../components/User/Nobility"
-import Task from "../../components/User/Task"
-import Award from "../../components/User/Award"
-import Earnings from "../../components/User/Earnings"
-import Phone from "../../components/User/Phone"
-import Level from "../../components/User/Level"
-import Real from "../../components/User/Real"
-import Manage from "../../components/User/Manage"
-import Service from "../../components/User/Service"
+import header from "../../components/User/user/UserHeader"
+import personal from "../../components/User/user/UserPersonal"
+import SystemMessages from "../../components/User/user/SystemMessages"
+import Data from "../../components/User/user/Data"
+import Nobility from "../../components/User/user/Nobility"
+import Task from "../../components/User/user/Task"
+import Award from "../../components/User/user/Award"
+import Earnings from "../../components/User/user/Earnings"
+import Phone from "../../components/User/user/Phone"
+import Level from "../../components/User/user/Level"
+import Real from "../../components/User/user/Real"
+import Manage from "../../components/User/user/Manage"
+import Service from "../../components/User/user/Service"
 export default {
   name: "User",
   components: {

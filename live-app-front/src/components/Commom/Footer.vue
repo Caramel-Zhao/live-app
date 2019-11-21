@@ -2,7 +2,7 @@
   <div class="footer">
     <router-link tag="span"
                  to="/home"><i class="footer-index"></i>首页</router-link>
-    <div class="live-img"><img src="../../assets/HomeImg/play.png"
+    <div class="live-img"><img src="../../assets/HomeImg/live.png"
            alt=""></div>
     <router-link tag="span"
                  to="/user"><i class="footer-user"></i>我的</router-link>

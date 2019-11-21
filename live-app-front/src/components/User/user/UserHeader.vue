@@ -1,9 +1,11 @@
 <template>
     <div class="my">
         <p>我的</p>
+        <router-link :to="'/user/setting'">
         <svg class="icon" aria-hidden="true">
             <use xlink:href="#iconshezhi"></use>
         </svg>
+        </router-link>
     </div>
 </template>
 
@@ -28,8 +30,8 @@ export default {
             width: 0.2rem;
             height: 0.2rem;
             position: relative;
-            left: 3.4rem;
-            top: -1.05rem;
+            left: 3.3rem;
+            top: -0.35rem;
         }
     }
 </style>

@@ -34,7 +34,14 @@ export  default {
     },
     {
       path: "fans",
-      component: () => import('../views/User/Fans')
+      component: () => import('../views/User/Fans'),
+      children:[
+        {
+          path:"",
+          component: () => import('../components/User/Fans/Details.vue'),
+          
+        }
+      ]
     },
     {
       path: "message",
@@ -66,11 +73,25 @@ export  default {
     },
     {
       path: "level",
-      component: () => import('../views/User/Level')
+      component: () => import('../views/User/Level'),
+      children:[
+        {
+          path:"",
+          component: () => import('../components/User/Level/Level.vue'),
+          
+        }
+      ]
     },
     {
       path: "real",
-      component: () => import('../views/User/Real')
+      component: () => import('../views/User/Real'),
+      children:[
+        {
+          path:"",
+          component: () => import('../components/User/Real/Real.vue'),
+          
+        }
+      ]
     },
     {
       path: "manager",
