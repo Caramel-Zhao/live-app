@@ -1,13 +1,29 @@
 <template>
-    <home-list :data="[21,22,23,24,25,26,27,28,29,30]"></home-list>
+  <PullRefresh v-model="isLoading" @refresh="onRefresh">
+    <HomeList :data="8"></HomeList>
+  </PullRefresh>
 </template>
 
 <script>
-  import HomeList from "../HomeList";
+  import { PullRefresh } from 'vant';
+  import HomeList from "./HomeList";
   export default {
     name: "HomeNearBy",
     components:{
-      [HomeList.name]:HomeList
+      HomeList,
+      PullRefresh
+    },
+    data() {
+      return {
+        isLoading: false
+      }
+    },
+    methods: {
+      onRefresh() {
+        setTimeout(() => {
+          this.isLoading = false;
+        }, 500);
+      }
     }
   }
 </script>

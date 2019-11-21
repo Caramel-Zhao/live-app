@@ -1,7 +1,6 @@
 <template>
     <div>
       <set-header></set-header>
-    <router-view></router-view>
     </div>
 </template>
 

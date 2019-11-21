@@ -5,7 +5,7 @@ import RankRouter from './RankRouter'
 import SearchRouter from './SearchRouter'
 import UserRouter from './UserRouter'
 
-import LiveTest from "./LiveTest";
+
 Vue.use(VueRouter)
 
 const routes = [
@@ -16,8 +16,7 @@ const routes = [
   HomeRouter,
   RankRouter,
   SearchRouter,
-  UserRouter,
-  LiveTest
+  UserRouter
 ]
 
 const router = new VueRouter({

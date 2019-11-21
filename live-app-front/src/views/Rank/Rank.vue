@@ -7,11 +7,9 @@
     </div>
   </div>
 </template>
-
 <script>
-
 export default {
-  name: 'Rank',
+  name: 'Rank'
 }
 </script>
 

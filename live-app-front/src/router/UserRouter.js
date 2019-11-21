@@ -8,7 +8,10 @@ export  default {
     },
     {
       path: "setting",
-      component: () => import('../views/User/Setting'),
+      component: () => import('../views/User/Setting')
+    },
+    { path: "setter",
+      component: () => import('../components/User/Set/SetList/setter'),
       children:[
         {
           path:"changepassword",
@@ -111,7 +114,25 @@ export  default {
     },
     {
       path: "manager",
-      component: () => import('../views/User/Manager')
+      component: () => import('../views/User/Manager'),
+      children:[
+        {
+          path:"",
+          component:() => import('../components/User/Manager/ManagerPage')
+        },
+        {
+          path:"admin",
+          component:() => import('../components/User/Manager/Setadmin')
+        },
+        {
+          path:"nosay",
+          component:() => import('../components/User/Manager/Nosay')
+        },
+        {
+          path:"black",
+          component:() => import('../components/User/Manager/Blacklist')
+        }
+      ]
     },
     {
       path: "service",
