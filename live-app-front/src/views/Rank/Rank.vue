@@ -1,18 +1,36 @@
 <template>
-  <div>
-    <div class="nav">
-      <a>明星榜</a>
-      <a>财富榜</a>
-      <a>幸运榜</a>
-    </div>
+  <div class="Ra-con">
+    <router-link to="/home">
+      <svg class="icon"
+           aria-hidden="true">
+        <use xlink:href="#iconfanhuitubiao"></use>
+      </svg>
+    </router-link>
+    <swiper></swiper>
   </div>
 </template>
 <script>
+import BigRank from './BigRank'
 export default {
-  name: 'Rank'
+  name: "Rank",
+  components: {
+    "swiper": BigRank,
+  }
 }
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
-<style lang="scss" scoped>
+<style scoped lang="scss">
+.Ra-con {
+  background: url(../../../public/assets/RankImg/bg.jpg);
+  background-size: 100%;
+  svg {
+    width: 0.2rem;
+    height: 0.2rem;
+    fill: white;
+    position: absolute;
+    top: 0.17rem;
+    left: 0.1rem;
+    z-index: 999;
+  }
+}
 </style>
