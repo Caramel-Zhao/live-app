@@ -8,7 +8,10 @@ export  default {
     },
     {
       path: "setting",
-      component: () => import('../views/User/Setting'),
+      component: () => import('../views/User/Setting')
+    },
+    { path: "setter",
+      component: () => import('../components/User/Set/SetList/setter'),
       children:[
         {
           path:"changepassword",
