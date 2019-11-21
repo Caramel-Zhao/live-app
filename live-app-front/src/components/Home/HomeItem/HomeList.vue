@@ -1,14 +1,14 @@
 <template>
   <ul class="home-recommend-list">
-    <li v-for="n in data">
-      <a href="#"><img src="../../../assets/HomeImg/list.jpg" alt=""></a>
+    <li :key="index" v-for="(item,index) in data">
+      <a href="#"><img :src=item.images alt=""></a>
       <div class="home-recommend-list-tag">
-        <p><img src="../../../assets/HomeImg/meili.png" alt=""></p>
-        <p><span>昵称<i>等级</i></span><span class="address"><svg class="icon" aria-hidden="true">
+        <p><img :src=item.tag alt="魅力主播"></p>
+        <p><span>{{item.userid}}<i><img :src=item.vipclass alt="等级"></i></span><span class="address"><svg class="icon" aria-hidden="true">
       <use xlink:href="#icondingwei2"></use>
-    </svg>地址</span></p>
+    </svg>{{item.location}}</span></p>
       </div>
-      <span class="company">圆梦传媒</span>
+      <span class="company" v-if="item.company">{{item.company}}</span>
     </li>
   </ul>
 </template>
@@ -16,9 +16,7 @@
 <script>
   export default {
     name: "HomeRecommendList",
-    props:{
-      data:Number
-    }
+    props:["data"]
   }
 </script>
 

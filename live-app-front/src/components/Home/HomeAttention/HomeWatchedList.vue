@@ -1,11 +1,11 @@
 <template>
   <ul class="watchList">
-    <li v-for="n in 6">
-      <p><img src="../../../assets/HomeImg/list.jpg" alt="推荐关注列表"></p>
-      <p>昵称</p>
+    <li :key="index" v-for="(item,index) in data">
+      <p><img :src=item.userimage alt="推荐关注列表"></p>
+      <p>{{item.userid}}</p>
       <p><i>
         <svg class="icon" aria-hidden="true">
-        <use xlink:href="#icondingwei2"></use></svg></i>地址</p>
+        <use xlink:href="#icondingwei2"></use></svg></i>{{item.location}}</p>
       <span class="home-button">关注</span>
     </li>
   </ul>
@@ -13,7 +13,8 @@
 
 <script>
   export default {
-    name: "HomeWatchedList"
+    name: "HomeWatchedList",
+    props:["data"]
   }
 </script>
 
@@ -30,7 +31,7 @@
     width: 32%;
     text-align: center;
     margin:0 0.01rem 0.06rem;
-    background: #eee;
+    background: #f6f6f6;
     padding: 0.1rem 0.15rem;
     img{
       width: 100%;

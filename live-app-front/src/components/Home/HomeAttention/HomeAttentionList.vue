@@ -1,7 +1,7 @@
 <template>
   <div>
     <HomeAttentionListHeader />
-    <HomeWatchedList/>
+    <HomeWatchedList :data="data"/>
   </div>
 </template>
 
@@ -10,6 +10,7 @@
   import HomeAttentionListHeader from "./HomeWatchedListHeader";
   export default {
     name: "HomeAttentionList",
+    props:["data"],
     components:{
       HomeAttentionListHeader,
       HomeWatchedList

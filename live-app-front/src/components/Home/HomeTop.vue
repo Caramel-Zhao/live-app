@@ -2,7 +2,7 @@
   <div class="home-top">
     <HomeSearch class="home-search"></HomeSearch>
     <HomeRank class="home-rank"></HomeRank>
-    <HomeItem class="home-item"></HomeItem>
+    <HomeItem class="home-item" :data="data"></HomeItem>
   </div>
 </template>
 

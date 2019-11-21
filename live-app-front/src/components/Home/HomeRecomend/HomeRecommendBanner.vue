@@ -1,7 +1,7 @@
 <template>
   <div>
     <swiper :options="swiperOption" ref="mySwiper">
-      <swiper-slide v-for="n in 5"><a href="#"><img src="../../../assets/HomeImg/homeBanner.jpg" alt=""></a></swiper-slide>
+      <swiper-slide :key="index" v-for="(item,index) in data"><a href="#"><img :src=item.img alt="banner"></a></swiper-slide>
     </swiper>
   </div>
 </template>
@@ -9,6 +9,7 @@
 <script>
   export default {
     name: "HomeRecommendBanner",
+    props:["data"],
     data() {
       return {
         swiperOption: {

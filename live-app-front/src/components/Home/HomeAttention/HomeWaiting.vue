@@ -16,7 +16,7 @@
   width: 100%;
   text-align: center;
   p:nth-child(1){
-    padding: 0.2rem 0 0.1rem;
+    padding: 0 0 0.1rem;
   }
   img{
     width: 100%;

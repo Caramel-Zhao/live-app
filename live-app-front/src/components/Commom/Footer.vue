@@ -2,14 +2,14 @@
   <div class="footer">
     <router-link tag="span" to="/home"><i class="footer-index" :class="{'footer-index-active':$route.path === '/home'}"></i><span>首页</span></router-link>
     <div class="live-img"@click="show = true"><img src="../../assets/HomeImg/live.png" alt=""></div>
-    <van-overlay class="home-overlay" :show="show"  @click="show = false" z-index=999 >
+    <van-overlay class="home-overlay" :show="show"  @click="show = false">
       <div class="wrapper" @click.stop="show = false">
         <div class="block">
           <p><img src="../../assets/HomeImg/renzhen.jpg" alt=""></p>
           <p>开播前需要实名认证</p>
           <p class="home-sure">
             <router-link tag="span" to="/home">稍后</router-link>
-            <router-link class="home-go" tag="span" to="/real">立即认证</router-link>
+            <router-link class="home-go" tag="span" to="/user/real">立即认证</router-link>
           </p>
         </div>
       </div>
@@ -81,7 +81,7 @@
   .live-img {
       display: inline-block;
       width: 0.6rem;
-      height: 0.6rem;
+      height: 0.55rem;
       position: relative;
       top: -0.2rem;
       border: 0.03rem solid #fff;

@@ -2,11 +2,11 @@
   <div class="home-item-list">
     <swiper :options="swiperOption" ref="mySwiper">
       <!-- slides -->
-        <swiper-slide class="home-slide"><HomeAttention/></swiper-slide>
-        <swiper-slide class="home-slide"><HomeRecommend/></swiper-slide>
-        <swiper-slide class="home-slide"><HomeNearBy/></swiper-slide>
-        <swiper-slide class="home-slide"><HomeTalents/></swiper-slide>
-        <swiper-slide class="home-slide"><HomeStar/></swiper-slide>
+        <swiper-slide class="home-slide"><HomeAttention :data="data.attentions"/></swiper-slide>
+        <swiper-slide class="home-slide"><HomeRecommend :data="data.recommend"/></swiper-slide>
+        <swiper-slide class="home-slide"><HomeNearBy :data="data.nearanchor"/></swiper-slide>
+        <swiper-slide class="home-slide"><HomeTalents :data="data.talents"/></swiper-slide>
+        <swiper-slide class="home-slide"><HomeStar :data="data.newstars"/></swiper-slide>
       <div class="swiper-pagination home-swiper-pagination"  slot="pagination" ></div>
     </swiper>
   </div>
@@ -73,19 +73,19 @@
     margin-top: 0.5rem;
   }
   .swiper-slide{
-    height:10px
+    height:0px
   }
   .swiper-slide-active {
     height:auto
   }
   .home-swiper-pagination{
       display: flex;
-      padding: 0.15rem 0.5rem 0.1rem;
+      padding: 0.15rem 0.5rem 0;
       box-sizing: border-box;
-      height: 0.62rem;
+      height: 0.35rem;
       justify-content: space-between;
       position: fixed;
-      top: 0rem;
+      top: 0;
       background: #fff;
       z-index: 1;
     .home-bullet{
