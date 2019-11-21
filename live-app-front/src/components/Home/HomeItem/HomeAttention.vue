@@ -1,13 +1,35 @@
 <template>
-  <home-list :data="[1,2,3,4,5,6,7,8,9,10,11,12]"></home-list>
+  <div>
+    <PullRefresh v-model="isLoading" @refresh="onRefresh">
+      <HomeWaiting :data="data.attentionliving"></HomeWaiting>
+      <HomeAttentionList :data="data.recommendedattention"></HomeAttentionList>
+    </PullRefresh>
+  </div>
 </template>
 
 <script>
-  import HomeList from "../HomeList";
+  import { PullRefresh } from 'vant';
+  import HomeAttentionList from "../HomeAttention/HomeAttentionList";
+  import HomeWaiting from "../HomeAttention/HomeWaiting";
   export default {
     name: "HomeAttention",
+    props:["data"],
     components:{
-      [HomeList.name]:HomeList
+      HomeAttentionList,
+      HomeWaiting,
+     PullRefresh,
+    },
+    data() {
+      return {
+        isLoading: false
+      }
+    },
+    methods: {
+      onRefresh() {
+        setTimeout(() => {
+          this.isLoading = false;
+        }, 500);
+      }
     }
   }
 </script>

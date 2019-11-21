@@ -1,12 +1,14 @@
 <template>
-    <div class="Signature">
+    <router-link :to="{name:'autograph',params:{data:data}}" tag="div" class="Signature">
         <div class="Signature-title">签名</div>
-    </div>
+        <span class="autograph">{{autograph}}</span>
+    </router-link>
 </template>
 
 <script>
     export default {
-        name: "Signature"
+        name: "Signature",
+        props:["data","autograph"]
     }
 </script>
 
@@ -16,6 +18,15 @@
         height: 0.6rem;
         background: white;
         margin-bottom: 0.01rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding-right: 0.1rem;
+        box-sizing: border-box;
+    }
+    .autograph{
+        font-size: .18rem;
+        color: #aaa;
     }
     .Signature-title{
         width: 0.65rem;
