@@ -1,4 +1,5 @@
 <template>
+    <router-link :to="'/user/Level'" tag="div">
         <div class="interiort">
             <div>
                 <svg class="lvt" aria-hidden="true">
@@ -15,6 +16,7 @@
                 </svg>
             </div>
         </div>
+    </router-link>
 </template>
 
 <script>
