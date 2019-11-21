@@ -1,11 +1,11 @@
 <template>
  <div class="search-content">
    <div class="header">
-     <a class="goback">
+     <router-link class="goback" to="/home">
        <svg class="icon" aria-hidden="true">
          <use class="icon1" xlink:href="#iconfanhui" ></use>
        </svg>
-     </a>
+     </router-link>
      <div class="center">
        <input type="text" placeholder="用户昵称/ID">
        <a>
@@ -50,13 +50,13 @@
 <style lang="scss" scoped>
 .header{
   display: flex;
-  height: .4rem;
+  height: .5rem;
   overflow: hidden;
   .goback svg{
       width: .2rem;
       height: .2rem;
       fill:#a0a0a0;
-      margin-top: .1rem;
+      margin-top: .15rem;
       /*margin-top: .1rem;*/
 
     }
@@ -68,17 +68,18 @@
     }
    >.center{
      width: 2.8rem;
-     line-height: .4rem;
+     line-height: .5rem;
      overflow: hidden;
      position: relative;
      input{
-       margin-bottom: .05rem;
+       font-size: .16rem;
        width: 2.2rem;
        padding-left: .2rem;
         border: none;
        outline: none;
        &::-webkit-input-placeholder{
          color: #9e9e9e;
+
        }
      }
      svg{
@@ -86,7 +87,7 @@
        height: .2rem;
        fill:#9d9d9d;
        position: absolute;
-       top:.1rem;
+       top:.14rem;
        /*margin-top: .1rem;*/
      }
    }
@@ -95,7 +96,7 @@
     line-height: .24rem;
     padding: 0rem .1rem;
     border:.02rem solid #d1a93a;
-    margin-top: .06rem;
+    margin-top: .1rem;
     border-radius: .15rem;
     color: #d1a93a;
   }
