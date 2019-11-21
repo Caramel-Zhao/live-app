@@ -24,7 +24,6 @@
     ]
   },
   {
-    "HomeNav":"推荐",
     "Banner": [
       {"img": "assets/HomeImg/list"},
       {"img": "assets/HomeImg/list"},
@@ -48,7 +47,6 @@
     ]
   },
   {
-    "HomeNav":"附近",
     "NearbyList": [
       {"UserImg": "assets/HomeImg/list","UserName": "风尚熙熙","UserAddress": "11km","UserTag": "魅力主播","NobleSign": "","company": "风尚娱乐"},
       {"UserImg": "assets/HomeImg/list","UserName": "风尚熙熙","UserAddress": "11km","UserTag": "魅力主播","NobleSign": "","company": "风尚娱乐"},
@@ -64,25 +62,22 @@
       {"UserImg": "assets/HomeImg/list","UserName": "风尚熙熙","UserAddress": "11km","UserTag": "魅力主播","NobleSign": "","company": "风尚娱乐"}
     ]
   },
+   { "talents":[
+        {"UserImg": "assets/HomeImg/list","UserName": "风尚熙熙","UserAddress": "11km","UserTag": "魅力主播","NobleSign": "","company": "风尚娱乐"},
+        {"UserImg": "assets/HomeImg/list","UserName": "风尚熙熙","UserAddress": "11km","UserTag": "魅力主播","NobleSign": "","company": "风尚娱乐"},
+        {"UserImg": "assets/HomeImg/list","UserName": "风尚熙熙","UserAddress": "11km","UserTag": "魅力主播","NobleSign": "","company": "风尚娱乐"},
+        {"UserImg": "assets/HomeImg/list","UserName": "风尚熙熙","UserAddress": "11km","UserTag": "魅力主播","NobleSign": "","company": "风尚娱乐"},
+        {"UserImg": "assets/HomeImg/list","UserName": "风尚熙熙","UserAddress": "11km","UserTag": "魅力主播","NobleSign": "","company": "风尚娱乐"},
+        {"UserImg": "assets/HomeImg/list","UserName": "风尚熙熙","UserAddress": "11km","UserTag": "魅力主播","NobleSign": "","company": "风尚娱乐"},
+        {"UserImg": "assets/HomeImg/list","UserName": "风尚熙熙","UserAddress": "11km","UserTag": "魅力主播","NobleSign": "","company": "风尚娱乐"},
+        {"UserImg": "assets/HomeImg/list","UserName": "风尚熙熙","UserAddress": "11km","UserTag": "魅力主播","NobleSign": "","company": "风尚娱乐"},
+        {"UserImg": "assets/HomeImg/list","UserName": "风尚熙熙","UserAddress": "11km","UserTag": "魅力主播","NobleSign": "","company": "风尚娱乐"},
+        {"UserImg": "assets/HomeImg/list","UserName": "风尚熙熙","UserAddress": "11km","UserTag": "魅力主播","NobleSign": "","company": "风尚娱乐"},
+        {"UserImg": "assets/HomeImg/list","UserName": "风尚熙熙","UserAddress": "11km","UserTag": "魅力主播","NobleSign": "","company": "风尚娱乐"},
+        {"UserImg": "assets/HomeImg/list","UserName": "风尚熙熙","UserAddress": "11km","UserTag": "魅力主播","NobleSign": "","company": "风尚娱乐"}
+      ]
+    },
   {
-    "HomeNav":"才艺",
-    "NearbyList": [
-      {"UserImg": "assets/HomeImg/list","UserName": "风尚熙熙","UserAddress": "11km","UserTag": "魅力主播","NobleSign": "","company": "风尚娱乐"},
-      {"UserImg": "assets/HomeImg/list","UserName": "风尚熙熙","UserAddress": "11km","UserTag": "魅力主播","NobleSign": "","company": "风尚娱乐"},
-      {"UserImg": "assets/HomeImg/list","UserName": "风尚熙熙","UserAddress": "11km","UserTag": "魅力主播","NobleSign": "","company": "风尚娱乐"},
-      {"UserImg": "assets/HomeImg/list","UserName": "风尚熙熙","UserAddress": "11km","UserTag": "魅力主播","NobleSign": "","company": "风尚娱乐"},
-      {"UserImg": "assets/HomeImg/list","UserName": "风尚熙熙","UserAddress": "11km","UserTag": "魅力主播","NobleSign": "","company": "风尚娱乐"},
-      {"UserImg": "assets/HomeImg/list","UserName": "风尚熙熙","UserAddress": "11km","UserTag": "魅力主播","NobleSign": "","company": "风尚娱乐"},
-      {"UserImg": "assets/HomeImg/list","UserName": "风尚熙熙","UserAddress": "11km","UserTag": "魅力主播","NobleSign": "","company": "风尚娱乐"},
-      {"UserImg": "assets/HomeImg/list","UserName": "风尚熙熙","UserAddress": "11km","UserTag": "魅力主播","NobleSign": "","company": "风尚娱乐"},
-      {"UserImg": "assets/HomeImg/list","UserName": "风尚熙熙","UserAddress": "11km","UserTag": "魅力主播","NobleSign": "","company": "风尚娱乐"},
-      {"UserImg": "assets/HomeImg/list","UserName": "风尚熙熙","UserAddress": "11km","UserTag": "魅力主播","NobleSign": "","company": "风尚娱乐"},
-      {"UserImg": "assets/HomeImg/list","UserName": "风尚熙熙","UserAddress": "11km","UserTag": "魅力主播","NobleSign": "","company": "风尚娱乐"},
-      {"UserImg": "assets/HomeImg/list","UserName": "风尚熙熙","UserAddress": "11km","UserTag": "魅力主播","NobleSign": "","company": "风尚娱乐"}
-    ]
-  },
-  {
-    "HomeNav":"新星",
     "StartList": [
       {"UserImg": "assets/HomeImg/list","UserName": "风尚熙熙","UserAddress": "大连市","UserTag": "魅力主播","NobleSign": "","company": "风尚娱乐"},
       {"UserImg": "assets/HomeImg/list","UserName": "风尚熙熙","UserAddress": "大连市","UserTag": "魅力主播","NobleSign": "","company": "风尚娱乐"},

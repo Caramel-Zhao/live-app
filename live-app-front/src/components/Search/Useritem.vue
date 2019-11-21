@@ -7,7 +7,11 @@
             <div class="center">
                 <div class="top">
                     <span class="title">{{n.UserName}}</span>
-                    <i>{{n.Grade}}</i>
+                    <i>
+                        <svg class="icon" aria-hidden="true">
+                            <use xlink:href="#iconxingxing"></use>
+                        </svg>
+                        {{n.Grade}}</i>
                     <span><img src="../../assets/img/h8.png"></span>
                 </div>
                 <div class="bottom">
@@ -39,6 +43,7 @@
             width: .5rem;
             height: .5rem;
             margin: .1rem;
+            border-radius: 50%;
         }
     }
     .right{
@@ -66,12 +71,20 @@
                 width: .4rem;
                 height: .15rem;
                 line-height: .15rem;
-                text-align: center;
-                background-color: #00B7FF;
+                background: linear-gradient(to right,#48f5f3,#03ceca);
                 border-radius: .1rem;
                 color: white;
                 font-size: .12rem;
                 margin-left: .1rem;
+                padding-left: .2rem;
+                position: relative;
+                box-sizing: border-box;
+                svg{
+                    width: .15rem;
+                    height: .15rem;
+                    position: absolute;
+                    left: .05rem;
+                }
             }
             img{
                 width: .2rem;

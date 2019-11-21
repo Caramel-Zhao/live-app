@@ -37,7 +37,14 @@ export  default {
     },
     {
       path: "fans",
-      component: () => import('../views/User/Fans')
+      component: () => import('../views/User/Fans'),
+      children:[
+        {
+          path:"",
+          component: () => import('../components/User/Fans/Details.vue'),
+          
+        }
+      ]
     },
     {
       path: "message",
@@ -45,7 +52,23 @@ export  default {
     },
     {
       path: "data",
-      component: () => import('../views/User/Data')
+      component: () => import('../views/User/Data'),
+      children:[
+        {
+          path:"",
+          component:() =>import('../components/User/data/DataPage')
+        },
+        {
+          path: "name",
+          name:"name",
+          component: () =>import('../components/User/data/NamePage')
+        },
+        {
+          path: "autograph",
+          name:"autograph",
+          component: () =>import('../components/User/data/AutographPage')
+        }
+      ]
     },
     {
       path: "nobility",
@@ -69,15 +92,47 @@ export  default {
     },
     {
       path: "level",
-      component: () => import('../views/User/Level')
+      component: () => import('../views/User/Level'),
+      children:[
+        {
+          path:"",
+          component: () => import('../components/User/Level/Level.vue'),
+          
+        }
+      ]
     },
     {
       path: "real",
-      component: () => import('../views/User/Real')
+      component: () => import('../views/User/Real'),
+      children:[
+        {
+          path:"",
+          component: () => import('../components/User/Real/Real.vue'),
+          
+        }
+      ]
     },
     {
       path: "manager",
-      component: () => import('../views/User/Manager')
+      component: () => import('../views/User/Manager'),
+      children:[
+        {
+          path:"",
+          component:() => import('../components/User/Manager/ManagerPage')
+        },
+        {
+          path:"admin",
+          component:() => import('../components/User/Manager/Setadmin')
+        },
+        {
+          path:"nosay",
+          component:() => import('../components/User/Manager/Nosay')
+        },
+        {
+          path:"black",
+          component:() => import('../components/User/Manager/Blacklist')
+        }
+      ]
     },
     {
       path: "service",
