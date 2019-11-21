@@ -1,23 +1,19 @@
 <template>
   <div>
-    <home-header v-if="HomeInfo" :data="HomeInfo"></home-header>
-    <home-item v-if="HomeInfo" :data="HomeInfo"></home-item>
+    <HomeTop :data="HomeInfo"></HomeTop>
     <YT-footer></YT-footer>
   </div>
 </template>
 
 <script>
-  import HomeItem from "../../components/Home/HomeItem";
   import HomeApi from  '../../apis/Home/home'
-  import HomeHeader from "../../components/Home/HomeHeader";
-import Footer from "../../components/Commom/Footer";
+  import HomeTop from "../../components/Home/HomeTop";
+  import Footer from "../../components/Commom/Footer";
 export default {
   name: "Home",
   components: {
-   [Footer.name]: Footer,
-    [HomeHeader.name]:HomeHeader,
-    [HomeItem.name]:HomeItem
-
+     [Footer.name]: Footer,
+      HomeTop
   },
   data(){
     return {

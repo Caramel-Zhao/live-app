@@ -8,7 +8,7 @@
   import { PullRefresh } from 'vant';
   import HomeList from "./HomeList";
   export default {
-    name: "HomeNearBy",
+    name: "HomeTalents",
     components:{
       HomeList,
       PullRefresh
@@ -28,10 +28,6 @@
   }
 </script>
 
-<style lang="scss" scoped>
-    /*.home-near {*/
-    /*  li{*/
-    /*  background: red;*/
-    /*}*/
-    /*}*/
+<style scoped>
+
 </style>
