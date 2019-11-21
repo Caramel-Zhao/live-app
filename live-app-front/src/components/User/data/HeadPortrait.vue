@@ -2,14 +2,15 @@
     <div class="portrait">
         <div class="portrait-title">头像</div>
         <div class="portrait-pic">
-            <img src="../../../assets/User/user_data_pic.png" alt="">
+            <img :src=data alt="">
         </div>
     </div>
 </template>
 
 <script>
     export default {
-        name: "HeadPortrait"
+        name: "HeadPortrait",
+        props:["data"]
     }
 </script>
 

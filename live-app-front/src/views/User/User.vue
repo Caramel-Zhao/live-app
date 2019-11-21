@@ -13,8 +13,12 @@
     <User-Real></User-Real>
     <User-Manage></User-Manage>
     <User-Service></User-Service>
+<<<<<<< HEAD
     <User-footer></User-footer>
     </div>
+=======
+    <Footer />
+>>>>>>> 5f1bca7d5e07c41711c3372384beadcb6ec5c5bf
   </div>
 </template>
 
@@ -49,7 +53,11 @@ export default {
     "User-Real": Real,
     "User-Manage": Manage,
     "User-Service": Service,
+<<<<<<< HEAD
     "User-footer":Footer
+=======
+    Footer
+>>>>>>> 5f1bca7d5e07c41711c3372384beadcb6ec5c5bf
   },
   methods: {
     goHome () {
@@ -63,28 +71,5 @@ export default {
 .user {
   width: 100%;
   height: 8rem;
-}
-.footer {
-  font-size: 0.12rem;
-  height: 0.4rem;
-  border-top: 0.005rem solid #eee;
-  position: fixed;
-  bottom: 0rem;
-  display: flex;
-  justify-content: space-around;
-  width: 100%;
-  line-height: 0.4rem;
-  background-color: white;
-  .live-img {
-    display: inline-block;
-    width: 0.9rem;
-    height: 0.9rem;
-    position: relative;
-    top: -0.3rem;
-    img {
-      width: 100%;
-      height: 100%;
-    }
-  }
 }
 </style>
