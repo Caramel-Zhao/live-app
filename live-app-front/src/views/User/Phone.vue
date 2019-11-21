@@ -28,7 +28,7 @@
               <div>
                   <input type="text" placeholder="输入验证码">
               </div>
-              <div>
+              <div @click="getApiData">
                   发送验证码
               </div>
           </div>
@@ -40,6 +40,11 @@
 <script>
   export default {
     name: "Phone",
+      methods:{
+          getApiData(){
+
+          }
+      }
   }
 </script>
 
