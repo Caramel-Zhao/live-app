@@ -13,11 +13,7 @@
     <User-Real></User-Real>
     <User-Manage></User-Manage>
     <User-Service></User-Service>
-    <div class="footer">
-      <span @click="goHome"><i></i>首页</span>
-      <span class="live-img"><img src="../../assets/HomeImg/live.png"
-             alt=""></span>
-      <span><i></i>我的</span>
+    <User-footer></User-footer>
     </div>
   </div>
 </template>
@@ -36,6 +32,7 @@ import Level from "../../components/User/user/Level"
 import Real from "../../components/User/user/Real"
 import Manage from "../../components/User/user/Manage"
 import Service from "../../components/User/user/Service"
+import Footer from "../../components/Commom/Footer"
 export default {
   name: "User",
   components: {
@@ -52,6 +49,7 @@ export default {
     "User-Real": Real,
     "User-Manage": Manage,
     "User-Service": Service,
+    "User-footer":Footer
   },
   methods: {
     goHome () {

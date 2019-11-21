@@ -29,9 +29,9 @@ export default {
         svg{
             width: 0.2rem;
             height: 0.2rem;
-            position: relative;
-            left: 3.3rem;
-            top: -0.35rem;
+            position: absolute;
+            right: 0.2rem;
+            top: 0.15rem;
         }
     }
 </style>

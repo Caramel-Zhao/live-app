@@ -7,7 +7,6 @@
             <use xlink:href="#iconarrow-left"></use>
         </svg>
         </router-link>
-        <router-link :to="'/user/fans/ranking'">
         <div class="ranking">
             <svg class="lvv" aria-hidden="true">
                 <use xlink:href="#iconaixin"></use>
@@ -17,7 +16,6 @@
                 <use xlink:href="#iconarrow-right"></use>
             </svg>
         </div>
-        </router-link>
     </div>
     <div class="focus">
         <div class="focus-top">
