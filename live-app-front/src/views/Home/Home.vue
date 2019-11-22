@@ -19,10 +19,7 @@ export default {
       return {
         HomeInfo: homeInfo
       }
-    },
-  mounted() {
-    console.log(this.HomeInfo.attentions.attentionliving)
-  }
+    }
 }
 </script>
 

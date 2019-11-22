@@ -4,26 +4,50 @@
     "_comment": "这里是一个已关注并正在直播的主播列表和一个这里是推荐关注的主播列表",
     "attentionliving": [
       {
-        "userimage":"assets/HomeImg/list",
-        "userid": "我是你关注的"
+        "userimage":"assets/HomeImg/list.jpg",
+        "userid": "你关注的昵称"
       },
       {
         "userimage":"assets/HomeImg/list.jpg",
-        "userid": "我是你关注的"
+        "userid": "你关注的"
       },
       {
         "userimage":"assets/HomeImg/list.jpg",
-        "userid": "我是你关注的"
+        "userid": "你关注的"
       },
       {
         "userimage":"assets/HomeImg/list.jpg",
-        "userid": "我是你关注的"
+        "userid": "你关注的"
+      },
+      {
+        "userimage":"assets/HomeImg/list.jpg",
+        "userid": "你关注的"
+      },
+      {
+        "userimage":"assets/HomeImg/list.jpg",
+        "userid": "你关注的"
+      },
+      {
+        "userimage":"assets/HomeImg/list.jpg",
+        "userid": "你关注的"
+      },
+      {
+        "userimage":"assets/HomeImg/list.jpg",
+        "userid": "你关注的"
+      },
+      {
+        "userimage":"assets/HomeImg/list.jpg",
+        "userid": "你关注的"
+      },
+      {
+        "userimage":"assets/HomeImg/list.jpg",
+        "userid": "你关注的"
       }
     ],
     "recommendedattention": [
       {
         "userimage":"assets/HomeImg/list.jpg",
-        "userid": "遇见歌者1",
+        "userid": "推荐关注",
         "location": "地址1"
       },
       {
@@ -139,6 +163,30 @@
       "userid": "我是附近主播",
       "vipclass": "assets/HomeImg/vip.png",
       "location": "地址",
+      "company": ""
+    },
+    {
+      "images": "assets/HomeImg/images.jpg",
+      "tag": "assets/HomeImg/qingchun.png",
+      "userid": "我是附近主播",
+      "vipclass": "",
+      "location": "地址",
+      "company": "传媒公司"
+    },
+    {
+      "images": "assets/HomeImg/images.jpg",
+      "tag": "",
+      "userid": "我是附近主播",
+      "vipclass": "assets/HomeImg/vip.png",
+      "location": "地址",
+      "company": ""
+    },
+    {
+      "images": "assets/HomeImg/images.jpg",
+      "tag": "assets/HomeImg/qingchun.png",
+      "userid": "我是附近主播",
+      "vipclass": "",
+      "location": "地址",
       "company": "传媒公司"
     },
     {
@@ -155,16 +203,9 @@
       "userid": "我是附近主播",
       "vipclass": "assets/HomeImg/vip.png",
       "location": "地址",
-      "company": "传媒公司"
-    },
-    {
-      "images": "assets/HomeImg/images.jpg",
-      "tag": "assets/HomeImg/qingchun.png",
-      "userid": "我是附近主播",
-      "vipclass": "",
-      "location": "地址",
-      "company": "传媒公司"
+      "company": ""
     }
+
   ],
   "talents": [
     {
@@ -182,11 +223,11 @@
       "userid": "我是才艺主播",
       "vipclass": "",
       "location": "地址",
-      "company": "传媒公司"
+      "company": ""
     },
     {
       "images": "assets/HomeImg/images.jpg",
-      "tag": "",
+      "tag": "assets/HomeImg/tianlanzhiyin.png",
       "userid": "我是才艺主播",
       "vipclass": "assets/HomeImg/vip.png",
       "location": "地址",
@@ -194,9 +235,25 @@
     },
     {
       "images": "assets/HomeImg/images.jpg",
+      "tag": "",
+      "userid": "我是才艺主播",
+      "vipclass": "",
+      "location": "地址",
+      "company": ""
+    },
+    {
+      "images": "assets/HomeImg/images.jpg",
       "tag": "assets/HomeImg/tianlanzhiyin.png",
       "userid": "我是才艺主播",
       "vipclass": "",
+      "location": "地址",
+      "company": ""
+    },
+    {
+      "images": "assets/HomeImg/images.jpg",
+      "tag": "assets/HomeImg/tianlanzhiyin.png",
+      "userid": "我是才艺主播",
+      "vipclass": "assets/HomeImg/vip.png",
       "location": "地址",
       "company": "传媒公司"
     }
@@ -217,7 +274,63 @@
       "userid": "我是新星",
       "vipclass": "",
       "location": "地址",
+      "company": ""
+    },
+    {
+      "images": "assets/HomeImg/images.jpg",
+      "tag": "",
+      "userid": "我是新星",
+      "vipclass": "",
+      "location": "地址",
+      "company": ""
+    },
+    {
+      "images": "assets/HomeImg/images.jpg",
+      "tag": "",
+      "userid": "我是新星",
+      "vipclass": "",
+      "location": "地址",
       "company": "传媒公司"
+    },
+    {
+      "images": "assets/HomeImg/images.jpg",
+      "tag": "",
+      "userid": "我是新星",
+      "vipclass": "",
+      "location": "地址",
+      "company": ""
+    },
+    {
+      "images": "assets/HomeImg/images.jpg",
+      "tag": "",
+      "userid": "我是新星",
+      "vipclass": "",
+      "location": "地址",
+      "company": ""
+    },
+    {
+      "images": "assets/HomeImg/images.jpg",
+      "tag": "",
+      "userid": "我是新星",
+      "vipclass": "",
+      "location": "地址",
+      "company": "传媒公司"
+    },
+    {
+      "images": "assets/HomeImg/images.jpg",
+      "tag": "",
+      "userid": "我是新星",
+      "vipclass": "",
+      "location": "地址",
+      "company": "传媒公司"
+    },
+    {
+      "images": "assets/HomeImg/images.jpg",
+      "tag": "",
+      "userid": "我是新星",
+      "vipclass": "",
+      "location": "地址",
+      "company": ""
     },
     {
       "images": "assets/HomeImg/images.jpg",

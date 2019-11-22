@@ -13,19 +13,10 @@
     data() {
       return {
         swiperOption: {
+          autoplay:true,
           loop: true,
-        },
-        observer: true,//修改swiper自己或子元素时，自动初始化swiper
-        observeParents: true//修改swiper的父元素时，自动初始化swiper
+        }
       }
-    },
-    computed: {
-      swiper() {
-        return this.$refs.mySwiper.swiper
-      }
-    },
-    mounted() {
-      this.swiper.slideTo(0, 1000, false)
     }
   }
 </script>

@@ -32,11 +32,10 @@
       return {
         swiperOption: {
           loop: false,
+          touchReleaseOnEdges:true,
           height: window.innerHeight,
           pagination: {
             el: '.home-swiper-pagination',
-            // type : 'custom',
-            // bulletElement : 'li', // 分页器的html
             clickable: true,  // 分页器点击
             renderBullet: function (index, className) {
               let text;
@@ -61,7 +60,13 @@
             },
             bulletClass : 'home-bullet',//需设置.my-bullet样式
             bulletActiveClass: 'home-bullet-active', //分页器内当前活动块的指示小点的类名。
-          }
+          },
+          on: {
+            slideChange: function () {
+            console.log(this.activeIndex);
+            document.scrollTop = 0;
+          },
+        },
         }
       }
     }
@@ -72,15 +77,11 @@
   .home-slide{
     margin-top: 0.5rem;
   }
-  .swiper-slide{
-    height:0px
-  }
-  .swiper-slide-active {
-    height:auto
-  }
+  .swiper-slide{height:1px} /* 随意指定一个height值即可 */
+  .swiper-slide-active { height:auto}
   .home-swiper-pagination{
       display: flex;
-      padding: 0.15rem 0.5rem 0;
+      padding: 0.15rem 0.5rem 0 0.5rem;
       box-sizing: border-box;
       height: 0.35rem;
       justify-content: space-between;

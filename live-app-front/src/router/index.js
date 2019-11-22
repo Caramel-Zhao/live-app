@@ -4,7 +4,7 @@ import HomeRouter from './HomeRouter'
 import RankRouter from './RankRouter'
 import SearchRouter from './SearchRouter'
 import UserRouter from './UserRouter'
-
+import StartLiveRouter from "./StartLiveRouter";
 
 Vue.use(VueRouter)
 
@@ -16,7 +16,8 @@ const routes = [
   HomeRouter,
   RankRouter,
   SearchRouter,
-  UserRouter
+  UserRouter,
+  StartLiveRouter
 ]
 
 const router = new VueRouter({

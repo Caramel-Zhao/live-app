@@ -1,7 +1,7 @@
 <template>
   <ul class="watchList">
     <li :key="index" v-for="(item,index) in data">
-      <p><img :src=item.userimage alt="推荐关注列表"></p>
+      <p><img :src=item.userimage alt="推荐关注列表"  v-lazy="item.userimage"></p>
       <p>{{item.userid}}</p>
       <p><i>
         <svg class="icon" aria-hidden="true">
@@ -12,8 +12,13 @@
 </template>
 
 <script>
+  import Vue from 'vue'
+  import { Lazyload } from 'vant';
+  Vue.use(Lazyload,{
+    loading:"assets/HomeImg/loading-logo.png"
+  });
   export default {
-    name: "HomeWatchedList",
+    name: "HomeRecommendList",
     props:["data"]
   }
 </script>
@@ -45,6 +50,7 @@
       height: 0.15rem;
       vertical-align: middle;
       margin-right: 0.05rem;
+      fill:#fff
     }
     .home-button{
       display: inline-block;
