@@ -13,7 +13,7 @@
     <User-Real></User-Real>
     <User-Manage></User-Manage>
     <User-Service></User-Service>
-    <Footer />
+    <User-footer></User-footer>
   </div>
 </template>
 
@@ -48,7 +48,7 @@ export default {
     "User-Real": Real,
     "User-Manage": Manage,
     "User-Service": Service,
-    Footer
+    "User-footer":Footer
   },
   methods: {
     goHome () {

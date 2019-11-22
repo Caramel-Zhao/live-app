@@ -1,6 +1,7 @@
 <template>
     <div>
         <admin-common title="直播间管理"></admin-common>
+        <van-pull-refresh v-model="isLoading" @refresh="onRefresh">
         <div class="center">可进行管理的直播间列表</div>
         <div class="user">
             <div><img src="../../../assets/User/2.jpg"></div>
@@ -14,15 +15,33 @@
             <router-link to="manager/nosay">禁言管理</router-link>
             <router-link to="manager/black">黑名单管理</router-link>
         </div>
+        </van-pull-refresh>
     </div>
+
 </template>
 
 <script>
     import AdminCommon from "./Admincommon";
+    import { PullRefresh } from 'vant';
     export default {
         name: "ManagerPage",
         components:{
-            [AdminCommon.name]:AdminCommon
+            [AdminCommon.name]:AdminCommon,
+            [PullRefresh.name]:PullRefresh
+        },
+        data() {
+            return {
+                count: 0,
+                isLoading: false
+            }
+        },
+        methods: {
+            onRefresh() {
+                setTimeout(() => {
+                    this.isLoading = false;
+                    this.count++;
+                }, 500);
+            }
         }
     }
 </script>
@@ -62,7 +81,7 @@
     .bottom{
         width:3.15rem ;
         display: flex;
-        margin: .05rem auto;
+        margin: .05rem auto 2rem;
         justify-content: space-around;
         font-size: .16rem;
         a{

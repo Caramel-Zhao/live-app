@@ -4,10 +4,10 @@
 
 <script>
 export default {
-    name:"NFooter"
+    name:"Earnings"
 }
 </script>
 
-<style scoped lang="scss">
+<style>
 
 </style>

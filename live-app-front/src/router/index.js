@@ -7,7 +7,6 @@ import UserRouter from './UserRouter'
 import StartLiveRouter from "./StartLiveRouter";
 
 Vue.use(VueRouter)
-
 const routes = [
   {
     path: '/',
