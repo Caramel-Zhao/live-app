@@ -2,25 +2,26 @@
     <div class="user-list">
         <div class="user-item" v-for="(n,i) in data">
             <div class="left">
-                <img :src="n.UserImg">
+                <img :src="n.userimage">
             </div>
             <div class="center">
                 <div class="top">
-                    <span class="title">{{n.UserName}}</span>
+                    <span class="title">{{n.userid}}</span>
                     <i>
                         <svg class="icon" aria-hidden="true">
                             <use xlink:href="#iconxingxing"></use>
                         </svg>
-                        {{n.Grade}}</i>
+                        {{n.vipclass}}</i>
                     <span><img src="../../assets/img/h8.png"></span>
                 </div>
                 <div class="bottom">
                     <img src="../../assets/img/h8.png">
-                    <span>{{n.fens}}</span>
+                    <span>12</span>
                 </div>
             </div>
             <div class="right">
-                <img src="../../assets/img/h8.png">
+                <img src="../../assets/img/h8.png" v-if="n.focus">
+                <img src="../../assets/img/2.jpg" v-else>
             </div>
         </div>
     </div>
@@ -30,7 +31,7 @@
 <script>
     export default {
         name: "UserItem",
-        props:["data"]
+        props:["data","flag"]
     }
 </script>
 

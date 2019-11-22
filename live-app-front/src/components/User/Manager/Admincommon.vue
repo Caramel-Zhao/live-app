@@ -26,6 +26,7 @@
     background-color: black;
     display: flex;
     line-height: .5rem;
+    margin-bottom: -.01rem;
     svg{
         width: .2rem;
         height: .2rem;
