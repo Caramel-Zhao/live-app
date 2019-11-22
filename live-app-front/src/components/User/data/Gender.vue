@@ -5,7 +5,7 @@
             <span class="sex">{{data}}</span>
         </div>
         <van-overlay :show="show" @click="show = false">
-            <div class="wrapper" @click.stop="show = true">
+            <div class="wrapper" @click.stop="show = false">
                 <div class="block">
 <!--                    <div class="man">-->
 <!--                        <div class="manLift">-->

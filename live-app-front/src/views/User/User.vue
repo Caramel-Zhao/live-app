@@ -14,6 +14,7 @@
     <User-Manage></User-Manage>
     <User-Service></User-Service>
     <User-footer></User-footer>
+
   </div>
 </template>
 
@@ -61,6 +62,6 @@ export default {
 <style lang="scss" scoped>
 .user {
   width: 100%;
-  height: 8rem;
+  height: 8.1rem;
 }
 </style>

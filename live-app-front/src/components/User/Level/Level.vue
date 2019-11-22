@@ -3,7 +3,7 @@
         <div class="top">
             <router-link :to="'/user'">
                 <svg class="righter" aria-hidden="true">
-                    <use xlink:href="#iconfanhui"></use>
+                    <use xlink:href="#iconfanhui-copy"></use>
                 </svg>
             </router-link>
             <p class="lv">等级</p>
@@ -53,19 +53,10 @@ export default {
 
 <style lang="scss" scoped>
     .cover{
-        width:100vw;
-    }
-    .cover::before{    
-        content:'';
-        position:absolute;
-        top:0;
-        left:0;
-        width:100vw;
-        height:100vh;
-        background:transparent url(../../../../public/assets/HomeImg/112.jpg);
-        filter:blur(0.03rem);
-        z-index:-1;
-        background-size:cover;
+        width: 100%;
+        height: 100vh;
+        background-image: url("../../../assets/User/Earnings_backgroundImg.jpg");
+        background-size: 100% 100%;
     }
     .top{
         width: 100vw;
@@ -163,6 +154,7 @@ export default {
         padding-left: 0.2rem;
         padding-right: 0.2rem;
         font-size: 0.14rem;
+        line-height: 0.2rem;
         color: white;
     }
     .equity div:nth-child(3){
@@ -197,5 +189,6 @@ export default {
         padding-right: 0.2rem;
         font-size: 0.14rem;
         color: white;
+        line-height: 0.2rem;
     }
 </style>
