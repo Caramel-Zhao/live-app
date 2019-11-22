@@ -16,7 +16,7 @@ const routes = [
   HomeRouter,
   RankRouter,
   SearchRouter,
-  UserRouter
+  UserRouter,
 ]
 
 const router = new VueRouter({
