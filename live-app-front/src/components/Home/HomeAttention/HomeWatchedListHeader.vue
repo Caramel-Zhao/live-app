@@ -18,9 +18,9 @@
 
 <style lang="scss" scoped>
 .list-header{
-  display: flex;
-  justify-content: space-between;
-  padding:0 0.1rem;
+    display: flex;
+    justify-content: space-between;
+    padding:0 0.1rem;
   .icon{
     width: 0.2rem;
     height: 0.2rem;
@@ -29,6 +29,7 @@
   .list-header-title{
     font-size: 0.14rem;
     line-height: 0.2rem;
+    font-weight: 900;
   }
 }
 </style>

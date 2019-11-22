@@ -1,8 +1,8 @@
 <template>
   <div>
     <PullRefresh v-model="isLoading" @refresh="onRefresh">
-      <HomeWaiting></HomeWaiting>
-      <HomeAttentionList></HomeAttentionList>
+      <HomeWaiting :data="data.attentionliving"></HomeWaiting>
+      <HomeAttentionList :data="data.recommendedattention"></HomeAttentionList>
     </PullRefresh>
   </div>
 </template>
@@ -13,6 +13,7 @@
   import HomeWaiting from "../HomeAttention/HomeWaiting";
   export default {
     name: "HomeAttention",
+    props:["data"],
     components:{
       HomeAttentionList,
       HomeWaiting,

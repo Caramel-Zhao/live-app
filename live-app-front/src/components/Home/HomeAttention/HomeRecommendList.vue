@@ -1,19 +1,25 @@
 <template>
   <ul class="watchList">
-    <li v-for="n in 6">
-      <p><img src="../../../assets/HomeImg/list.jpg" alt="推荐关注列表"></p>
-      <p>昵称</p>
+    <li :key="index" v-for="(item,index) in data">
+      <p><img :src=item.userimage alt="推荐关注列表"  v-lazy="item.userimage"></p>
+      <p>{{item.userid}}</p>
       <p><i>
         <svg class="icon" aria-hidden="true">
-        <use xlink:href="#icondingwei2"></use></svg></i>地址</p>
+        <use xlink:href="#icondingwei2"></use></svg></i>{{item.location}}</p>
       <span class="home-button">关注</span>
     </li>
   </ul>
 </template>
 
 <script>
+  import Vue from 'vue'
+  import { Lazyload } from 'vant';
+  Vue.use(Lazyload,{
+    loading:"assets/HomeImg/loading-logo.png"
+  });
   export default {
-    name: "HomeWatchedList"
+    name: "HomeRecommendList",
+    props:["data"]
   }
 </script>
 
@@ -30,7 +36,7 @@
     width: 32%;
     text-align: center;
     margin:0 0.01rem 0.06rem;
-    background: #eee;
+    background: #f6f6f6;
     padding: 0.1rem 0.15rem;
     img{
       width: 100%;
@@ -44,6 +50,7 @@
       height: 0.15rem;
       vertical-align: middle;
       margin-right: 0.05rem;
+      fill:#fff
     }
     .home-button{
       display: inline-block;

@@ -1,28 +1,37 @@
 <template>
   <div class="footer">
     <router-link tag="span" to="/home"><i class="footer-index" :class="{'footer-index-active':$route.path === '/home'}"></i><span>首页</span></router-link>
-    <div class="live-img"@click="show = true"><img src="../../assets/HomeImg/live.png" alt=""></div>
-    <van-overlay class="home-overlay" :show="show"  @click="show = false" z-index=999 >
-      <div class="wrapper" @click.stop="show = false">
-        <div class="block">
-          <p><img src="../../assets/HomeImg/renzhen.jpg" alt=""></p>
-          <p>开播前需要实名认证</p>
-          <p class="home-sure">
-            <router-link tag="span" to="/home">稍后</router-link>
-            <router-link class="home-go" tag="span" to="/real">立即认证</router-link>
-          </p>
-        </div>
-      </div>
-    </van-overlay>
+    <div class="live-img" @click="show = true"><img src="../../assets/HomeImg/live.png" alt=""></div>
+<!--    <van-overlay class="home-overlay" :show="show"  @click="show = false">-->
+<!--      <div class="wrapper" @click.stop="show = false">-->
+<!--        <div class="block">-->
+<!--          <p><img src="../../assets/HomeImg/renzhen.jpg" alt=""></p>-->
+<!--          <p>开播前需要实名认证</p>-->
+<!--          <p class="home-sure">-->
+<!--            <router-link tag="span" @click="show = false">稍后</router-link>-->
+<!--            <router-link class="home-go" tag="span" to="/user/real">立即认证</router-link>-->
+<!--          </p>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--    </van-overlay>-->
+    <van-popup v-model="show" position="bottom" :style="{ height: '25%' }" class="home-popup">
+        <router-link tag="p" to="/startLive">开始直播</router-link>
+        <p @click="show = false">
+          <svg class="icon" aria-hidden="true">
+            <use xlink:href="#iconclose"></use>
+          </svg>
+        </p>
+    </van-popup>
     <router-link tag="span" to="/user"><i class="footer-user" :class="{'footer-user-active':$route.path === '/user'}"></i><span>我的</span></router-link>
   </div>
 </template>
 <script>
-  import { Overlay } from 'vant';
+  import { Overlay ,Popup ,Icon } from 'vant';
   export default {
     name: "YT-footer",
     components: {
-        [Overlay.name]:Overlay
+        [Overlay.name]:Overlay,
+        [Popup.name]:Popup
     },
     data() {
       return {
@@ -81,7 +90,7 @@
   .live-img {
       display: inline-block;
       width: 0.6rem;
-      height: 0.6rem;
+      height: 0.55rem;
       position: relative;
       top: -0.2rem;
       border: 0.03rem solid #fff;
@@ -115,6 +124,18 @@
       color: #0F121B;
       .home-go{
         color: #ff7800;
+      }
+    }
+  }
+  .home-popup{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    p{
+      text-align: center;
+      .icon{
+        width: 0.25rem;
+        height: 0.25rem;
       }
     }
   }
