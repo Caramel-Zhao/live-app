@@ -83,7 +83,7 @@
       display: flex;
       padding: 0.15rem 0.5rem 0 0.5rem;
       box-sizing: border-box;
-      height: 0.35rem;
+      height: 0.45rem;
       justify-content: space-between;
       position: fixed;
       top: 0;
