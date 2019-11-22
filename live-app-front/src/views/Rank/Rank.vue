@@ -35,6 +35,8 @@ export default {
 .Ra-con {
   background: url(../../../public/assets/RankImg/bg.jpg);
   background-size: 100%;
+  overflow-x: hidden;
+  width: 100vw;
   svg {
     width: 0.2rem;
     height: 0.2rem;

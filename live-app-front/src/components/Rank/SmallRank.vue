@@ -51,6 +51,9 @@
 </script>
 <style lang="scss">
 .Ra-SmallRank{
+  overflow-x: hidden;
+  width: 100vw;
+
 	.swiper-pagination1{
 		display: flex;
 		padding: 0.05rem 0.15rem;

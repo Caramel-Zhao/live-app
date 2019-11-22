@@ -47,7 +47,8 @@
 </script>
 <style lang="scss">
 	.Ra-pages{
-		width: 100%;
+    overflow-x: hidden;
+    width: 100vw;
 		height: 5.6rem;
 		margin-top: 0.1rem;
 		display: flex;

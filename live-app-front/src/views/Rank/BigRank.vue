@@ -51,6 +51,9 @@ export default {
 </script>
 <style lang="scss">
 .Ra-swiper {
+  overflow-x: hidden;
+  width: 100vw;
+
   .swiper-paginationB {
     display: flex;
     padding: 0.18rem 0.5rem 0.16rem;
