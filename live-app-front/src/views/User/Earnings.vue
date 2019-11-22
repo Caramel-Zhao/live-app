@@ -1,24 +1,28 @@
 <template>
-    <div class="box">
-        <EHeader />
+    <div>
+        <Earnings-header></Earnings-header>
+        <Earnings-content></Earnings-content>
+        <Earnings-next></Earnings-next>
+        <Earnings-footer></Earnings-footer>
     </div>
 </template>
 
 <script>
-    import EHeader from "../../components/User/Earnings/EHeader";
+    import header from "../../components/User/earnings/EarningsHeader"
+    import content from "../../components/User/earnings/EarningContent"
+    import next from "../../components/User/earnings/EarningsNext"
+    import footer from "../../components/User/earnings/EarningsFooter"
   export default {
     name: "Earnings",
-      components: {
-        EHeader
-      }
+    components:{
+      "Earnings-header":header,
+      "Earnings-content":content,
+      "Earnings-next":next,
+      "Earnings-footer":footer
+    }
   }
 </script>
 
 <style scoped>
-    .box{
-        width: 100%;
-        height: 100vh;
-        background-image: url("../../assets/User/Earnings_backgroundImg.jpg");
-        background-size: 100% 100%;
-    }
+
 </style>

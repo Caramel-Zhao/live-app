@@ -48,7 +48,7 @@
      background: url("../../assets/User/1.jpg") ;
      background-size: 100% 100%;
      color:#d8bf89;
-     height: 6.8rem;
+     height: 6.67rem;
      .header{
          height: .5rem;
          line-height: .5rem;

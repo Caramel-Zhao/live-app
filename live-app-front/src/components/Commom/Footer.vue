@@ -9,7 +9,7 @@
           <p>开播前需要实名认证</p>
           <p class="home-sure">
             <router-link tag="span" to="/home">稍后</router-link>
-            <router-link class="home-go" tag="span" to="/real">立即认证</router-link>
+            <router-link class="home-go" tag="span" to="/user/real">立即认证</router-link>
           </p>
         </div>
       </div>
