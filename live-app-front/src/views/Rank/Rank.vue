@@ -6,16 +6,28 @@
         <use xlink:href="#iconfanhuitubiao"></use>
       </svg>
     </router-link>
-    <swiper></swiper>
+    <swiper :data="data"></swiper>
+		<router-view></router-view>
   </div>
 </template>
 <script>
 import BigRank from './BigRank'
+
 export default {
   name: "Rank",
   components: {
     "swiper": BigRank,
-  }
+  },
+	data(){
+		return {
+			data: null,
+		}
+	},
+	beforeMount() {
+		let a = require("../../mocks/Rank");
+		this.data = a;
+		console.log(this.data);
+	}
 }
 </script>
 
