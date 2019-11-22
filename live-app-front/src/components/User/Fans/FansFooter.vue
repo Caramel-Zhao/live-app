@@ -3,7 +3,7 @@
         <van-tab title="关注">
             <div class="lister-one">
                 <div>
-                    <img src="../../../assets/img/111.png" alt="">
+                    <img src="http://122.51.57.152:4000/images/111.png" alt="">
                 </div>
                 <div>
                     <p>一元钱</p>
@@ -19,7 +19,7 @@
         <van-tab title="粉丝">
             <div class="lister-one">
                 <div>
-                    <img src="../../../assets/img/111.png" alt="">
+                    <img src="http://122.51.57.152:4000/images/111.png" alt="">
                 </div>
                 <div>
                     <p>五角钱</p>

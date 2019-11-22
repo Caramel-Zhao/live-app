@@ -111,7 +111,7 @@
 
 <style lang="scss" scoped>
  .phone-content{
-     background: url("../../assets/User/1.jpg") ;
+     background: url("http://122.51.57.152:4000/images/1.jpg") ;
      background-size: 100% 100%;
      color:#d8bf89;
      height: 100vh;

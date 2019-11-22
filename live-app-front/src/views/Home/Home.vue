@@ -6,7 +6,7 @@
 </template>
 
 <script>
-  import homeInfo from '../../mocks/Home/Home';
+  import homeInfo from '../../../public/mocks/Home/Home';
 import HomeTop from "../../components/Home/HomeTop";
 import Footer from "../../components/Commom/Footer";
 export default {

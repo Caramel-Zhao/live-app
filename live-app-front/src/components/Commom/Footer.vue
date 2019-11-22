@@ -4,7 +4,7 @@
                  to="/home"><i class="footer-index"
          :class="{'footer-index-active':$route.path === '/home'}"></i><span>首页</span></router-link>
     <div class="live-img"
-         @click="show = true"><img src="../../assets/HomeImg/live.png"
+         @click="show = true"><img src="http://122.51.57.152:4000/images/live.png"
            alt=""></div>
     <!--    <van-overlay class="home-overlay" :show="show"  @click="show = false">-->
     <!--      <div class="wrapper" @click.stop="show = false">-->
@@ -76,22 +76,22 @@ export default {
       margin: 0 auto;
     }
     .footer-index {
-      background: url("../../assets/HomeImg/footer.png") 0 -0.3rem no-repeat;
+      background: url("http://122.51.57.152:4000/images/footer.png") 0 -0.3rem no-repeat;
       background-size: 0.7rem 0.52rem;
     }
     .footer-user {
-      background: url("../../assets/HomeImg/footer.png") -0.48rem 0 no-repeat;
+      background: url("http://122.51.57.152:4000/images/footer.png") -0.48rem 0 no-repeat;
       background-size: 0.7rem 0.52rem;
     }
     .footer-index-active {
-      background: url("../../assets/HomeImg/footer.png") 0 0 no-repeat;
+      background: url("http://122.51.57.152:4000/images/footer.png") 0 0 no-repeat;
       background-size: 0.7rem 0.52rem;
       + span {
         color: #000;
       }
     }
     .footer-user-active {
-      background: url("../../assets/HomeImg/footer.png") -0.48rem -0.3rem
+      background: url("http://122.51.57.152:4000/images/footer.png") -0.48rem -0.3rem
         no-repeat;
       background-size: 0.7rem 0.52rem;
       + span {
