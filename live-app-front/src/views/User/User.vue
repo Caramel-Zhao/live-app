@@ -13,7 +13,12 @@
     <User-Real></User-Real>
     <User-Manage></User-Manage>
     <User-Service></User-Service>
+<<<<<<< HEAD
+    <User-footer></User-footer>
+    </div>
+=======
     <Footer />
+>>>>>>> 5f1bca7d5e07c41711c3372384beadcb6ec5c5bf
   </div>
 </template>
 
@@ -48,7 +53,11 @@ export default {
     "User-Real": Real,
     "User-Manage": Manage,
     "User-Service": Service,
+<<<<<<< HEAD
+    "User-footer":Footer
+=======
     Footer
+>>>>>>> 5f1bca7d5e07c41711c3372384beadcb6ec5c5bf
   },
   methods: {
     goHome () {
