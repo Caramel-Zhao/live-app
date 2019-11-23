@@ -36,7 +36,7 @@
     },
     beforeMount() {
       // this._initSearchData()
-       let a=require("../../mocks/Search/Search")
+       let a=require("../../../public/mocks/Search/Search")
         this.data=a
     },
     // methods:{

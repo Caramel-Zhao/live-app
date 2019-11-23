@@ -60,7 +60,7 @@
 		}
 		>div:first-child{
 			height: 2.45rem;
-			background: url(../../../public/assets/RankImg/bg2.jpg);
+			background: url(http://122.51.57.152:4000/images/bg2.jpg);
 			background-size: 100% 100%;
 			img{
 				width: 0.67rem;

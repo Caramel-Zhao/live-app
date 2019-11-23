@@ -48,7 +48,7 @@
                     birth: "1998-0-0"
                 },
                 dataInfo: {
-                    userimage:"../../assets/User/user_data_pic.03124231.png",
+                    userimage:"http://122.51.57.152:4000/images/user_data_pic.png",
                     userid:"哈哈小蛋蛋",
                     sex:"男",
                     birth:"2019-11-20",

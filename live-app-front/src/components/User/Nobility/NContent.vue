@@ -405,7 +405,7 @@ export default {
         width: 100%;
         height: 5.8rem;
         //  background-color: red;
-          background: url(../../../../public/assets/xue/bei.png);
+          background: url(http://122.51.57.152:4000/images/bei.png);
           background-repeat: no-repeat;
           background-size: contain;
         svg{
