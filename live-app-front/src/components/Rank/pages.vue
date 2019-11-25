@@ -1,9 +1,9 @@
 <template>
 	<div class="Ra-pages">
-		<div>
-			<img src="../../../public/assets/HomeImg/list.jpg" >
-			<img src="../../../public/assets/HomeImg/list.jpg" >
-			<img src="../../../public/assets/HomeImg/list.jpg" >
+		<div v-if="data">
+			<img :src="data[0].userimage" >
+			<img :src="data[1].userimage" >
+			<img :src="data[2].userimage" >
 			<svg class="icon" aria-hidden="true">
 			  <use xlink:href="#iconhuangguan" ></use>
 			</svg>
@@ -15,19 +15,21 @@
 			</svg>
 			<i>2</i>
 			<i>3</i>
-			<div v-for="n in 3">
-				<h1>暮雨暮雨暮雨</h1>
+			<div v-for="(n,index) in data.slice(0,3)">
+				<h1>{{n.userid}}</h1>
 				<span></span>
-				<h2>魅力值：7.7889亿</h2>
+				<h2>魅力值：{{n.charsma}}</h2>
 			</div>
 		</div>
 		<div class="list">
-			<div v-for="n in 8">
-				<p>4</p>
-				<img src="../../../public/assets/HomeImg/list.jpg">
-				<h1>致我们的青春</h1>
-				<span></span>
-				<h2>魅力值：5.5000亿</h2>
+			<div v-for="(n,index) in data.slice(3,data.length)">
+				<h3>
+					<p>{{index+4}}</p>
+					<img :src="n.userimage">
+					<h1>{{n.userid}}</h1>
+					<span></span>
+				</h3>
+				<h2>魅力值：{{n.charsma}}</h2>
 			</div>
 			
 		</div>
@@ -37,12 +39,16 @@
 <script>
   export default {
     name: 'Star',
-		props: ['data']
+	props: ['data'],
+	beforeMount(){
+		console.log(this.data)
+	}
   }
 </script>
 <style lang="scss">
 	.Ra-pages{
-		width: 100%;
+    overflow-x: hidden;
+    width: 100vw;
 		height: 5.6rem;
 		margin-top: 0.1rem;
 		display: flex;
@@ -54,7 +60,7 @@
 		}
 		>div:first-child{
 			height: 2.45rem;
-			background: url(../../../public/assets/RankImg/bg2.jpg);
+			background: url(http://122.51.57.152:4000/images/bg2.jpg);
 			background-size: 100% 100%;
 			img{
 				width: 0.67rem;
@@ -125,15 +131,15 @@
 				}
 				&:nth-of-type(1){
 					top: 0.65rem;
-					left: 1.4rem;
+					left: 1.3rem;
 				}
 				&:nth-of-type(2){
 					top: 0.45rem;
-					left: 0.1rem;
+					left: 0.06rem;
 				}
 				&:nth-of-type(3){
-					top: 0.1rem;
-					left: 2.7rem;
+					top: 0.05rem;
+					left: 2.65rem;
 				}
 			}
 		}
@@ -157,24 +163,30 @@
 		}
 		.list{
 			background-color: #fff;
+			min-height: 3.15rem;
 			>div{
 				display: flex;
+				justify-content: space-between;
 				align-items: center;
 				padding: 0.15rem 0rem 0.15rem 0.11rem;
-				>*{
-					margin-right: 0.1rem;
-				}
-				p{
-					color: #ababab;
-				}
-				img{
-					width: 0.53rem;
-					height: 0.53rem;
-					border-radius: 50%;
+				margin: 0rem 0.1rem;
+				h3{
+					display:flex;
+					align-items: center;
+					>*{
+						margin-right: 0.1rem;
+					}
+					p{
+						color: #ababab;
+					}
+					img{
+						width: 0.53rem;
+						height: 0.53rem;
+						border-radius: 50%;
+					}
 				}
 				h2{
 					color: #959593;
-					margin-left: 0.5rem;
 				}
 			}
 		}

@@ -4,12 +4,15 @@
             <div class="Birthday-title">生日</div>
             <span class="birth">{{data}}</span>
         </div>
-        <van-popup v-model="show" position="bottom" :style="{ height: '30%' }">
+        <van-popup v-model="birData.show" position="bottom" :style="{ height: '30%' }">
             <van-datetime-picker
-                    v-model="currentDate"
+                    v-model="birData.currentDate"
                     type="date"
-                    :min-date="minDate"
-                    :item-height="height"
+                    :min-date="birData.minDate"
+                    :item-height="birData.height"
+                    @confirm="click"
+                    @cancel="Del"
+                    @change="change"
             />
         </van-popup>
     </div>
@@ -19,25 +22,29 @@
     import { Popup, DatetimePicker } from 'vant';
     export default {
         name: "Birthday",
-        props:["data"],
+        props:["data", "change", "click","birData","Del","showPopup"],
         components: {
             [Popup.name]:Popup,
             [DatetimePicker.name]:DatetimePicker
         },
-        data() {
-            return {
-                height: 30,
-                show: false,
-                minDate: new Date(),
-                currentDate: new Date()
-            }
-        },
+        // data() {
+        //     return {
+        //         height: 30,
+        //         show: false,
+        //         minDate: new Date(1980,1,1),
+        //         currentDate: new Date(),
+        //         birth: "1998-0-0"
+        //     }
+        // },
 
-        methods: {
-            showPopup() {
-                this.show = true;
-            }
-        }
+        // methods: {
+        //     showPopup() {
+        //         this.show = true;
+        //     },
+        //     Del() {
+        //         this.show = false;
+        //     }
+        // }
     }
 </script>
 

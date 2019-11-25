@@ -4,7 +4,7 @@
         <HeadPortrait :data="dataInfo.userimage"/>
         <Name :userid="dataInfo.userid" :data="title.name"/>
         <Gender :data="dataInfo.sex" />
-        <Birthday :data="dataInfo.birth" />
+        <Birthday :birData="birData" :data="dataInfo.birth" :change="handleToGetValue" :click="getValue" :showPopup="showPopup" :Del="Del" />
         <Signature :autograph="dataInfo.autograph" :data="title.Autograph" />
     </div>
 </template>
@@ -39,14 +39,37 @@
                     name: "昵称",
                     Autograph:"签名"
                 },
+                birData:{
+                    bir: [],
+                    height: 30,
+                    show: false,
+                    minDate: new Date(1980,1,1),
+                    currentDate: new Date(),
+                    birth: "1998-0-0"
+                },
                 dataInfo: {
-                    userimage:"/img/user_data_pic.03124231.png",
+                    userimage:"http://122.51.57.152:4000/images/user_data_pic.png",
                     userid:"哈哈小蛋蛋",
                     sex:"男",
                     birth:"2019-11-20",
                     autograph:"今天睡地板，明天当老板"
                 },
                 nameFlag: false
+            }
+        },
+        methods: {
+            getValue() {
+                this.dataInfo.birth = this.birData.bir.join("-")
+                this.birData.show = false;
+            },
+            handleToGetValue(value){
+                this.birData.bir = value.getValues()
+            },
+            showPopup() {
+                this.birData.show = true;
+            },
+            Del() {
+                this.birData.show = false;
             }
         }
     }

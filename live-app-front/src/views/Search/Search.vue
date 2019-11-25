@@ -35,15 +35,17 @@
       [Useritem.name]:Useritem
     },
     beforeMount() {
-      this._initSearchData()
+      // this._initSearchData()
+       let a=require("../../../public/mocks/Search/Search")
+        this.data=a
     },
-    methods:{
-      async _initSearchData(){
-        let data=await SearchApi.getSearchData()
-        this.data=data
-        console.log(this.data)
-      }
-    }
+    // methods:{
+    //   async _initSearchData(){
+    //     let data=await SearchApi.getSearchData()
+    //     this.data=data
+    //     console.log(this.data)
+    //   }
+    // }
   }
 </script>
 

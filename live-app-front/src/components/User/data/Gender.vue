@@ -7,36 +7,54 @@
         <van-overlay :show="show" @click="show = false">
             <div class="wrapper" @click.stop="show = false">
                 <div class="block">
-                    <div class="man">
-                        <div class="manLift">
-                            <div class="manLift-icon">
-                                <svg class="icon" aria-hidden="true">
-                                    <use xlink:href="#iconnan1"></use>
-                                </svg>
-                            </div>
-                            <span class="SpanSex">男</span>
-                        </div>
-                        <div class="manRight">
-                            <svg class="icon" aria-hidden="true">
-                                <use xlink:href="#iconanniu"></use>
-                            </svg>
-                        </div>
-                    </div>
-                    <div class="woman">
-                        <div class="womanLift">
-                            <div class="womanLift-icon">
-                                <svg class="icon" aria-hidden="true">
-                                    <use xlink:href="#iconnv"></use>
-                                </svg>
-                            </div>
-                            <span class="SpanSex">女</span>
-                        </div>
-                        <div class="womanRight">
-                            <svg class="icon" aria-hidden="true">
-                                <use xlink:href="#iconanniu1"></use>
-                            </svg>
-                        </div>
-                    </div>
+<!--                    <div class="man">-->
+<!--                        <div class="manLift">-->
+<!--                            <div class="manLift-icon">-->
+<!--                                <svg class="icon" aria-hidden="true">-->
+<!--                                    <use xlink:href="#iconnan1"></use>-->
+<!--                                </svg>-->
+<!--                            </div>-->
+<!--                            <span class="SpanSex">男</span>-->
+<!--                        </div>-->
+<!--                        <div class="manRight">-->
+<!--                            <svg class="icon" aria-hidden="true">-->
+<!--                                <use xlink:href="#iconanniu"></use>-->
+<!--                            </svg>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                    <div class="woman">-->
+<!--                        <div class="womanLift">-->
+<!--                            <div class="womanLift-icon">-->
+<!--                                <svg class="icon" aria-hidden="true">-->
+<!--                                    <use xlink:href="#iconnv"></use>-->
+<!--                                </svg>-->
+<!--                            </div>-->
+<!--                            <span class="SpanSex">女</span>-->
+<!--                        </div>-->
+<!--                        <div class="womanRight">-->
+<!--                            <svg class="icon" aria-hidden="true">-->
+<!--                                <use xlink:href="#iconanniu1"></use>-->
+<!--                            </svg>-->
+<!--                        </div>-->
+<!--                    </div>-->
+                    <van-radio-group v-model="radio">
+                        <van-radio name="1">
+                            男
+                            <img
+                                    slot="icon"
+                                    slot-scope="props"
+                                    :src="props.checked ? activeIcon : inactiveIcon"
+                            >
+                        </van-radio>
+                        <van-radio name="2">
+                            女
+                            <img
+                                    slot="icon"
+                                    slot-scope="props"
+                                    :src="props.checked ? activeIcon : inactiveIcon"
+                            >
+                        </van-radio>
+                    </van-radio-group>
                 </div>
             </div>
         </van-overlay>
@@ -44,16 +62,23 @@
 </template>
 
 <script>
-    import { Overlay } from 'vant';
+    import { Overlay, RadioGroup, Radio, Cell, CellGroup } from 'vant';
     export default {
         name: "Gender",
         props:["data"],
         components: {
-            [Overlay.name]:Overlay
+            [Overlay.name]:Overlay,
+            [RadioGroup.name]:RadioGroup,
+            [Radio.name]:Radio,
+            [Cell.name]:Cell,
+            [CellGroup.name]:CellGroup
         },
         data() {
             return {
-                show: false
+                show: false,
+                radio: '1',
+                activeIcon: 'https://img.yzcdn.cn/vant/user-active.png',
+                inactiveIcon: 'https://img.yzcdn.cn/vant/user-inactive.png'
             }
         }
 
@@ -148,5 +173,16 @@
     .womanLift-icon{
         width: 0.3rem;
         height: 0.3rem;
+    }
+
+
+
+
+    .van-radio{
+        height: 0.6rem;
+    }
+    .van-radio__icon img{
+        width: 0.3rem;
+        padding-left: 0.2rem;
     }
 </style>

@@ -1,17 +1,40 @@
 <template>
     <div>
         <div class="center">
-            <div> <input type="text" :placeholder="content"></div>
-            <div>搜索</div>
+            <div> <input type="text" :placeholder="content" v-model="sa" ></div>
+            <div  @click="add">搜索</div>
+
         </div>
         <div class="bottom">{{tip}}</div>
     </div>
 </template>
-
 <script>
+   import { Dialog } from 'vant';
     export default {
         name: "Detail",
-        props:["content","tip"]
+        props:["content","tip"],
+        data(){
+           return{
+               sa:null,
+               show:false
+           }
+
+        },
+        components:{
+           [Dialog.name]: Dialog,
+        },
+        methods:{
+            add(){
+                if(this.sa==null){
+                    Dialog.alert({
+                        message: '搜索的ID不能为空'
+                    }).then(() => {
+                        // on close
+                    });
+                }
+
+            }
+        }
     }
 </script>
 
@@ -28,7 +51,7 @@
         background-color: white;
         border-radius: .3rem;
     input{
-        margin-top: .05rem;
+        margin-top: .02rem;
         border: none;
         width: 2rem;
         font-size: .14rem;

@@ -37,14 +37,7 @@ export  default {
     },
     {
       path: "fans",
-      component: () => import('../views/User/Fans'),
-      children:[
-        {
-          path:"",
-          component: () => import('../components/User/Fans/Details.vue'),
-          
-        }
-      ]
+      component: () => import('../views/User/Fans')
     },
     {
       path: "message",
@@ -84,7 +77,13 @@ export  default {
     },
     {
       path: "earnings",
-      component: () => import('../views/User/Earnings')
+      component: () => import('../views/User/Earnings'),
+      children:[
+        {
+          path:"",
+          component: () => import('../components/User/Earnings/EarningsHeader.vue')
+        }
+      ]
     },
     {
       path: "phone",

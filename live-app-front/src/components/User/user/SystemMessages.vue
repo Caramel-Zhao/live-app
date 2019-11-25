@@ -1,4 +1,5 @@
 <template>
+<router-link :to="'/user/message'" tag="div">
     <div class="SystemMessages">
         <div class="interior">
             <div>
@@ -16,6 +17,7 @@
             </div>
         </div>
     </div>
+</router-link>
 </template>
 
 <script>

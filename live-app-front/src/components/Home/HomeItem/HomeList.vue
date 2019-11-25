@@ -1,7 +1,7 @@
 <template>
   <ul class="home-recommend-list">
       <li :key="index" v-for="(item,index) in data" >
-        <img :src=item.images alt="" v-lazy="item.images">
+        <img :src=item.images alt="" />
         <div class="home-recommend-list-tag">
           <p v-if="item.tag" class="tag"><img :src=item.tag alt="魅力主播"></p>
           <p class="vipclass"><span>{{item.userid}}<i v-if="item.vipclass" class="vipclass-img"><img :src=item.vipclass alt="等级"></i></span><span class="address">
@@ -15,12 +15,12 @@
 </template>
 
 <script>
-  import Vue from 'vue'
-  import { Lazyload } from 'vant';
-  Vue.use(Lazyload,{
-    // lazyComponent: true,
-    loading:"assets/HomeImg/loading.png"
-  });
+  // import Vue from 'vue'
+  // import { Lazyload } from 'vant';
+  // Vue.use(Lazyload,{
+  //   // lazyComponent: true,
+  //   loading:"assets/HomeImg/loading.png"
+  // });
   export default {
     name: "HomeRecommendList",
     props:["data"],

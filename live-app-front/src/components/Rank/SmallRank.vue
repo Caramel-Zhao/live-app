@@ -2,7 +2,9 @@
 	<div class="Ra-SmallRank">
 		<swiper :options="swiperOption1" ref="mySwiper1">
     <!-- slides -->
-    <swiper-slide  class="s1" :key="i" v-for="(n,i) in 3"><pages :data="i"/></swiper-slide>
+    <swiper-slide  class="s1"><pages v-if="data.day" :data="data.day"/></swiper-slide>
+    <swiper-slide  class="s1"><pages :data="data.week"/></swiper-slide>
+    <swiper-slide  class="s1"><pages :data="data.month"/></swiper-slide>
     <!-- Optional controls -->
     <div class="swiper-pagination swiper-pagination1"  slot="pagination"></div>
   </swiper>
@@ -13,25 +15,29 @@
 	import pages from './pages'
   export default {
     name: 'Star',
-		components: {
-			pages
-		},
+	components: {
+		pages
+	},
+	props: ['data'],
+	beforeMount(){
+		console.log(this.data)
+	},
     data() {
       return {
         swiperOption1: {
           // 所有的参数同 swiper 官方 api 参数
           // ...
-					nested:true,  // 父子嵌套，子滑动完再滑动父
-					// touchReleaseOnEdges:true, // 滑动到边缘是释放滑动
-					pagination: {
+			nested:true,  // 父子嵌套，子滑动完再滑动父
+			touchReleaseOnEdges:true, // 滑动到边缘是释放滑动
+			pagination: {
             el: '.swiper-pagination1',
 						clickable :true,  // 分页器点击
 						renderBullet: function (index, className) {
 							let text;
 							switch(index){
 								case 0:text='日榜';break;
-								case 1:text='月榜';break;
-								case 2:text='周榜';break;
+								case 1:text='周榜';break;
+								case 2:text='月榜';break;
 							}
 							return '<span class="' + className + '">' + text + '</span>';
 						},
@@ -45,6 +51,9 @@
 </script>
 <style lang="scss">
 .Ra-SmallRank{
+  overflow-x: hidden;
+  width: 100vw;
+
 	.swiper-pagination1{
 		display: flex;
 		padding: 0.05rem 0.15rem;
