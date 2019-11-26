@@ -1,7 +1,8 @@
 <template>
   <p class="list-header">
     <span class="list-header-title">推荐关注</span>
-    <span>换一批
+    <span>
+      <span @click="changeOne">换一批</span>
       <i>
        <svg class="icon" aria-hidden="true">
       <use xlink:href="#iconhuanyipi"></use></svg>
@@ -12,7 +13,12 @@
 
 <script>
   export default {
-    name: "HomeAttentionListHeader"
+    name: "HomeAttentionListHeader",
+    methods:{
+      changeOne(){
+        // console.log(123)
+      }
+    }
   }
 </script>
 

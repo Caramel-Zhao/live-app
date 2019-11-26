@@ -2,14 +2,14 @@
     <div class="start-live">
       <div class="start-item">
         <p class="start-live-back">
-          <span>
-            <svg class="icon icon1" aria-hidden="true">
-              <use xlink:href="#iconzhuanhuanshexiangtou-copy-copy"></use>
+          <span @click="goBack">
+            <svg class="icon" aria-hidden="true">
+              <use xlink:href="#iconfanhuitubiao"></use>
             </svg>
           </span>
-          <span @click="goBack">
-             <svg class="icon" aria-hidden="true">
-              <use xlink:href="#iconfanhuitubiao"></use>
+          <span>
+             <svg class="icon icon1" aria-hidden="true">
+              <use xlink:href="#iconzhuanhuanshexiangtou-copy-copy"></use>
             </svg>
           </span>
         </p>
@@ -17,7 +17,9 @@
           <p>输入悄悄话,进入房间</p>
           <input type="text">
         </div>
-        <span class="start-button">开启视频直播</span>
+        <router-link :to="'/live'">
+          <span class="start-button">开启视频直播</span>
+        </router-link>
       </div>
     </div>
 </template>
@@ -38,7 +40,7 @@
   margin: 0 auto;
   .start-item{
     .start-button{
-      position: absolute;
+      position: fixed;
       bottom: 0.8rem;
       left: 0.4rem;
       background: #0bcdcc;
@@ -53,7 +55,7 @@
       position: absolute;
       top: 1.2rem;
       left: 0.2rem;
-      padding: 0.4rem 0rem 0.6rem;
+      padding: 0.4rem 0 0.6rem;
       background:rgba(2, 0, 0, 0.04);
       border-radius: 0.15rem;
       width: 90%;
