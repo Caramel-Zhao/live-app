@@ -14,7 +14,6 @@
     <User-Manage></User-Manage>
     <User-Service></User-Service>
     <User-footer></User-footer>
-
   </div>
 </template>
 

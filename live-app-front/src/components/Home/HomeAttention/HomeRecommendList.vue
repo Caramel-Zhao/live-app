@@ -1,25 +1,29 @@
 <template>
   <ul class="watchList">
     <li :key="index" v-for="(item,index) in data">
-      <p><img :src=item.userimage alt="推荐关注列表" /></p>
+      <p><a href="#"><img :src=item.userimage alt="推荐关注列表" /></a></p>
       <p>{{item.userid}}</p>
-      <p><i>
+      <p>
+        <i>
         <svg class="icon" aria-hidden="true">
-        <use xlink:href="#icondingwei2"></use></svg></i>{{item.location}}</p>
-      <span class="home-button">关注</span>
+        <use xlink:href="#icondingwei2"></use></svg>
+        </i>
+        {{item.location}}
+      </p>
+      <span class="home-button" @click="getFollow">关注</span>
     </li>
   </ul>
 </template>
 
 <script>
-  // import Vue from 'vue'
-  // import { Lazyload } from 'vant';
-  // Vue.use(Lazyload,{
-  //   loading:"assets/HomeImg/loading-logo.png"
-  // });
   export default {
     name: "HomeRecommendList",
-    props:["data"]
+    props:["data"],
+    methods:{
+      getFollow(){
+
+      }
+    }
   }
 </script>
 
