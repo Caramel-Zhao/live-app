@@ -19,7 +19,6 @@ import 'swiper/dist/css/swiper.css'
 Vue.use(VueAwesomeSwiper, /* { default global options } */)
 Vue.use(LyTab);
 Vue.config.productionTip = false
-
 new Vue({
   router,
   store,

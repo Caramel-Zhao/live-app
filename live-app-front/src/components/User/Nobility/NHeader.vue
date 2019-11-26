@@ -1,10 +1,10 @@
 <template>
   <div class="n-heade">
-    <router-link :to="'/user'">
+    <a @click="$router.back(-1)">
     <svg class="icon" aria-hidden="true">
         <use xlink:href="#iconarrow-left"></use>
     </svg>
-    </router-link>
+    </a>
     <h5>特权介绍</h5>
     <div class="popups">
         <button @click="ff" class="btn">详细内容</button>

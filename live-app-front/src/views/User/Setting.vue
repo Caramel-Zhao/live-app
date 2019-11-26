@@ -8,6 +8,14 @@
   import setheader from "../../components/User/Set/SetHeader"
   export default {
     name: "Setting",
+    data(){
+    return {
+    registration_data:{
+      pwdType:"password",
+      src:"../../../../../../public/assets/xue/p1.png"
+    }
+   }
+  },
     components:{
       "set-header":setheader,
     }
