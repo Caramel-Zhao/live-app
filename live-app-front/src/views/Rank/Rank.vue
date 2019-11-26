@@ -6,23 +6,37 @@
         <use xlink:href="#iconfanhuitubiao"></use>
       </svg>
     </router-link>
-    <swiper></swiper>
+    <swiper :data="data"></swiper>
+		<router-view></router-view>
   </div>
 </template>
 <script>
 import BigRank from './BigRank'
+
 export default {
   name: "Rank",
   components: {
     "swiper": BigRank,
-  }
+  },
+	data(){
+		return {
+			data: null,
+		}
+	},
+	beforeMount() {
+		let a = require("../../../public/mocks/Rank");
+		this.data = a;
+		console.log(this.data);
+	}
 }
 </script>
 
 <style scoped lang="scss">
 .Ra-con {
-  background: url(../../../public/assets/RankImg/bg.jpg);
+  background: url(http://122.51.57.152:4000/images/bg.jpg);
   background-size: 100%;
+  overflow-x: hidden;
+  width: 100vw;
   svg {
     width: 0.2rem;
     height: 0.2rem;

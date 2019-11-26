@@ -1,4 +1,5 @@
 <template>
+<router-link :to="'/user/award'" tag="div">
     <div class="Award">
         <div class="interiorr">
             <div>
@@ -16,6 +17,7 @@
             </div>
         </div>
     </div>
+</router-link>
 </template>
 
 <script>

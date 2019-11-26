@@ -4,7 +4,7 @@
         <van-pull-refresh v-model="isLoading" @refresh="onRefresh">
         <div class="center">可进行管理的直播间列表</div>
         <div class="user">
-            <div><img src="../../../assets/User/2.jpg"></div>
+            <div><img src="http://122.51.57.152:4000/images/2.jpg"></div>
             <div>
                 <p>躲猫猫_5 </p>
                 <span>我的身份-房主</span>

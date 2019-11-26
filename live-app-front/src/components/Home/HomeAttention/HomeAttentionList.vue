@@ -1,18 +1,19 @@
 <template>
   <div>
     <HomeAttentionListHeader />
-    <HomeWatchedList/>
+    <HomeRecommendList :data="data"/>
   </div>
 </template>
 
 <script>
-  import HomeWatchedList from "./HomeWatchedList";
+  import HomeRecommendList from "./HomeRecommendList";
   import HomeAttentionListHeader from "./HomeWatchedListHeader";
   export default {
     name: "HomeAttentionList",
+    props:["data"],
     components:{
       HomeAttentionListHeader,
-      HomeWatchedList
+      HomeRecommendList
     }
   }
 </script>

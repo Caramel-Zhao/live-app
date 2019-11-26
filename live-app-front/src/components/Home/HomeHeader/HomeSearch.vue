@@ -14,8 +14,8 @@
 
 <style lang="scss" scoped>
   .icon{
-    width: 0.4rem;
+    width: 0.35rem;
     height: 0.4rem;
-    padding-top:0.05rem;
+    padding-top:0.03rem;
   }
 </style>

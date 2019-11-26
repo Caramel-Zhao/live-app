@@ -1,25 +1,42 @@
 <template>
   <div class="waiting">
-    <p>-你关注的主播还未开播-</p>
-    <p><img src="../../../assets/HomeImg/waiting.jpg" alt=""></p>
+    <div v-if="data.length !=0">
+      <p>-你关注的主播有 <span style="color: red">{{data.length}}</span> 位正在开播，快前往观看吧-</p>
+      <HomeWaitingList class="follow" :data="data"></HomeWaitingList>
+    </div>
+    <div class="Unconcerned" v-else>
+      <p>-你关注的主播还未开播-</p>
+      <p><img src="http://122.51.57.152:4000/images/waiting.jpg" alt=""></p>
+    </div>
   </div>
 </template>
-
 <script>
+  import HomeWaitingList from "./HomeWaitingList";
   export default {
-    name: "HomeWaiting"
+    name: "HomeWaiting",
+    props:["data"],
+    components:{
+      HomeWaitingList
+    }
   }
 </script>
 
 <style lang="scss" scoped>
 .waiting{
-  width: 100%;
-  text-align: center;
-  p:nth-child(1){
-    padding: 0.2rem 0 0.1rem;
+  border-bottom: 0.02rem solid #eee;
+  margin-bottom: 0.1rem;
+  p{
+    text-align: center;
+    padding-bottom: 0.05rem;
   }
-  img{
+  .Unconcerned{
     width: 100%;
+    img{
+      width: 100%;
+    }
+  }
+  .follow{
+    margin: 0.1rem;
   }
 }
 </style>

@@ -4,9 +4,9 @@
             ref="mySwiperB">
       <!-- slides -->
       <swiper-slide class="sB"
-                    :key="i"
-                    v-for="(n,i) in 3">
-        <rank :n="n" />
+                    :key="index"
+                    v-for="(n,index) in data">
+        <rank :data="n" />
       </swiper-slide>
       <!-- Optional controls -->
       <div class="swiper-pagination swiper-paginationB"
@@ -23,21 +23,23 @@ export default {
   components: {
     "rank": SmallRank,
   },
+	props: ['data'],
   data () {
     return {
+			info: null,
       swiperOptionB: {
-        touchReleaseOnEdges: true, // 滑动到边缘是释放滑动
+        // touchReleaseOnEdges: true, // 滑动到边缘是释放滑动
         pagination: {
           el: '.swiper-paginationB',
           clickable: true,  // 分页器点击
           renderBullet: function (index, className) {
             let text;
-            switch (index) {
-              case 0: text = '明星榜'; break;
-              case 1: text = '财富榜'; break;
-              case 2: text = '幸运榜'; break;
-            }
-            return '<span class="' + className + '">' + text + '</span>';
+							switch (index) {
+								case 0: text = '明星榜'; break;
+								case 1: text = '财富榜'; break;
+								case 2: text = '幸运榜'; break;
+							}
+							return '<span class="' + className + '">' + text + '</span>';
           },
           bulletClass: 'my-bulletB',//需设置.my-bullet样式
           bulletActiveClass: 'my-bullet-activeB', //分页器内当前活动块的指示小点的类名。
@@ -49,6 +51,9 @@ export default {
 </script>
 <style lang="scss">
 .Ra-swiper {
+  overflow-x: hidden;
+  width: 100vw;
+
   .swiper-paginationB {
     display: flex;
     padding: 0.18rem 0.5rem 0.16rem;

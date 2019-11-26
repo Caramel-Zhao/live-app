@@ -3,7 +3,7 @@
     <div class="person">
         <div class="ico">
             <div>
-                <img src="../../../assets/img/2.jpg" alt="">
+                <img src="http://122.51.57.152:4000/images/2.jpg" alt="">
             </div>
             <div>
                 <span class="name">Su丶SuSu</span>

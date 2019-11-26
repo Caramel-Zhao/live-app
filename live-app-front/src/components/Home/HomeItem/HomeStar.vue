@@ -1,6 +1,6 @@
 <template>
   <PullRefresh v-model="isLoading" @refresh="onRefresh">
-    <HomeList :data="8"></HomeList>
+    <HomeList :data="data"></HomeList>
   </PullRefresh>
 </template>
 
@@ -9,6 +9,7 @@
   import HomeList from "./HomeList";
   export default {
     name: "HomeStar",
+    props:["data"],
     components:{
       HomeList,
       PullRefresh

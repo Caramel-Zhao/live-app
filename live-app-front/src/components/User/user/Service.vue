@@ -1,4 +1,5 @@
 <template>
+    <router-link :to="'/user/service'" tag="div">
         <div class="interior">
             <div>
                 <svg class="lv" aria-hidden="true">
@@ -14,6 +15,7 @@
                 </svg>
             </div>
         </div>
+    </router-link>
 </template>
 
 <script>

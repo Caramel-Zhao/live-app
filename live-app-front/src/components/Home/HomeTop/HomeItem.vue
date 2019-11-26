@@ -2,11 +2,11 @@
   <div class="home-item-list">
     <swiper :options="swiperOption" ref="mySwiper">
       <!-- slides -->
-        <swiper-slide class="home-slide"><HomeAttention/></swiper-slide>
-        <swiper-slide class="home-slide"><HomeRecommend/></swiper-slide>
-        <swiper-slide class="home-slide"><HomeNearBy/></swiper-slide>
-        <swiper-slide class="home-slide"><HomeTalents/></swiper-slide>
-        <swiper-slide class="home-slide"><HomeStar/></swiper-slide>
+        <swiper-slide class="home-slide"><HomeAttention :data="data.attentions"/></swiper-slide>
+        <swiper-slide class="home-slide"><HomeRecommend :data="data.recommend"/></swiper-slide>
+        <swiper-slide class="home-slide"><HomeNearBy :data="data.nearanchor"/></swiper-slide>
+        <swiper-slide class="home-slide"><HomeTalents :data="data.talents"/></swiper-slide>
+        <swiper-slide class="home-slide"><HomeStar :data="data.newstars"/></swiper-slide>
       <div class="swiper-pagination home-swiper-pagination"  slot="pagination" ></div>
     </swiper>
   </div>
@@ -32,11 +32,10 @@
       return {
         swiperOption: {
           loop: false,
+          touchReleaseOnEdges:true,
           height: window.innerHeight,
           pagination: {
             el: '.home-swiper-pagination',
-            // type : 'custom',
-            // bulletElement : 'li', // 分页器的html
             clickable: true,  // 分页器点击
             renderBullet: function (index, className) {
               let text;
@@ -61,7 +60,13 @@
             },
             bulletClass : 'home-bullet',//需设置.my-bullet样式
             bulletActiveClass: 'home-bullet-active', //分页器内当前活动块的指示小点的类名。
-          }
+          },
+          on: {
+            slideChange: function () {
+            console.log(this.activeIndex);
+            document.scrollTop = 0;
+          },
+        },
         }
       }
     }
@@ -72,20 +77,16 @@
   .home-slide{
     margin-top: 0.5rem;
   }
-  .swiper-slide{
-    height:10px
-  }
-  .swiper-slide-active {
-    height:auto
-  }
+  .swiper-slide{height:1px} /* 随意指定一个height值即可 */
+  .swiper-slide-active { height:auto}
   .home-swiper-pagination{
       display: flex;
-      padding: 0.15rem 0.5rem 0.1rem;
+      padding: 0.15rem 0.5rem 0 0.5rem;
       box-sizing: border-box;
-      height: 0.62rem;
+      height: 0.45rem;
       justify-content: space-between;
       position: fixed;
-      top: 0rem;
+      top: 0;
       background: #fff;
       z-index: 1;
     .home-bullet{

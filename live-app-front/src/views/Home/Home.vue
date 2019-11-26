@@ -6,7 +6,7 @@
 </template>
 
 <script>
-import HomeApi from '../../apis/Home/home'
+  import homeInfo from '../../../public/mocks/Home/Home';
 import HomeTop from "../../components/Home/HomeTop";
 import Footer from "../../components/Commom/Footer";
 export default {
@@ -16,19 +16,10 @@ export default {
     HomeTop
   },
   data () {
-    return {
-      HomeInfo: null
+      return {
+        HomeInfo: homeInfo
+      }
     }
-  },
-  methods: {
-    async _initHomeDAta () {
-      this.HomeInfo = await HomeApi.getHomeInfo();
-      console.log(this.HomeInfo)
-    }
-  },
-  mounted () {
-    this._initHomeDAta()
-  }
 }
 </script>
 

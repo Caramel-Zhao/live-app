@@ -1,9 +1,9 @@
 <template>
   <PullRefresh v-model="isLoading" @refresh="onRefresh">
-    <HomeRecommendBanner></HomeRecommendBanner>
-    <HomeList :data="4"></HomeList>
+    <HomeRecommendBanner :data="data.banner"></HomeRecommendBanner>
+    <HomeList :data="data.specialrecommend"></HomeList>
     <HomeRecommendAdvertisement></HomeRecommendAdvertisement>
-    <HomeList :data="4"></HomeList>
+    <HomeList :data="data.generalrecommend"></HomeList>
   </PullRefresh>
 </template>
 
@@ -14,6 +14,7 @@
   import HomeList from "./HomeList";
   export default {
     name: "HomeRecommend",
+    props:["data"],
     components:{
      HomeList,
       HomeRecommendBanner,

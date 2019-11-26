@@ -12,16 +12,16 @@
                             <use xlink:href="#iconxingxing"></use>
                         </svg>
                         {{n.vipclass}}</i>
-                    <span><img src="../../assets/img/h8.png"></span>
+                    <span><img src="http://122.51.57.152:4000/images/h8.png"></span>
                 </div>
                 <div class="bottom">
-                    <img src="../../assets/img/h8.png">
+                    <img src="http://122.51.57.152:4000/images/h8.png">
                     <span>12</span>
                 </div>
             </div>
             <div class="right">
-                <img src="../../assets/img/h8.png" v-if="n.focus">
-                <img src="../../assets/img/2.jpg" v-else>
+                <img src="http://122.51.57.152:4000/images/h8.png" v-if="n.focus">
+                <img src="http://122.51.57.152:4000/images/2.jpg" v-else>
             </div>
         </div>
     </div>
