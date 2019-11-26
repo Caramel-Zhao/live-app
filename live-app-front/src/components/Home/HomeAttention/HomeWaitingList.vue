@@ -1,7 +1,12 @@
 <template>
       <swiper :options="swiperOption" ref="mySwiper" class="home-waiting-list">
       <swiper-slide :key="index" v-for="(item,index) in data" class="home-waiting-list-item">
-        <span><img class="bg" src="http://122.51.57.152:4000/images/bg-2.png" alt=""><img class="item-images" :src=item.userimage alt="已关注" ></span>
+        <a href="#">
+          <span>
+          <img class="bg" src="http://122.51.57.152:4000/images/bg-2.png" alt="">
+          <img class="item-images" :src=item.userimage alt="已关注" >
+        </span>
+        </a>
         <p>{{item.userid}}</p>
       </swiper-slide>
       </swiper>

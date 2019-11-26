@@ -1,43 +1,43 @@
 <template>
   <div class="footer">
-    <router-link tag="span"
-                 to="/home"><i class="footer-index"
-         :class="{'footer-index-active':$route.path === '/home'}"></i><span>首页</span></router-link>
-    <div class="live-img"
-         @click="show = true"><img src="http://122.51.57.152:4000/images/live.png"
-           alt=""></div>
-    <!--    <van-overlay class="home-overlay" :show="show"  @click="show = false">-->
-    <!--      <div class="wrapper" @click.stop="show = false">-->
-    <!--        <div class="block">-->
-    <!--          <p><img src="../../assets/HomeImg/renzhen.jpg" alt=""></p>-->
-    <!--          <p>开播前需要实名认证</p>-->
-    <!--          <p class="home-sure">-->
-    <!--            <router-link tag="span" @click="show = false">稍后</router-link>-->
-    <!--            <router-link class="home-go" tag="span" to="/user/real">立即认证</router-link>-->
-    <!--          </p>-->
-    <!--        </div>-->
-    <!--      </div>-->
-    <!--    </van-overlay>-->
-    <van-popup v-model="show"
-               position="bottom"
-               :style="{ height: '25%' }"
-               class="home-popup">
-      <router-link tag="p"
-                   to="/startLive">开始直播</router-link>
-      <p @click="show = false">
-        <svg class="icon"
-             aria-hidden="true">
-          <use xlink:href="#iconclose"></use>
+    <router-link tag="span" to="/home"><i class="footer-index" :class="{'footer-index-active':$route.path === '/home'}"></i><span>首页</span></router-link>
+    <div class="live-img" @click="show = true"><img src="http://122.51.57.152:4000/images/live.png" alt=""></div>
+    <van-popup v-if="HomeInfo.paper" v-model="show" position="bottom" :style="{ height: '20%' }" class="home-popup">
+      <router-link tag="p" to="/startLive" class="go-live">
+        <span>
+          <svg class="icon" aria-hidden="true">
+          <use xlink:href="#iconicon_kaishizhibo"></use>
         </svg>
+        </span>
+        <span>开始直播</span>
+      </router-link>
+      <p @click="show = false">
+        <span>
+           <svg class="icon" aria-hidden="true">
+          <use xlink:href="#iconyuangongchelianglika"></use>
+        </svg>
+        </span>
+        <span>下次吧</span>
       </p>
     </van-popup>
-    <router-link tag="span"
-                 to="/user"><i class="footer-user"
-         :class="{'footer-user-active':$route.path === '/user'}"></i><span>我的</span></router-link>
+    <van-overlay v-else class="home-overlay" :show="show"  @click="show = false">
+      <div class="wrapper" @click.stop="show = false">
+        <div class="block">
+          <p><img src="http://122.51.57.152:4000/images/renzhen.jpg" alt=""></p>
+          <p>开播前需要实名认证</p>
+          <p class="home-sure">
+            <span @click="show = false">稍后</span>
+            <router-link class="home-go" tag="span" to="/user/real">立即认证</router-link>
+          </p>
+        </div>
+      </div>
+    </van-overlay>
+    <router-link tag="span" to="/user"><i class="footer-user" :class="{'footer-user-active':$route.path === '/user'}"></i><span>我的</span></router-link>
   </div>
 </template>
 <script>
-import { Overlay, Popup, Icon } from 'vant';
+  import homeInfo from '../../../public/mocks/Home/Home';
+import { Overlay, Popup} from 'vant';
 export default {
   name: "YT-footer",
   components: {
@@ -46,7 +46,8 @@ export default {
   },
   data () {
     return {
-      show: false
+      show: false,
+      HomeInfo: homeInfo
     }
   }
 }
@@ -101,10 +102,10 @@ export default {
   }
   .live-img {
     display: inline-block;
-    width: 0.6rem;
-    height: 0.55rem;
+    width: 0.5rem;
+    height: 0.5rem;
     position: relative;
-    top: -0.2rem;
+    top: -0.15rem;
     border: 0.03rem solid #fff;
     border-radius: 50%;
     img {
@@ -141,13 +142,18 @@ export default {
   }
   .home-popup {
     display: flex;
-    flex-direction: column;
     justify-content: space-around;
-    p {
-      text-align: center;
-      .icon {
-        width: 0.25rem;
-        height: 0.25rem;
+    align-items: center;
+    .icon{
+      width:0.35rem;
+      height: 0.3rem;
+    }
+    p{
+      span{
+        display: block;
+        padding-bottom: 0.15rem;
+        font-size: 0.14rem;
+        color: #000;
       }
     }
   }

@@ -2,11 +2,11 @@
   <div class="home-item-list">
     <swiper :options="swiperOption" ref="mySwiper">
       <!-- slides -->
-        <swiper-slide class="home-slide"><HomeAttention :data="data.attentions"/></swiper-slide>
-        <swiper-slide class="home-slide"><HomeRecommend :data="data.recommend"/></swiper-slide>
-        <swiper-slide class="home-slide"><HomeNearBy :data="data.nearanchor"/></swiper-slide>
-        <swiper-slide class="home-slide"><HomeTalents :data="data.talents"/></swiper-slide>
-        <swiper-slide class="home-slide"><HomeStar :data="data.newstars"/></swiper-slide>
+        <swiper-slide class="home-slide"><HomeAttention class="home-slide-item" :data="data.attentions"/></swiper-slide>
+        <swiper-slide class="home-slide"><HomeRecommend class="home-slide-item" :data="data.recommend"/></swiper-slide>
+        <swiper-slide class="home-slide"><HomeNearBy class="home-slide-item" :data="data.nearanchor"/></swiper-slide>
+        <swiper-slide class="home-slide"><HomeTalents class="home-slide-item" :data="data.talents"/></swiper-slide>
+        <swiper-slide class="home-slide"><HomeStar class="home-slide-item" :data="data.newstars"/></swiper-slide>
       <div class="swiper-pagination home-swiper-pagination"  slot="pagination" ></div>
     </swiper>
   </div>
@@ -34,6 +34,7 @@
           loop: false,
           touchReleaseOnEdges:true,
           height: window.innerHeight,
+          freeModeSticky : true,
           pagination: {
             el: '.home-swiper-pagination',
             clickable: true,  // 分页器点击
@@ -60,13 +61,7 @@
             },
             bulletClass : 'home-bullet',//需设置.my-bullet样式
             bulletActiveClass: 'home-bullet-active', //分页器内当前活动块的指示小点的类名。
-          },
-          on: {
-            slideChange: function () {
-            console.log(this.activeIndex);
-            document.scrollTop = 0;
-          },
-        },
+          }
         }
       }
     }
@@ -76,6 +71,8 @@
 <style lang="scss" >
   .home-slide{
     margin-top: 0.5rem;
+    height:5.6rem!important;
+    overflow: auto;
   }
   .swiper-slide{height:1px} /* 随意指定一个height值即可 */
   .swiper-slide-active { height:auto}
