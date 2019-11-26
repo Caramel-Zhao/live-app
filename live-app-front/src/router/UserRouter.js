@@ -1,6 +1,6 @@
-export  default {
-  path:"/user",
-  component: ()=> import('../views/User'),
+export default {
+  path: "/user",
+  component: () => import('../views/User'),
   children: [
     {
       path: '',
@@ -10,30 +10,31 @@ export  default {
       path: "setting",
       component: () => import('../views/User/Setting')
     },
-    { path: "setter",
+    {
+      path: "setter",
       component: () => import('../components/User/Set/SetList/setter'),
-      children:[
+      children: [
         {
-          path:"changepassword",
-          component:() => import('../components/User/Set/SetList/SetItem/changepassword')
+          path: "changepassword",
+          component: () => import('../components/User/Set/SetList/SetItem/changepassword')
         },
         {
-          path:"opinion",
-          component:() => import('../components/User/Set/SetList/SetItem/opinion')
+          path: "opinion",
+          component: () => import('../components/User/Set/SetList/SetItem/opinion')
         },
         {
-          path:"ContactUS",
-          component:() => import('../components/User/Set/SetList/SetItem/ContactUS')
+          path: "ContactUS",
+          component: () => import('../components/User/Set/SetList/SetItem/ContactUS')
         },
         {
-          path:"agreement",
-          component:() => import('../components/User/Set/SetList/SetItem/agreement')
+          path: "agreement",
+          component: () => import('../components/User/Set/SetList/SetItem/agreement')
         },
         {
-          path:"privacy",
-          component:() => import('../components/User/Set/SetList/SetItem/privacy')
+          path: "privacy",
+          component: () => import('../components/User/Set/SetList/SetItem/privacy')
         }
-       ]
+      ]
     },
     {
       path: "fans",
@@ -46,20 +47,20 @@ export  default {
     {
       path: "data",
       component: () => import('../views/User/Data'),
-      children:[
+      children: [
         {
-          path:"",
-          component:() =>import('../components/User/data/DataPage')
+          path: "",
+          component: () => import('../components/User/data/DataPage')
         },
         {
           path: "name",
-          name:"name",
-          component: () =>import('../components/User/data/NamePage')
+          name: "name",
+          component: () => import('../components/User/data/NamePage')
         },
         {
           path: "autograph",
-          name:"autograph",
-          component: () =>import('../components/User/data/AutographPage')
+          name: "autograph",
+          component: () => import('../components/User/data/AutographPage')
         }
       ]
     },
@@ -78,9 +79,9 @@ export  default {
     {
       path: "earnings",
       component: () => import('../views/User/Earnings'),
-      children:[
+      children: [
         {
-          path:"",
+          path: "",
           component: () => import('../components/User/Earnings/EarningsHeader.vue')
         }
       ]
@@ -92,44 +93,44 @@ export  default {
     {
       path: "level",
       component: () => import('../views/User/Level'),
-      children:[
+      children: [
         {
-          path:"",
+          path: "",
           component: () => import('../components/User/Level/Level.vue'),
-          
+
         }
       ]
     },
     {
       path: "real",
       component: () => import('../views/User/Real'),
-      children:[
+      children: [
         {
-          path:"",
+          path: "",
           component: () => import('../components/User/Real/Real.vue'),
-          
+
         }
       ]
     },
     {
       path: "manager",
       component: () => import('../views/User/Manager'),
-      children:[
+      children: [
         {
-          path:"",
-          component:() => import('../components/User/Manager/ManagerPage')
+          path: "",
+          component: () => import('../components/User/Manager/ManagerPage')
         },
         {
-          path:"admin",
-          component:() => import('../components/User/Manager/Setadmin')
+          path: "admin",
+          component: () => import('../components/User/Manager/Setadmin')
         },
         {
-          path:"nosay",
-          component:() => import('../components/User/Manager/Nosay')
+          path: "nosay",
+          component: () => import('../components/User/Manager/Nosay')
         },
         {
-          path:"black",
-          component:() => import('../components/User/Manager/Blacklist')
+          path: "black",
+          component: () => import('../components/User/Manager/Blacklist')
         }
       ]
     },

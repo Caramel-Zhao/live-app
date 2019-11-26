@@ -9,7 +9,6 @@
     <div class="popups">
         <button @click="ff" class="btn">详细内容</button>
         <van-action-sheet v-model="show" title="特权详细介绍" v-if="show">
-        
             <p>红V--开通金额:100元,同时获得500万金币,永久获得</p>
             <p>紫V--开通金额:300元,同时获得2000万金币,永久获得</p>
             <p>银冠--开通金额:3000元,同时获得3亿金币,时间:30天</p>

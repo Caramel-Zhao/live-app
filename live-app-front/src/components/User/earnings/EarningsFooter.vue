@@ -1,15 +1,15 @@
 <template>
   <div class="footer">
     <van-action-sheet v-model="show" title="兑换金币" v-if="show">
-        <div class="money">
+        <div class="money" v-for="(o,i) in data.earnings.conversion" :key="i">
             <div>
                 <svg class="money-s" aria-hidden="true">
                     <use xlink:href="#iconjinbi1"></use>
                 </svg>
             </div>
             <div>
-                <p>使用 <span class="wan">10000</span> 积分</p>
-                <p>兑换 <span class="qian">80000</span> 金币</p>
+                <p>使用 <span class="wan">{{o.integral}}</span> 积分</p>
+                <p>兑换 <span class="qian">{{o.gold}}</span> 金币</p>
             </div>
             <div>
                 兑换金币
@@ -38,6 +38,7 @@
 
 <script>
 import { ActionSheet } from 'vant';
+import {mapGetters} from "vuex"
 export default {
     name:"EarningsFooter",
     components:{
@@ -56,6 +57,14 @@ export default {
             show:false,
             shower:false
         }
+    },
+    computed: {
+		...mapGetters({
+			data: 'GETDATA',
+		})
+	},
+    beforeMount(){
+        this.$store.dispatch('INITDATA')  //给仓库触发事件
     }
 }
 </script>
@@ -63,8 +72,9 @@ export default {
 <style lang="scss" scoped>
     .footer{
         width: 100vw;
-        height: 2rem;
+        height: 1.2rem;
         margin-top: 0.45rem;
+        margin-top: 1rem;
     }
     .van-popup--bottom.van-popup--round{
         height:3rem;
@@ -75,11 +85,15 @@ export default {
         border: none;
         outline: none;
         background-color: #0FE3ED;
+        padding-left: 1rem;
+        padding-right: 0.8rem;
         border-radius: 0.35rem;
         margin-left: 0.2rem;
         font-size: 0.18rem;
         color: white;
-        margin-top: 0.3rem;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
     }
     .btnn{
         width: 3.35rem;
@@ -89,23 +103,22 @@ export default {
         color: white;
         outline: none;
         background-color: #FBA33F;
+        padding-left: 0.9rem;
+        padding-right: 0.9rem;
         border-radius: 0.35rem;
         margin-left: 0.2rem;
-        margin-top: 0.3rem;
+        margin-top: 0.2rem;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
     }
     .righter{
         width: 0.3rem;
         height: 0.3rem;
-        position: absolute;
-        bottom: 1.31rem;
-        left: 1.1rem;
     }
     .righterr{
         width: 0.3rem;
         height: 0.3rem;
-        position: absolute;
-        bottom: 0.5rem;
-        left: 1.1rem;
     }
     .money{
         width: 3.35rem;

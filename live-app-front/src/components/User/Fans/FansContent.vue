@@ -1,24 +1,33 @@
 <template>
-    <div class="focus-top">
-        <span class="su">Su丶SuSu</span>
+    <div class="focus-top" v-if="data.fans">
+        <span class="su">{{data.fans.FansContent.user}}</span>
         <svg class="iconer" aria-hidden="true">
             <use xlink:href="#iconnan"></use>
         </svg>
         <svg class="icon" aria-hidden="true">
             <use xlink:href="#iconbaiyin"></use>
         </svg>
-        <p class="su-id">ID 4197551</p>
-        <p class="signature">一个伟大的签名正在酝酿中</p>
+        <p class="su-id">{{data.fans.FansContent.userid}}</p>
+        <p class="signature">{{data.fans.FansContent.autograph}}</p>
         <span class="meg">关注</span>
-        <em class="meg-i">0</em>
+        <em class="meg-i">{{data.fans.FansContent.attention}}</em>
         <span class="fan">粉丝</span>
-        <em class="fan-i">0</em>
+        <em class="fan-i">{{data.fans.FansContent.fan}}</em>
     </div>
 </template>
 
 <script>
+import {mapGetters} from "vuex"
 export default {
-    name:"FansContent"
+    name:"FansContent",
+    computed: {
+		...mapGetters({
+			data: 'GETDATA',
+		})
+	},
+    beforeMount(){
+        this.$store.dispatch('INITDATA')  //给仓库触发事件
+    }
 }
 </script>
 
