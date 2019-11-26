@@ -9,7 +9,7 @@
                 <swiper-slide class="slide">
                     <div class="header">
                         <div class="infor">
-                            <div>
+                            <div @click="usershow=true">
                                 <img :src="data.anchorid.userimage">
                             </div>
                             <div>
@@ -97,28 +97,11 @@
                     </div>
                 </swiper-slide>
         </swiper>
-<!--        观众列表-->
+        <!--        观众列表-->
         <van-action-sheet v-model="show" title="观众列表" class="sharevant">
-            <div class="content">
-                <a v-for="(n,i) in data.audiences">
-                    <div>
-                        <img :src="n.userimage">
-                    </div>
-                    <div>
-                        <p>{{n.userid}}
-                            <i>
-                                <svg class="icon" aria-hidden="true">
-                                   <use xlink:href="#iconxingxing"></use>
-                               </svg>
-                                 12
-                            </i>
-                        </p>
-                        <span>ID:{{n.id}}</span>
-                    </div>
-                </a>
-            </div>
+           <ShareVant :data="data.audiences"/>
         </van-action-sheet>
-<!--        礼物列表-->
+        <!--        礼物列表-->
         <van-popup v-model="giftshow" position="bottom"  :overlay-style="{background:'transparent'}" class="giftvant" :round="true">
             <div class="giftstyle">
                 <div class="gift-top">
@@ -152,7 +135,7 @@
                             </router-link>
                         </div>
                     </div>
-        <!--                    礼物-->
+                    <!--                    礼物-->
                     <Gift :data="data.user.gifts" v-if="data.user" @gift="receivegift"></Gift>
                     <div class="togift">
                         <p>充值：0
@@ -172,9 +155,13 @@
                     </div>
                 </div>
                 <div v-else class="right">
-                   <Gift></Gift>
+                    <Gift></Gift>
                 </div>
             </div>
+        </van-popup>
+        <!--            主播详情-->
+        <van-popup  v-model="usershow" class="uservant" position="bottom">
+          <UserVant :data="data.anchorid"/>
         </van-popup>
         </div>
 </template>
@@ -185,6 +172,8 @@
     import { Popup } from 'vant';
     import { Dialog } from 'vant';
     import Gift from "../../components/live/Gift";
+    import UserVant from "../../components/live/UserVant";
+    import ShareVant from "../../components/live/ShareVant";
     export default {
         name: "Live",
         data() {
@@ -195,8 +184,9 @@
                 data:null,
                 flagbottom:true,
                 show:false,
-                giftshow:false,
                 flag:true,
+                usershow:false,
+                giftshow:false,
                 swiperOption: {
                     noSwiping : true,
                     noSwipingSelector: '.user',
@@ -214,19 +204,19 @@
             this.data=a
             console.log(this.data)
         },
-
         computed: {
             swiper() {
                 return this.$refs.mySwiper.swiper
             }
         },
         components:{
-            Gift,
             [NoticeBar.name]:NoticeBar,
             [ActionSheet.name]:ActionSheet,
             [Popup.name]:Popup,
             [Dialog.Component.name]: Dialog.Component,
-            [Gift.name]:Gift
+            [Gift.name]:Gift,
+            [UserVant.name]:UserVant,
+            [ShareVant.name]:ShareVant,
         },
         methods:{
             receivegift(a){
@@ -516,57 +506,6 @@
            }
         }
     }
-    .sharevant {
-        .content{
-            height:3rem ;
-            overflow-y: scroll;
-            &::-webkit-scrollbar{
-                display:none;
-            }
-        }
-        a {
-            display: flex;
-            align-items: center;
-            height: .6rem;
-            border-bottom: .01rem solid #d9d3d3;
-           div:first-child{
-               img{
-                   width: .4rem;
-                   height: .4rem;
-                   margin-left: .1rem;
-                   border-radius: 50%;
-               }
-           }
-            div:last-child{
-                margin-left: .2rem;
-                p{
-                    font-size: .14rem;
-                    display: flex;
-                    align-items: center;
-                    height: .2rem;
-                    i{
-                        display: flex;
-                        padding:0 .05rem;
-                        margin-left: .1rem;
-                        align-items: center;
-                        justify-content: center;
-                        background: linear-gradient(to right,#48f5f3,#03ceca);
-                        border-radius: .1rem;
-                        color: white;
-                        font-size: .12rem;
-                        svg{
-                            width: .15rem;
-                            height: .15rem;
-                        }
-                    }
-                }
-               span{
-                  font-size: .16rem;
-               }
-            }
-        }
-    }
-
     .giftvant{
         background-color: rgba(#000, .3);
         .giftstyle {
@@ -617,7 +556,7 @@
                         color: yellowgreen;
                         margin-left: .1rem;
                     }
-                   .openvip{
+                    .openvip{
                         margin-left: .35rem;
                         color: white;
                         display: flex;
@@ -667,9 +606,9 @@
                 flex-wrap: wrap;
 
                 a{
-                 width: 25%;
-                 height: .8rem;
-                  text-align: center;
+                    width: 25%;
+                    height: .8rem;
+                    text-align: center;
                     img{
                         width: .4rem;
                         height: .4rem;
