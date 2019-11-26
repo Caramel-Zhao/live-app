@@ -1,9 +1,9 @@
 <template>
 	<div class="Ra-pages">
 		<div v-if="data">
-			<img :src="data[0].userimage" >
-			<img :src="data[1].userimage" >
-			<img :src="data[2].userimage" >
+			<img :src="data[0].userimage" @click="goDetail">
+			<img :src="data[1].userimage" @click="goDetail">
+			<img :src="data[2].userimage" @click="goDetail">
 			<svg class="icon" aria-hidden="true">
 			  <use xlink:href="#iconhuangguan" ></use>
 			</svg>
@@ -22,7 +22,7 @@
 			</div>
 		</div>
 		<div class="list">
-			<div v-for="(n,index) in data.slice(3,data.length)">
+			<div v-for="(n,index) in data.slice(3,data.length)" @click="goDetail">
 				<h3>
 					<p>{{index+4}}</p>
 					<img :src="n.userimage">
@@ -40,8 +40,10 @@
   export default {
     name: 'Star',
 	props: ['data'],
-	beforeMount(){
-		console.log(this.data)
+	methods:{
+		goDetail(){
+			this.$router.push("/user/fans");
+		}
 	}
   }
 </script>
@@ -134,11 +136,11 @@
 					left: 1.3rem;
 				}
 				&:nth-of-type(2){
-					top: 0.45rem;
+					top: 0.35rem;
 					left: 0.06rem;
 				}
 				&:nth-of-type(3){
-					top: 0.05rem;
+					top: -0.1rem;
 					left: 2.65rem;
 				}
 			}
@@ -148,8 +150,9 @@
 		span{
 			display: inline-block;
 			width: 0.32rem;
-			height: 0.1rem;
-			background-color: aqua;
+			height: 0.17rem;
+			background:url(http://122.51.57.152:4000/images/vip.png) no-repeat;
+			background-size: 0.14rem;
 			margin-left: 0.05rem;
 		}
 		h1{
@@ -187,6 +190,7 @@
 				}
 				h2{
 					color: #959593;
+					font-size: 0.13rem;
 				}
 			}
 		}
