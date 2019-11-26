@@ -1,16 +1,23 @@
 <template>
-    <div class="portrait">
+    <div class="portrait" @click.stop="uploadHeadImg">
         <div class="portrait-title">头像</div>
         <div class="portrait-pic">
             <img :src=data alt="">
         </div>
+        <input type="file" @change="change" class="hiddenInput"/>
     </div>
 </template>
 
 <script>
     export default {
         name: "HeadPortrait",
-        props:["data"]
+        props:["data","change"],
+        methods: {
+            // 打开图片上传
+            uploadHeadImg: function () {
+                this.$el.querySelector('.hiddenInput').click()
+            }
+        }
     }
 </script>
 
@@ -43,5 +50,9 @@
     .portrait-pic img{
         width: 60%;
         height: 60%;
+        border-radius:50%;
+    }
+    .hiddenInput{
+        display: none;
     }
 </style>

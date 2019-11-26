@@ -9,6 +9,7 @@
     import DataHeader from "./DataHeader";
     export default {
         name: "NamePage",
+        props:["userid"],
         components: {
             DataHeader
         },

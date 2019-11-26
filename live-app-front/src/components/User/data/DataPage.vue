@@ -1,7 +1,7 @@
 <template>
     <div class="box">
         <DataHeader :data="title.user"/>
-        <HeadPortrait :data="dataInfo.userimage"/>
+        <HeadPortrait :data="dataInfo.userimage" :change="handleFile"/>
         <Name :userid="dataInfo.userid" :data="title.name"/>
         <Gender :data="dataInfo.sex" />
         <Birthday :birData="birData" :data="dataInfo.birth" :change="handleToGetValue" :click="getValue" :showPopup="showPopup" :Del="Del" />
@@ -48,7 +48,7 @@
                     birth: "1998-0-0"
                 },
                 dataInfo: {
-                    userimage:"../../assets/User/user_data_pic.03124231.png",
+                    userimage:"/assets/xue/user_data_pic.png",
                     userid:"哈哈小蛋蛋",
                     sex:"男",
                     birth:"2019-11-20",
@@ -70,7 +70,18 @@
             },
             Del() {
                 this.birData.show = false;
-            }
+            },
+            // 将头像显示
+            handleFile: function (e) {
+                let $target = e.target
+                let file = $target.files[0]
+                var reader = new FileReader()
+                reader.onload = (data) => {
+                    let res = data.target
+                    this.dataInfo.userimage = res.result
+                }
+                reader.readAsDataURL(file)
+            },
         }
     }
 </script>
