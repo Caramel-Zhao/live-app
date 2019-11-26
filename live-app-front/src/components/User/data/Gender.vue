@@ -38,7 +38,7 @@
 <!--                        </div>-->
 <!--                    </div>-->
                     <van-radio-group v-model="radio">
-                        <van-radio name="1">
+                        <van-radio name="1" >
                             男
                             <img
                                     slot="icon"
@@ -46,7 +46,7 @@
                                     :src="props.checked ? activeIcon : inactiveIcon"
                             >
                         </van-radio>
-                        <van-radio name="2">
+                        <van-radio name="2" >
                             女
                             <img
                                     slot="icon"

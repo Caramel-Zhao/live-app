@@ -88,7 +88,7 @@
 
           },
           bindphone(){
-              if(this.inputcode=this.code){
+              if(this.inputcode==this.code){
                   let url="http://157.122.54.189:9093/api/getprodlist"
                   fetch(url,{
                       body:"telephone="+this.phone+"&code="+this.code
@@ -154,8 +154,9 @@
                  border-left:none;
                  flex: 1;
                  border-radius: 0 .3rem .3rem 0 ;
+                 display: flex;
+                 align-items: center;
                  input{
-                     margin-top: .07rem;
                      font-size: .18rem;
                      width: 2.6rem;
                      border: none;
@@ -185,8 +186,10 @@
              div:nth-child(2){
                  border: .02rem solid #d8bf89;
                  border-left:none;
+                 display: flex;
+                 align-items: center;
                  input{
-                     margin-top: .07rem;
+                     /*margin-top: .03rem;*/
                      font-size: .18rem;
                      width: 1.4rem;
                      border: none;
@@ -201,7 +204,9 @@
                  border-left:none;
                  flex: 1;
                  font-size: .16rem;
-                 line-height: .35rem;
+                display: flex;
+                 align-items: center;
+                 justify-content: center;
                  box-sizing: border-box;
                  text-align: center;
                  border-radius: 0 .3rem .3rem 0 ;
