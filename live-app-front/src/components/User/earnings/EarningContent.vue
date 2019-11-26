@@ -1,15 +1,24 @@
 <template>
     <div class="content">
-        <div class="content-s">
+        <div class="content-s" v-if="data.earnings">
             <p class="integral">剩余积分</p>
-            <span class="zeroo">0</span>
+            <span class="zeroo">{{data.earnings.earn.integral}}</span>
         </div>
     </div>
 </template>
 
 <script>
+import {mapGetters} from "vuex"
 export default {
-    name:"EarningContent"
+    name:"EarningContent",
+    computed: {
+		...mapGetters({
+			data: 'GETDATA',
+		})
+	},
+    beforeMount(){
+        this.$store.dispatch('INITDATA')  //给仓库触发事件
+    }
 }
 </script>
 

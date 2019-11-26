@@ -1,13 +1,13 @@
 <template>
-    <van-tabs class="van"  color="aqua" swipeable>
+    <van-tabs class="van"  color="aqua" swipeable  v-if="data.fans">
         <van-tab title="关注">
-            <div class="lister-one">
+            <div class="lister-one" v-for="(u,i) in data.fans.FansFooter.attention" :key="i"> 
                 <div>
-                    <img src="../../../assets/img/111.png" alt="">
+                    <img :src=u.userimage alt="">
                 </div>
                 <div>
-                    <p>一元钱</p>
-                    <p>一个伟大的签名正在酝酿中</p>
+                    <p>{{u.user}}</p>
+                    <p>{{u.autograph}}</p>
                 </div>
                 <div>
                     <svg class="righter" aria-hidden="true">
@@ -17,13 +17,13 @@
             </div>
         </van-tab>
         <van-tab title="粉丝">
-            <div class="lister-one">
+            <div class="lister-one" v-for="(a,i) in data.fans.FansFooter.Fans" :key="i">
                 <div>
-                    <img src="../../../assets/img/111.png" alt="">
+                    <img :src=a.userimage alt="">
                 </div>
                 <div>
-                    <p>五角钱</p>
-                    <p>一个伟大的签名正在酝酿中</p>
+                    <p>{{a.user}}</p>
+                    <p>{{a.autograph}}</p>
                 </div>
                 <div>
                     <svg class="righter" aria-hidden="true">
@@ -37,6 +37,7 @@
 
 <script>
 import { Tab, Tabs } from 'vant';
+import {mapGetters} from "vuex"
 export default {
     name:"FansFooter",
     components: {
@@ -47,6 +48,14 @@ export default {
         return {
             swipeable:"true"
         }
+    },
+    computed: {
+		...mapGetters({
+			data: 'GETDATA',
+		})
+	},
+    beforeMount(){
+        this.$store.dispatch('INITDATA')  //给仓库触发事件
     }
 }
 </script>
@@ -66,16 +75,16 @@ export default {
         display: flex;
     }
     .lister-one div:nth-child(1){
-        width: 0.6rem;
-        height: 0.6rem;
+        width: 0.8rem;
+        height: 0.8rem;
         border-radius: 50%;
         text-align: center;
-        margin-top: 0.1rem;
         margin-left: 0.1rem;
+        font-size: 0;
     }
     .lister-one div:nth-child(1) img{
-        width:100%;
-        
+        width:0.8rem;
+        height:0.8rem;
     }
     .lister-one div:nth-child(2){
         width: 2.5rem;

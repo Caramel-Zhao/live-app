@@ -81,7 +81,7 @@ export  default {
       children:[
         {
           path:"",
-          component: () => import('../components/User/Earnings/EarningsHeader.vue')
+          component: () => import('../components/User/earnings/EarningsHeader.vue')
         }
       ]
     },

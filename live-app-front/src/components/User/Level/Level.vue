@@ -53,7 +53,7 @@ export default {
 
 <style lang="scss" scoped>
     .cover{
-        width: 100%;
+        width: 100vw;
         height: 100vh;
         background-image: url("../../../assets/User/Earnings_backgroundImg.jpg");
         background-size: 100% 100%;

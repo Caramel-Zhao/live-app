@@ -21,7 +21,7 @@ import FansFooter from "../../components/User/Fans/FansFooter"
     data(){
       return {
         header:{
-          pic:"/assets/HomeImg/112.jpg"
+          pic:"/assets/Jin/su.jpg"
         }
       }
     }

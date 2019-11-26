@@ -5,8 +5,7 @@
     color="#D8B186" 
     title-inactive-color="#FFFFFF"
     title-active-color="#D8B186"
-    swipeable
-    >
+    swipeable>
     <van-tab title="红V">
         <svg class="icon" aria-hidden="true">
             <use xlink:href="#iconvip1-copy"></use>
@@ -404,10 +403,9 @@ export default {
     .content{
         width: 100%;
         height: 5.8rem;
-        //  background-color: red;
-          background: url(../../../../public/assets/xue/bei.png);
-          background-repeat: no-repeat;
-          background-size: contain;
+        background: url(../../../../public/assets/xue/bei.png);
+        background-repeat: no-repeat;
+        background-size: contain;
         svg{
             width: 1.5rem;
             height: 1.5rem;
@@ -427,8 +425,6 @@ export default {
             div{
                 width: 1.235rem;
                 height: 1.2rem;
-                // background-color: #C6B493;
-                // margin-top: 0.05rem;
                 svg{
                 width: 0.5rem;
                 height: 0.5rem;
