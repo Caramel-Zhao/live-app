@@ -1,11 +1,11 @@
 <template>
     <div class="details">
-        <img :src=data alt="">
-        <router-link :to="'/user'">
+        <img :src=data.userimage alt="">
+        <a @click="$router.back(-1)">
         <svg class="lv" aria-hidden="true">
             <use xlink:href="#iconarrow-left"></use>
         </svg>
-        </router-link>
+        </a>
         <div class="ranking">
             <svg class="lvv" aria-hidden="true">
                 <use xlink:href="#iconaixin"></use>
@@ -19,10 +19,19 @@
 </template>
 
 <script>
+import {mapGetters} from "vuex"
 export default {
     name:"FansHeader",
-    props:["data"]
+    computed: {
+		...mapGetters({
+			data: 'GETDATA',
+		})
+	},
+    beforeMount(){
+        this.$store.dispatch('INITDATA')  //给仓库触发事件
+    }
 }
+
 </script>
 
 <style lang="scss" scoped>
@@ -30,7 +39,8 @@ export default {
         width: 100%;
         height: 2.25rem;
         img{
-            width: 100%;
+            width: 3.75rem;
+            height: 2.25rem;
         }
     }
     .lv{
