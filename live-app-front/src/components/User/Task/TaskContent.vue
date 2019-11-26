@@ -23,7 +23,7 @@
                         </div>
                         <div>
                             <img src="../../../../public/assets/xue/er.png" alt="">
-                            <p>面对面扫码</p>
+                            <p>扫码</p>
                         </div>
                     </div>
                 </div>
@@ -109,10 +109,12 @@ export default {
         width: 3rem;
         height: 1.5rem;
         background-color: white;
+        border-radius: 0.151rem;
         p{
-            font-size: 0.16rem;
-            margin-left: 0.05rem;
-            margin-top: 0.05rem;
+            font-size: 0.18rem;
+            font-weight: bold;
+            margin-left: 0.1rem;
+            margin-top: 0.1rem;
         }
         .popup{
             display: flex;
@@ -122,13 +124,14 @@ export default {
                 height: 1.5rem;
                 margin-top: 0.05rem;
                 img{
-                    width: 0.7rem;
-                    height: 0.7rem;
-                    margin-left: 0.15rem;
+                    width: 0.5rem;
+                    height: 0.5rem;
+                    margin-left: 0.2rem;
+                    margin-top: 0.1rem;
                 }
                 p{
                     font-size: 0.14rem;
-                    text-align: center;
+                    margin-left: 0.3rem;
                 }
             }
         }
@@ -148,6 +151,7 @@ export default {
     .contents{
         p{
             font-size: 0.13rem;
+            padding: 0.02rem;
         }
     }
 </style>

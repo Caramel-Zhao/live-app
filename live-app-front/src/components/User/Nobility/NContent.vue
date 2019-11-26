@@ -1,6 +1,6 @@
 <template>
 
-    <div class="content">
+    <div class="content" >
     <van-tabs background="rgba(0,0,0,0)" 
     color="#D8B186" 
     title-inactive-color="#FFFFFF"
@@ -452,5 +452,8 @@ export default {
         .borders-bottom{
             border-bottom: 0.01rem solid #CDCDCD;
         }
+    }
+    .aaa{
+        border: none;
     }
 </style>

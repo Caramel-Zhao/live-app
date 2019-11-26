@@ -51,10 +51,8 @@ export default {
     "User-Service": Service,
     "User-footer":Footer
   },
-  methods: {
-    goHome () {
-      this.$router.push("Home")
-    }
+  Mounted(){
+    console.log(this.userinfo);
   }
 }
 </script>

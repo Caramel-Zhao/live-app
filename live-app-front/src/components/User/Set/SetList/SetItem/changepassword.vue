@@ -9,19 +9,89 @@
       <h3>修改密码</h3>
     </div>
     <div class="set-content">
-      <input type="password" placeholder="请输入原密码" class="inp">
-      <input type="password" placeholder="请输入新原密码" class="inp">
-      <input type="text" placeholder="请输入手机号" class="inp">
-      <input type="text" placeholder="输入验证码" class="verification">
-      <button class="btn-verification">发送验证码</button>
-      <button class="btn">确认修改</button>
+      <input :type="show?'password':'text'" placeholder="请输入新密码" class="inp" v-model="pass"  @blur="gitpass" @change="gitbtns">
+      <div @click="open">
+        <img src="../../../../../../public/assets/xue/p2.png" v-if="show">
+        <img src="../../../../../../public/assets/xue/p1.png" v-else>
+      </div> 
+      <input type="text" placeholder="请输入手机号" class="inp" v-model="phone" @change="chameleon"> 
+      <input type="text" placeholder="输入验证码" class="verification" v-model="yanzhenma">
+      <div :class="chameleons?'btn-verification1':'btn-verification'" @click="catchTime" v-show="timimg">获取验证码</div>
+      <div class="catchTime  Time" v-show="timimg==false">{{times}}s后重发</div>
+      <button :class="gitbtn?'btn1':'btn'" @click="sub">确认修改</button>
     </div>
   </div>
 </template>
 
 <script>
+import { Toast } from 'vant';
 export default {
-  name:"changepassword"
+  name:"changepassword",
+  data(){
+    return{
+      show:true,
+      yanzhenma:"",
+      pass:"",
+      pass1:false,
+      times:60,
+      timimg:true,
+      phones:false,
+      phone:"",
+      chameleons:false,
+      gitbtn:false  
+    }
+  },
+  methods:{
+    open(){
+      this.show =! this.show
+    },
+    back(){
+      this.times=60;
+      this.timimg=true;
+    },
+      //获取验证码倒计时
+    time(){
+      let   timer=setInterval(()=> {
+        this.times--;
+        if(this.times<0){
+          clearInterval(timer)
+          this.times=60;
+          this.timimg=true;
+        }
+      },1000);
+    },
+    catchTime(){ //获取验证码
+      let phoneReg = /^[1][3,4,5,7,8,9][0-9]{9}$/;
+      if(phoneReg.test(this.phone)){
+        this.phones = true;
+        this.timimg=false
+        this.time()
+      }else{
+        Toast("错误")
+      }
+    },
+    gitpass(){ //密码验证
+      let mmpass = /^(?![0-9]+$)(?![a-z]+$)(?![A-Z]+$)(?!([^(0-9a-zA-Z)])+$).{6,12}$/ 
+      if(mmpass.test(this.pass)){
+        this.pass1 = true
+      }else{
+        Toast("错误")
+      }
+    },
+    sub(){
+       if(this.pass1==true && this.phones==true){
+         alert("修改成功")
+       }else{
+         alert("失败")
+       }
+    },
+    chameleon(){
+      this.chameleons=true;
+    },
+    gitbtns(){
+      this.gitbtn=true;
+    } 
+  }
 }
 </script>
 
@@ -47,6 +117,7 @@ export default {
     }
     .set-content{
       margin-top: 0.4rem;
+      position: relative;
       .inp{
         display:block;
         width: 2.8rem;
@@ -78,6 +149,22 @@ export default {
          border: none;
          color: white;
          background-color: #959595;
+         display: inline-block;
+         text-align: center;
+         line-height: 0.35rem;
+      }
+      .btn-verification1{
+         outline: none;
+         width: 1rem;
+         height: 0.35rem;
+         border-radius: 0.5rem;
+         margin-left: 0.1rem;
+         border: none;
+         color: white;
+         background-color: #0CCECE;
+         display: inline-block;
+         text-align: center;
+         line-height: 0.35rem;
       }
       .btn{
         border-radius: 0.5rem;
@@ -93,5 +180,38 @@ export default {
         font-size: 0.16rem;
         outline: none;
       }
+      .btn1{
+        border-radius: 0.5rem;
+        display:block;
+        width: 2.8rem;
+        height: 0.35rem;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 0.2rem;
+        border: none;
+        color: white;
+        background-color: #0CCECE;
+        font-size: 0.16rem;
+        outline: none;
+      }
+      img{
+        width: 0.3rem;
+        height: 0.3rem;
+        position:absolute;
+        top: 0.05rem;
+        left: 2.8rem;
+      }
+      .img2{
+        width: 0.3rem;
+        height: 0.3rem;
+        position:absolute;
+        top: 0.55rem;
+        left: 2.8rem;
+      }
+    }
+    .catchTime{
+       display: inline-block;
+       margin-left: 0.1rem;
+       color: #0CCECE;
     }
 </style>
