@@ -3,7 +3,6 @@
       <van-datetime-picker
         v-model="currentDate"
         type="date"
-        :min-date="minDate"
         />
         <p>请选择时间</p>
   </div>

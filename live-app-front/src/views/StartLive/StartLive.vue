@@ -1,45 +1,47 @@
 <template>
-    <div class="start-live">
-      <div class="start-item">
-        <p class="start-live-back">
-          <span @click="goBack">
-            <svg class="icon" aria-hidden="true">
-              <use xlink:href="#iconfanhuitubiao"></use>
-            </svg>
-          </span>
-          <span>
-             <svg class="icon icon1" aria-hidden="true">
-              <use xlink:href="#iconzhuanhuanshexiangtou-copy-copy"></use>
-            </svg>
-          </span>
-        </p>
-        <div class="start-live-title">
-          <p>输入悄悄话,进入房间</p>
-          <input type="text">
-        </div>
-        <router-link :to="'/live'">
-          <span class="start-button">开启视频直播</span>
-        </router-link>
+  <div class="start-live">
+    <div class="start-item">
+      <p class="start-live-back">
+        <span @click="goBack">
+          <svg class="icon"
+               aria-hidden="true">
+            <use xlink:href="#iconfanhuitubiao"></use>
+          </svg>
+        </span>
+        <span>
+          <svg class="icon icon1"
+               aria-hidden="true">
+            <use xlink:href="#iconzhuanhuanshexiangtou-copy-copy"></use>
+          </svg>
+        </span>
+      </p>
+      <div class="start-live-title">
+        <p>输入悄悄话,进入房间</p>
+        <input type="text">
       </div>
+      <router-link tag="span"
+                   to="/live"
+                   class="start-button">开启视频直播</router-link>
     </div>
+  </div>
 </template>
 
 <script>
-  export default {
-    name: "StartLive",
-    methods:{
-      goBack(){
-        this.$router.go(-1)
-      }
+export default {
+  name: "StartLive",
+  methods: {
+    goBack () {
+      this.$router.go(-1)
     }
   }
+}
 </script>
 
 <style lang="scss" scoped>
-.start-live{
+.start-live {
   margin: 0 auto;
-  .start-item{
-    .start-button{
+  .start-item {
+    .start-button {
       position: fixed;
       bottom: 0.8rem;
       left: 0.4rem;
@@ -49,18 +51,18 @@
       border-radius: 0.5rem;
       font-size: 0.16rem;
     }
-    .start-live-title{
+    .start-live-title {
       text-align: center;
       box-sizing: border-box;
       position: absolute;
       top: 1.2rem;
       left: 0.2rem;
       padding: 0.4rem 0 0.6rem;
-      background:rgba(2, 0, 0, 0.04);
+      background: rgba(2, 0, 0, 0.04);
       border-radius: 0.15rem;
       width: 90%;
       font-size: 0.16rem;
-      input{
+      input {
         border: none;
         background: transparent;
         border-bottom: 0.001rem solid #fff;
@@ -70,22 +72,20 @@
         text-align: center;
       }
     }
-    .start-live-back{
+    .start-live-back {
       padding: 0.1rem 0.2rem;
       display: flex;
       justify-content: space-between;
-      .icon{
+      .icon {
         width: 0.25rem;
         height: 0.25rem;
         fill: #ccc;
       }
-      .icon1{
+      .icon1 {
         width: 0.35rem;
         height: 0.35rem;
       }
     }
-
   }
-
 }
 </style>

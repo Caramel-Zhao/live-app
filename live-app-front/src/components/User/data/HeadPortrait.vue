@@ -1,8 +1,8 @@
 <template>
-    <div class="portrait">
-        <div class="portrait-title">头像</div>
+    <div class="portrait" >
+        <div class="portrait-title" >头像</div>
         <div class="portrait-pic">
-            <img :src=data alt="">
+            <img src="http://122.51.57.152:4000/images/user_data_pic.png" alt="">
         </div>
     </div>
 </template>
@@ -10,7 +10,7 @@
 <script>
     export default {
         name: "HeadPortrait",
-        props:["data"]
+        props:["data"],
     }
 </script>
 
