@@ -19,9 +19,6 @@
 		pages
 	},
 	props: ['data'],
-	beforeMount(){
-		console.log(this.data)
-	},
     data() {
       return {
         swiperOption1: {
@@ -53,7 +50,7 @@
 .Ra-SmallRank{
   overflow-x: hidden;
   width: 100vw;
-
+  background: url(http://122.51.57.152:4000/images/bg.jpg);
 	.swiper-pagination1{
 		display: flex;
 		padding: 0.05rem 0.15rem;
@@ -69,7 +66,9 @@
 		.my-bullet1{
 			font-size: 0.13rem;
 			color: #f8f8f8;
-			padding:0.075rem 0rem 0rem 0.15rem;
+			padding-left:0.15rem;
+			display: flex;
+			align-items: center;
 			outline: none;
 			letter-spacing: 0.15rem;
 		}

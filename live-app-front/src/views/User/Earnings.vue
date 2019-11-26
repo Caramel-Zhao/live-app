@@ -8,10 +8,10 @@
 </template>
 
 <script>
-    import header from "../../components/User/Earnings/EarningsHeader"
-    import content from "../../components/User/Earnings/EarningContent"
-    import next from "../../components/User/Earnings/EarningsNext"
-    import footer from "../../components/User/Earnings/EarningsFooter"
+    import header from "../../components/User/earnings/EarningsHeader"
+    import content from "../../components/User/earnings/EarningContent"
+    import next from "../../components/User/earnings/EarningsNext"
+    import footer from "../../components/User/earnings/EarningsFooter"
   export default {
     name: "Earnings",
     components:{

@@ -76,6 +76,8 @@
 <style lang="scss" >
   .home-slide{
     margin-top: 0.5rem;
+		height: 5.65rem !important;
+		overflow: auto;
   }
   .swiper-slide{height:1px} /* 随意指定一个height值即可 */
   .swiper-slide-active { height:auto}
