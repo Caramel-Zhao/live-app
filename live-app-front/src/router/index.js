@@ -2,7 +2,6 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import HomeRouter from './HomeRouter'
 import RankRouter from './RankRouter'
-import SearchRouter from './SearchRouter'
 import UserRouter from './UserRouter'
 
 import StartFinish from "./StartFinish"
@@ -17,7 +16,6 @@ const routes = [
   },
   HomeRouter,
   RankRouter,
-  SearchRouter,
   UserRouter,
   StartLiveRouter,
   StartFinish,

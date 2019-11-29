@@ -6,38 +6,38 @@
         <swiper :options="swiperOption"
                     ref="mySwiper">
                 <swiper-slide class="slide">dfdf</swiper-slide>
-                <swiper-slide class="slide">
+                <swiper-slide class="slide" >
                     <div class="header">
-                        <div class="infor">
+                        <div class="infor" >
                             <div @click="usershow=true">
-                                <img :src="userdata.data.userimage">
+
                             </div>
                             <div>
-                                <p>{{userdata.data.username}}</p>
-                                <span>总人气：{{data.audiences.length}}</span>
+                                <p>sdsdsd</p>
+                                <span>总人气：</span>
                             </div>
                         </div>
                         <div class="focus">
                             <span>关注+</span>
                         </div>
-                        <div class="user" >
+                        <div class="user" v-if="data">
                             <div v-for="(n,i) in data.audiences">
                                 <img :src="n.userimage">
                             </div>
                         </div>
                     </div>
-                    <div class="center">
+                    <div class="center" >
                         <div class="left">
                             <svg class="icon" aria-hidden="true">
                                 <use  xlink:href="#iconyouzi" ></use>
                             </svg>
-                            <div>
+                            <div v-if="userdata">
                                 魅力值：{{userdata.data.charisma}}亿
                             </div>
                         </div>
                         <div class="right">
                             <van-notice-bar  class="slidetar" >
-                                欢迎来到主播{{userdata.data.username}}悦兔号为{{userdata.data.userid}}的房间，快去关注它把
+                                欢迎来到主播悦兔号为的房间，快去关注它把
                             </van-notice-bar>
                         </div>
                     </div>
@@ -106,7 +106,7 @@
                             <button @click="sendmessage">发送</button>
                         </div>
                     </div>
-                    <div class="gold">
+                    <div class="gold" v-if="userdata">
                         <div>ID:{{userdata.data.userid}}</div>
                         <img src="../../assets/img/h3.png">
                     </div>
@@ -331,7 +331,7 @@
               },
             //发送礼物接收反馈
             async _initSendgiftData(){
-                let data=await SendgiftApi.getmessageData("453453","444444","3")
+                let data=await SendgiftApi.getmessageData("453453","444444",this.giftindex+1)
                 console.log(data)
                 this.receiveg=data
                 console.log(this.receiveg)
