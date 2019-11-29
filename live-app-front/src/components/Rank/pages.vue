@@ -1,5 +1,5 @@
 <template>
-	<div class="Ra-pages">
+		<div class="Ra-pages">
 		<div v-if="data">
 			<img :src="data[0].userimage" @click="goDetail">
 			<img :src="data[1].userimage" @click="goDetail">
@@ -31,10 +31,9 @@
 				</h3>
 				<h2>魅力值：{{n.charsma}}</h2>
 			</div>
-			
 		</div>
 	</div>
-</template>
+	</template>
 
 <script>
   export default {

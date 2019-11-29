@@ -2,7 +2,7 @@
     <div>
         <div class="Gender" @click="show = true">
             <div class="Gender-title">性别</div>
-            <span class="sex">{{data}}</span>
+            <span class="sex">{{radio}}</span>
         </div>
         <van-overlay :show="show" @click="show = false">
             <div class="wrapper" @click.stop="show = false">
@@ -38,7 +38,7 @@
 <!--                        </div>-->
 <!--                    </div>-->
                     <van-radio-group v-model="radio">
-                        <van-radio name="1" >
+                        <van-radio name="男" >
                             男
                             <img
                                     slot="icon"
@@ -46,7 +46,7 @@
                                     :src="props.checked ? activeIcon : inactiveIcon"
                             >
                         </van-radio>
-                        <van-radio name="2" >
+                        <van-radio name="女" >
                             女
                             <img
                                     slot="icon"
@@ -76,12 +76,12 @@
         data() {
             return {
                 show: false,
-                radio: '1',
+                radio: this.data,
                 activeIcon: 'https://img.yzcdn.cn/vant/user-active.png',
-                inactiveIcon: 'https://img.yzcdn.cn/vant/user-inactive.png'
+                inactiveIcon: 'https://img.yzcdn.cn/vant/user-inactive.png',
+				
             }
-        }
-
+        },
     }
 </script>
 
