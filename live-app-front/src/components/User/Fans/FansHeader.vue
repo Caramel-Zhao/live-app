@@ -1,6 +1,6 @@
 <template>
-    <div class="details">
-        <img :src=data.userimage alt="">
+    <div class="details" v-if="data.fans">
+        <img :src=data.fans.FansHeader.pic alt="">
         <a @click="$router.back(-1)">
         <svg class="lv" aria-hidden="true">
             <use xlink:href="#iconarrow-left"></use>
@@ -15,6 +15,10 @@
                 <use xlink:href="#iconarrow-right"></use>
             </svg>
         </div>
+        <div class="gif">
+            <img src="../../../../public/assets/Jin/live.gif" alt="">
+            <p>LIVE</p>
+        </div>
     </div>
 </template>
 
@@ -28,7 +32,7 @@ export default {
 		})
 	},
     beforeMount(){
-        this.$store.dispatch('INITDATA')  //给仓库触发事件
+        this.$store.dispatch('INITDATA',"453453")  //给仓库触发事件
     }
 }
 
@@ -79,5 +83,29 @@ export default {
         position: absolute;
         left: 0.85rem;
         top: 0.04rem;
+    }
+    .gif{
+        width: 1rem;
+        height: 0.35rem;
+        background-color: #0FE0C7;
+        // background-color: red;
+        position: absolute;
+        border-radius: 0.3rem 0rem 0rem 0.3rem;
+        top: 0.8rem;
+        right: 0;
+        display: flex;
+    }
+    .gif p{
+        font-size: 0.16rem;
+        color: white;
+        font-weight: bold;
+        text-align: right;
+        padding-right: 0.15rem;
+        line-height: 0.35rem;
+    }
+    .gif img{
+        width: 0.35rem;
+        height: 0.35rem;
+        padding-left: 0.15rem;
     }
 </style>

@@ -1,229 +1,268 @@
 <template>
-  <div class="phone-content">
-      <div class="header">
-          <router-link to="/user">
-              <svg class="icon" aria-hidden="true">
-                  <use class="icon1" xlink:href="#iconfanhui" ></use>
-              </svg>
-          </router-link>
-          <div>绑定手机</div>
-      </div>
-      <div class="content">
-        <div class="top">
-            <div>
-                <svg class="icon" aria-hidden="true">
-                    <use class="icon1" xlink:href="#iconshouji1" ></use>
-                </svg>
+<div>
+    <div class="recharge">
+        <a @click="$router.back(-1)">
+        <svg class="righter" aria-hidden="true">
+            <use xlink:href="#iconarrow-left-copy"></use>
+        </svg>
+        </a>
+        <span class="chong">充值</span>
+    </div>
+    <div class="content">
+        <div class="content-one">
+            <img src="../../../public/assets/Jin/111.png" alt="">
+        </div>
+        <div>
+            <p>123</p>
+            <p>465</p>
+        </div>
+    </div>
+    <div class="middle ">
+        <p>充值金额</p>
+    </div>
+    <div class="next">
+        <div class="nextt" @click="shu(i)" :class="{active:su === i}" v-for="(o,i) in list" :key="i">
+            <div class="sol">
+                <span>{{o.yuan}}元</span>
             </div>
-            <div>
-                <input type="search"  placeholder="输入手机号" v-model="phone"/>
+            <div class="soll">
+                <span>{{o.money}}万</span>
             </div>
         </div>
-          <div class="center">
-              <div>
-                  <svg class="icon" aria-hidden="true">
-                      <use class="icon1" xlink:href="#iconyanzhengma" ></use>
-                  </svg>
-              </div>
-              <div>
-                  <input type="text" placeholder="输入验证码" v-model="inputcode">
-              </div>
-              <div @click="getApiData" v-if="verShow" >
-                  发送验证码
-              </div>
-              <div v-if="!verShow">
-              {{time}}
-              </div>
-          </div>
-           <div class="bottom" @click="bindphone">进行绑定</div>
-      </div>
-  </div>
+    </div>
+    <div class="pro">
+        <p>充值问题请联系微信:ytvipkf001</p>
+        <p>充值即代表同意《悦兔充值协议》</p>
+    </div>
+    <div class="footer">
+        <div>
+            <div>
+                <p>充值: <span class="yuan">{{num}}元</span> </p>
+            </div>
+            <div>
+                <svg class="righter" aria-hidden="true">
+                    <use xlink:href="#iconjinbi1"></use>
+                </svg>
+                <p class="jin">{{numb}}万金币</p>
+            </div>
+        </div>
+        <div class="two" @click="click" >确认充值</div>
+    </div>
+</div>
 </template>
 
 <script>
-    import { Toast } from 'vant';
+    import { Toast } from 'vant'
+    import { Dialog } from 'vant';
+    import recharge from "../../apis/recharge/recharge"
   export default {
     name: "Phone",
       data(){
         return{
-            time:60,
             verShow:true,
             phone:null,
             code:null,
-            inputcode:null
+            inputcode:null,
+            su:0,
+            num:"10",
+            numb:"100",
+            list:[
+                {yuan:"10",money:"100"},
+                {yuan:"30",money:"300"},
+                {yuan:"50",money:"500"},
+                {yuan:"100",money:"1000"},
+                {yuan:"500",money:"5000"},
+                {yuan:"1000",money:"10000"},
+                {yuan:"3000",money:"30000"},
+                {yuan:"5000",money:"50000"},
+                {yuan:"10000",money:"100000"}
+            ]
         }
       },
-      methods:{
-          getApiData(){
-              var url  = "http://157.122.54.189:9093/api/getprodlist";
-              // 发送请求:将数据返回到一个回到函数中
-              // _this= this;
-              // 并且响应成功以后会执行then方法中的回调函数
-              let r=/^1(3|4|5|6|7|8|9)\d{9}$/
-              if(r.test(this.phone)){
-                  this.verShow = false;
-                  //请求数据
-                  fetch(url,{
-                      body:"telephone="+this.phone
-                      //以字符串的形式发送
-                  }).then((result)=>{
-                      //返回一个验证码
-                      console.log(result);
-                     this.code = result.data;
-                    });
-                  //定时器
-                  var time = setInterval( ()=>{
-                      this.time--;
-                      console.log(this.time)
-                      if(this.time == 0){
-                          this.verShow = true;
-                          clearInterval(time);
-                          this.time=60
-                      }
-                  },1000);
-              }else{
-                  Toast('请输入正确手机号');
-              }
-
-
-          },
-          bindphone(){
-              if(this.inputcode==this.code){
-                  let url="http://157.122.54.189:9093/api/getprodlist"
-                  fetch(url,{
-                      body:"telephone="+this.phone+"&code="+this.code
-                      //以字符串的形式发送
-                  }).then((result)=>{
-                      //返回一个验证码
-                      console.log(result);
-                      this.code = result.data;
-                  });
-              }
-              else{
-                  Toast('请输入正确验证码');
-              }
-
-          }
+      components:{
+          [Dialog.name]:Dialog
       },
-
+      beforeMount(){
+        this.$store.dispatch('INITDATA',"453453")  //给仓库触发事件
+        },
+      methods:{
+          async click(){
+            // console.log(this.num)
+            let res = await recharge.recharge("453453",Number(this.num))
+            console.log(res)
+            if(res.static == 0){
+                Dialog.alert({
+                    message: '充值成功'
+                    }).then(() => {
+                    // on close
+                })
+            }else{
+                Dialog.alert({
+                    message: '充值失败'
+                    }).then(() => {
+                    // on close
+                })
+            }
+          },
+          shu(i){
+              this.su = i;
+              this.num = this.list[i].yuan
+               this.numb = this.list[i].money
+          }
+      }
   }
 </script>
 
 <style lang="scss" scoped>
- .phone-content{
-     background: url("http://122.51.57.152:4000/images/1.jpg") ;
-     background-size: 100% 100%;
-     color:#d8bf89;
-     height: 100vh;
-     .header{
-         height: .5rem;
-         line-height: .5rem;
-         display: flex;
-         svg{
-             width: .3rem;
-             height: .3rem;
-             fill:#d8bf89;
-             margin: .1rem;
-         }
-         div{
-             margin-left: .5rem;
-             font-size: .16rem;
-         }
-     }
-     .content{
-         width: 3.2rem;
-         margin: 0 auto;
-         .top{
-             display: flex;
-             height: .4rem;
-             svg{
-                 width: .2rem;
-                 height: .2rem;
-                 fill:white;
-                 margin-left: .15rem;
-                 margin-top: .08rem;
-             }
-             div:first-child{
-                 border: .02rem solid #d8bf89;
-                 border-radius:  .3rem 0 0 .3rem  ;
-                 width: .45rem;
-
-             }
-             div:last-child{
-                 border: .02rem solid #d8bf89;
-                 border-left:none;
-                 flex: 1;
-                 border-radius: 0 .3rem .3rem 0 ;
-                 display: flex;
-                 align-items: center;
-                 input{
-                     font-size: .18rem;
-                     width: 2.6rem;
-                     border: none;
-                     background-color:rgb(255,255,255,0);
-                     padding-left: .1rem;
-                     outline: none;
-                     color:white;
-                 }
-             }
-         }
-         .center{
-             height: .4rem;
-             display: flex;
-             margin-top: .2rem;
-             svg{
-                 width: .2rem;
-                 height: .2rem;
-                 fill:white;
-                 margin-left: .15rem;
-                 margin-top: .08rem;
-             }
-             div:first-child{
-                 width: .45rem;
-                 border: .02rem solid #d8bf89;
-                 border-radius:  .3rem 0 0 .3rem  ;
-             }
-             div:nth-child(2){
-                 border: .02rem solid #d8bf89;
-                 border-left:none;
-                 display: flex;
-                 align-items: center;
-                 input{
-                     /*margin-top: .03rem;*/
-                     font-size: .18rem;
-                     width: 1.4rem;
-                     border: none;
-                     background-color:rgb(255,255,255,0);
-                     padding-left: .1rem;
-                     outline: none;
-                     color:white;
-                 }
-             }
-             div:last-child{
-                 border: .02rem solid #d8bf89;
-                 border-left:none;
-                 flex: 1;
-                 font-size: .16rem;
-                display: flex;
-                 align-items: center;
-                 justify-content: center;
-                 box-sizing: border-box;
-                 text-align: center;
-                 border-radius: 0 .3rem .3rem 0 ;
-             }
-         }
-         .bottom{
-             width: 2.5rem;
-             margin: .2rem auto;
-             text-align: center;
-             height: .4rem;
-             line-height: .4rem;
-             border: .02rem solid #d8bf89;
-             font-size: .16rem;
-             border-radius: .3rem;
-
-         }
-     }
- }
-
+    .recharge{
+        width: 100vw;
+        height: 0.5rem;
+        display: flex;
+        align-items: center;
+    }
+    .righter{
+        width: 0.25rem;
+        height: 0.25rem;
+    }
+    .chong{
+        font-size: 0.16rem;
+        padding-left: 1.5rem;
+        font-weight: bold;
+    }
+    .content{
+        width: 100vw;
+        height: 0.8rem;
+        border-bottom: 0.01rem solid whitesmoke;
+        display: flex;
+    }
+    .content-one{
+        width: 0.8rem;
+        height: 0.8rem;
+        border-radius: 50%;
+        
+    }
+    .content-one img{
+        width: 100%;
+    }
+    .content p:nth-child(1){
+        font-size: 0.16rem;
+        margin-top: 0.15rem;
+    }
+    .content p:nth-child(2){
+        font-size: 0.12rem;
+        margin-top: 0.15rem;
+    }
+    .middle {
+        width: 100vw;
+        height: 0.5rem;
+        border-bottom: 0.01rem solid whitesmoke;
+    }
+    .middle p{
+        display: inline-block;
+        width: 0.7rem;
+        text-align: center;
+        line-height: 0.2rem;
+        margin-top: 0.4rem;
+        margin-left: 1.5rem;
+        height: 0.2rem;
+        font-size: 0.14rem;
+        color: gray;
+        background-color: white;
+    }
+    .next{
+        width: 3.75rem;
+        height: 3.5rem;
+        margin-top: 0.2rem;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        align-items: center;
+    }
+    .nextt{
+        width: 1rem;
+        height: 0.8rem;
+        border-radius: 0.15rem;
+        border: 0.01rem solid aqua;
+    }
+    .nextt.active{
+        background-color: #36CDF8;
+    }
+    .sol{
+        width: 0.8rem;
+        height: 0.4rem;
+        margin-left: 0.1rem;
+        border-bottom: 0.01rem dashed aqua;
+        text-align: center;
+        line-height: 0.4rem;
+    }
+    .sol span{
+        font-size: 0.14rem;
+        color: black; 
+    }
+    .soll{
+        width: 0.8rem;
+        height: 0.4rem;
+        margin-left: 0.1rem;
+        text-align: center;
+        line-height: 0.4rem;
+    }
+    .soll span{
+        font-size: 0.14rem;
+        color: aqua; 
+    }
+    .pro{
+        width: 100vw;
+        height: 0.5rem;
+        text-align: center;
+        line-height: 0.15rem;
+    }
+    .pro p{
+        font-size: 0.1rem;
+        color: gray;
+    }
+    .footer{
+        width: 100vw;
+        height: 0.5rem;
+        margin-top: 0.15rem;
+        display: flex;
+        box-shadow: 0.07rem 0.07rem 0.07rem 0.07rem rgba(0,0,0,0.1)
+    }
+    .footer div:nth-child(1){
+        width: 2.5rem;
+        height: 0.5rem;
+    }
+    .footer div:nth-child(1) div:nth-child(1){
+        width: 2.5rem;
+        height: 0.25rem;
+    }
+    .footer div:nth-child(1) div:nth-child(1) p{
+        margin-left: 0.1rem;
+        font-size: 0.14rem;
+        line-height: 0.25rem;
+    }
+    .yuan{
+        color: red;
+    }
+    .footer div:nth-child(1) div:nth-child(2){
+        width: 2.5rem;
+        height: 0.25rem;
+        margin-left: 0.1rem;
+        display: flex;
+    }
+    .jin{
+        font-size: 0.14rem;
+        line-height: 0.25rem;
+        color: gray;
+    }
+    .two{
+        width: 1.15rem;
+        height: 0.4rem;
+        background-color: aquamarine;
+        border-radius: 0.3rem;
+        margin-top: 0.05rem;
+        font-size: 0.16rem;
+        color: white;
+        text-align: center;
+        line-height: 0.4rem;
+    }
 </style>
