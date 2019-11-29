@@ -1,30 +1,31 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-import home from './home'
+import user from "../apis/User/user"
 
 Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
     data: [],
-    vip:""
+    vip: ""
   },
   mutations: {
     'INIT': (state, a) => {
-        state.data = a;
+      state.data = a;
     },
-    'VIPMU':(state, a) => {
+    'VIPMU': (state, a) => {
       state.vip = a.toString();
       console.log(state.vip);
     }
   },
   actions: {
-    'INITDATA': async ({ commit }) => {
-      let a = await require("../mocks/User");
-        commit('INIT', a)
-      },
-    'VIP':({ commit },a) => {
-      commit('VIPMU', a+1)
+    'INITDATA': async ({ commit }, id) => {
+      // console.log(id);
+
+      let a = await user.getUserdata(id)
+      // let a = await require("../mocks/User.json")
+      console.log(a);
+      commit('INIT', a)
     }
   },
   getters: {

@@ -3,26 +3,26 @@
     <div class="person">
         <div class="ico">
             <div>
-                <img src="http://122.51.57.152:4000/images/2.jpg" alt="">
+                <img :src=data.userimage alt="">
             </div>
             <div>
-                <span class="name">Su丶SuSu</span>
-                <p class="id">ID:4197551</p>
+                <span class="name">{{data.username}}</span>
+                <p class="id">{{data.userid}}</p>
                 <svg class="icon" aria-hidden="true">
-                    <use xlink:href="#iconnan"></use>
+                    <use :xlink:href=data.sex></use>
                 </svg>
                 <svg class="lv" aria-hidden="true">
-                    <use xlink:href="#iconbaiyin"></use>
+                    <use :xlink:href=data.vipclass></use>
                 </svg>
             </div>
         </div>
         <div class="iconer">
             <div>
-                <span>0</span>
+                <span>{{data.user_attention_num}}</span>
                 <p>关注</p>
             </div>
             <div>
-                <span>0</span>
+                <span>{{data.user_follow_num}}</span>
                 <p>粉丝</p>
             </div>
         </div>
@@ -31,9 +31,17 @@
 </template>
 
 <script>
-
+import {mapGetters} from "vuex"
 export default {
-    name:"UserPersonal"
+    name:"UserPersonal",
+    computed: {
+		...mapGetters({
+			data: 'GETDATA',
+		})
+	},
+    beforeMount(){
+        this.$store.dispatch('INITDATA',"453453")  //给仓库触发事件
+    }
 }
 </script>
 
