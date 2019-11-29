@@ -21,7 +21,11 @@ const routes = [
   UserRouter,
   StartLiveRouter,
   StartFinish,
-  LiveRouter
+  LiveRouter,
+  {
+    path: '/test',
+    component: () => import('../components/Commom/MyPlayer.vue')
+  }
 ]
 
 const router = new VueRouter({

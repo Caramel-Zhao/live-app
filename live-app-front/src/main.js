@@ -12,11 +12,10 @@ Vue.use(VideoPlayer)
 
 import '../public/css/reset.css'
 
-import '../public/css/reset.css'
 import VueAwesomeSwiper from 'vue-awesome-swiper'
 // require styles
 import 'swiper/dist/css/swiper.css'
-Vue.use(VueAwesomeSwiper, /* { default global options } */)
+Vue.use(VueAwesomeSwiper)
 Vue.use(LyTab);
 Vue.config.productionTip = false
 new Vue({
