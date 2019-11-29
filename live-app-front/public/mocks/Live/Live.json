@@ -18,39 +18,48 @@
 			{
 				"giftname":"棒棒糖",
 				"giftprice":"100",
-				"giftphoto":"../../img/1.gif"
+				"giftphoto":"../../img/1.gif",
+				"type": "hua"
 			},{
 				"giftname":"鲜花",
 				"giftprice":"100",
-				"giftphoto":"../../img/2.gif"
+				"giftphoto":"../../img/2.gif",
+				"type": "hua"
 			},{
 				"giftname":"比心",
 				"giftprice":"300",
-				"giftphoto":"../../img/3.gif"
+				"giftphoto":"../../img/3.gif",
+				"type": "hua"
 			},{
 				"giftname":"烟花",
 				"giftprice":"500",
-				"giftphoto":"../../img/4.gif"
+				"giftphoto":"../../img/4.gif",
+				"type": "hua"
 			},{
 				"giftname":"皇冠",
 				"giftprice":"800",
-				"giftphoto":"../../img/1.gif"
+				"giftphoto":"../../img/1.gif",
+				"type": "hua"
 			},{
 				"giftname":"凤冠",
 				"giftprice":"1000",
-				"giftphoto":"../../img/1.gif"
+				"giftphoto":"../../img/1.gif",
+				"type": "hua"
 			},{
 				"giftname":"火箭",
 				"giftprice":"1200",
-				"giftphoto":"../../img/1.gif"
+				"giftphoto":"../../img/1.gif",
+				"type": "gua"
 			},{
 				"giftname":"包包",
 				"giftprice":"1200",
-				"giftphoto":"../../img/1.gif"
+				"giftphoto":"../../img/1.gif",
+				"type": "gua"
 			},{
 				"giftname":"船舰",
 				"giftprice":"2000",
-				"giftphoto":"../../img/1.gif"
+				"giftphoto":"../../img/1.gif",
+				"type": "gua"
 			}
 		],
 		"pag":[
