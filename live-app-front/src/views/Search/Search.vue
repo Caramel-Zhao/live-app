@@ -7,17 +7,23 @@
        </svg>
      </router-link>
      <div class="center">
-       <input type="text" placeholder="用户昵称/ID">
+       <input type="text" placeholder="用户昵称/ID" v-model="sea">
        <a>
-           <svg class="icon" aria-hidden="true">
+           <svg class="icon" aria-hidden="true" @click="del">
              <use xlink:href="#iconshanchu2"></use>
            </svg>
        </a>
      </div>
-     <div class="search">搜索</div>
+     <div class="search" @click="search">搜索</div>
    </div>
-   <div class="intest">您可能感兴趣的用户</div>
-   <user-item :data="data" v-if="data"></user-item>
+	 <div class="roll" v-if="show">
+			<div class="intest">您可能感兴趣的用户</div>
+			<user-item :data="data" :live="show" v-if="data"></user-item>
+	 </div>
+   <div class="roll" v-else>
+   			<div class="intest">结果</div>
+   			<user-item :data="searchdata" :live="show" v-if="searchdata"></user-item>
+   </div>
  </div>
 </template>
 
@@ -28,32 +34,93 @@
     name: "Search",
     data(){
       return{
-        data:null
+          data:null,
+          sea:null,
+          searchdata:[],
+					show:true,
       }
     },
     components:{
       [Useritem.name]:Useritem
     },
     beforeMount() {
-      // this._initSearchData()
-       let a=require("../../../public/mocks/Search/Search")
-        this.data=a
+			// this.AllData();
+      let a=require("../../../public/mocks/Search/Search")
+      this.data=a
     },
-    // methods:{
-    //   async _initSearchData(){
-    //     let data=await SearchApi.getSearchData()
-    //     this.data=data
-    //     console.log(this.data)
-    //   }
-    // }
+    methods:{
+// 		async _getdata(){
+// 			let a = await SearchApi.getSearchData("454454",this.sea)
+// 			this.searchdata[0] = a;
+// 			console.log(a)
+// 		},
+// 		search(){
+// 			this.show = false;
+// 			this._getdata()	
+// 		},
+
+	// 获取感兴趣的信息
+// 		async AllData(){  
+// 			let a=await SearchApi.getData("454454")
+// 			this.data=a.data.new;
+// 			this.data.forEach((item) =>{
+// 			  item.vipid = this.getVipClass(item.vipid)
+// 			});
+// 			console.log(this.data[1].vipid)
+// 			console.log(this.data)
+// 		},
+		del(){
+			this.show = true;
+		},
+		getVipClass(vipClass){
+			switch (vipClass) {
+				case 1:
+					return "#iconvip";
+					break;
+				case 2:
+					return "#iconvip7";
+					break;
+				case 3:
+					return "#iconvip8";
+					break;
+				case 4:
+					return "#iconvip9";
+					break;
+				case 5:
+					return "#iconvip10";
+					break;
+				case 6:
+					return "#iconzhizunhuiyuan";
+					break;
+			}
+		},
+		search(){
+				this.show = false;
+				let a = {
+					"userimage":"http://122.51.57.152:4000/images/list.jpg",
+					"username":"丽丽",
+					"user_fans":13,
+					"vipclass":"#iconzhizunhuiyuan",
+					"focus":false,
+					"live":false,
+					"userid":""
+				}
+				this.searchdata[0] = a;
+			}
+	 }
   }
 </script>
 
 <style lang="scss" scoped>
 .header{
   display: flex;
+	width: 3.75rem;
   height: .5rem;
   overflow: hidden;
+	position: fixed;
+	top: 0rem;
+	background-color: #fff;
+	z-index: 2;
   .goback svg{
       width: .2rem;
       height: .2rem;
@@ -109,5 +176,8 @@
   font-size: .16rem;
   border-bottom: .01rem solid #f3f3f3;
   padding-bottom: .1rem;
+}
+.roll{
+	margin-top: 0.5rem;
 }
 </style>
