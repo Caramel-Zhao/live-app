@@ -3,11 +3,7 @@
         <van-tab title="关注">
             <div class="lister-one" v-for="(u,i) in data.fans.FansFooter.attention" :key="i"> 
                 <div>
-<<<<<<< HEAD
-                    <img src="http://122.51.57.152:4000/images/111.png" alt="">
-=======
                     <img :src=u.userimage alt="">
->>>>>>> e8797d9eb81369ad9b13420613bb985631d5d49b
                 </div>
                 <div>
                     <p>{{u.user}}</p>
@@ -23,11 +19,7 @@
         <van-tab title="粉丝">
             <div class="lister-one" v-for="(a,i) in data.fans.FansFooter.Fans" :key="i">
                 <div>
-<<<<<<< HEAD
-                    <img src="http://122.51.57.152:4000/images/111.png" alt="">
-=======
                     <img :src=a.userimage alt="">
->>>>>>> e8797d9eb81369ad9b13420613bb985631d5d49b
                 </div>
                 <div>
                     <p>{{a.user}}</p>
