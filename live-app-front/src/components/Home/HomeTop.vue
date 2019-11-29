@@ -2,7 +2,23 @@
   <div class="home-top">
     <HomeSearch class="home-search"></HomeSearch>
     <HomeRank class="home-rank"></HomeRank>
-    <HomeItem class="home-item" :data="data"></HomeItem>
+    <HomeItem class="home-item"
+              :dataCctv="dataCctv"
+              :dataTalent="dataTalent"
+              :dataNear="dataNear"
+              :change="change"
+              :dataRecommend="dataRecommend"
+              :dataAttentionLivingInfo="dataAttentionLivingInfo"
+              :dataReAttentionInfo="dataReAttentionInfo"
+              :getFollow="getFollow"
+              :onRefreshR="onRefreshR"
+              :onRefreshT="onRefreshT"
+              :onRefreshN="onRefreshN"
+              :onRefreshA="onRefreshA"
+              :getSlide="getSlide"
+              :goLiveRoom="goLiveRoom"
+    >
+    </HomeItem>
   </div>
 </template>
 
@@ -12,7 +28,23 @@
   import HomeItem from "./HomeTop/HomeItem";
   export default {
     name: "HomeTop",
-    props:["data"],
+    props:[
+      "dataCctv",
+      "dataAttentionLivingInfo",
+      "dataTalent",
+      "dataNear",
+      "change",
+      "dataRecommend",
+      "dataReAttentionInfo",
+      "getFollow",
+      "onRefreshR",
+      "onRefreshT",
+      "onRefreshN",
+      "onRefreshA",
+      "getSlideIndex",
+       "getSlide",
+      "goLiveRoom"
+    ],
     components:{
       HomeItem,
       HomeSearch,
