@@ -24,7 +24,8 @@
 <style lang="scss" scoped>
 .swiper-slide{
   img{
-    width: 100%;
+    width: 100vw;
+    height: 1.3rem;
   }
 }
 </style>
