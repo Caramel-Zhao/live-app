@@ -9,7 +9,6 @@ require('video.js/dist/video-js.css')
 require('vue-video-player/src/custom-theme.css')
 Vue.use(VideoPlayer)
 
-
 import '../public/css/reset.css'
 
 import VueAwesomeSwiper from 'vue-awesome-swiper'

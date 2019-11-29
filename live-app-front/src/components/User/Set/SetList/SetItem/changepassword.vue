@@ -25,10 +25,12 @@
 
 <script>
 import { Toast } from 'vant';
+import Repwd from "../../../../../apis/User/Repwd";
 export default {
   name:"changepassword",
   data(){
     return{
+      code:false,
       show:true,
       yanzhenma:"",
       pass:"",
@@ -60,14 +62,19 @@ export default {
         }
       },1000);
     },
-    catchTime(){ //获取验证码
+   async catchTime(){ //获取验证码
       let phoneReg = /^[1][3,4,5,7,8,9][0-9]{9}$/;
       if(phoneReg.test(this.phone)){
         this.phones = true;
         this.timimg=false
         this.time()
+        let a=await Repwd.getCode(this.phone)
+        console.log(a)
+        if(a.status==0){
+         this.code=true
+        }
       }else{
-        Toast("错误")
+        Toast("手机号输入错误")
       }
     },
     gitpass(){ //密码验证
@@ -75,14 +82,19 @@ export default {
       if(mmpass.test(this.pass)){
         this.pass1 = true
       }else{
-        Toast("错误")
+        Toast("密码至少包含两种字符")
       }
     },
-    sub(){
-       if(this.pass1==true && this.phones==true){
-         alert("修改成功")
+    async sub(){
+       if(this.pass1==true && this.phones==true && this.code==true && this.yanzhenma!=""){
+         let a=await Repwd.getRepwd(this.pass1,this.phones,this.code)
+         if(a.status==0){
+           Toast("修改成功")
+         }else{
+           Toast("验证码输入有误")
+         }
        }else{
-         alert("失败")
+         Toast("请输入正确信息")
        }
     },
     chameleon(){

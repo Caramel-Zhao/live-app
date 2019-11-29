@@ -83,7 +83,49 @@ export default {
         },
         getclick(){
             if(this.vershow == true && this.vershoww == true && this.vershowww == true){
-                window.location.href="/home";
+                // fetch("http://10.36.176.135:5000/name/test/",{
+                //     method:"POST",
+                //     headers:{
+                //         "Content-Type": "application/json;charset=UTF-8"
+                //     },
+                //     body: JSON.stringify({
+                //         "realname":this.vershow,
+                //         "paper":this.vershoww,
+                //         "telphone":this.vershowww
+                //     })
+                // }).then(res=>{
+                //     res.json().then(data=>{
+                //         console.log(data)
+                //         // if(data.status=="1"){
+                //         //     console.log("认证成功")
+                //         //     window.location.href="/home";
+                //         // }
+                //         // else{
+                //         //     alert("认证失败")
+                //         // }
+                //     })
+                // })
+
+                fetch("http://10.36.176.135:5000/name/test/",{
+                    method:"POST",
+                    headers:{
+                        "Content-Type": "application/json;charset=UTF-8"
+                    },
+                    body: JSON.stringify({
+                        realname:this.name,
+                        paper:this.identity,
+                        telphone:this.phone
+                    })
+                }).then(res=>{
+                    res.json().then(data=>{
+                        if(data.status==1){
+                            console.log(data)
+                            window.location.href="/login"
+                        }else {
+                            console.log("失败")
+                        }
+                    })
+                })
             }else{
                 Toast("你个憨憨，这点小问题都能填错")
             }
