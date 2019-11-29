@@ -5,47 +5,79 @@
       <!-- slides -->
       <swiper-slide class="home-slide">
         <HomeAttention class="home-slide-item"
-                       :data="data.attentions" />
+                       :dataAttentionLivingInfo="dataAttentionLivingInfo"
+                       :dataReAttentionInfo="dataReAttentionInfo"
+                       :change="change"
+                       :getFollow="getFollow"
+                       :onRefreshA="onRefreshA"
+                       :goLiveRoom="goLiveRoom"
+        />
       </swiper-slide>
       <swiper-slide class="home-slide">
         <HomeRecommend class="home-slide-item"
-                       :data="data.recommend" />
+                       :data="dataRecommend"
+                       :onRefreshR="onRefreshR"
+                       :goLiveRoom="goLiveRoom"
+        />
       </swiper-slide>
       <swiper-slide class="home-slide">
         <HomeNearBy class="home-slide-item"
-                    :data="data.nearanchor" />
+                    :data="dataNear"
+                    :onRefreshN="onRefreshN"
+                    :goLiveRoom="goLiveRoom"
+        />
       </swiper-slide>
       <swiper-slide class="home-slide">
         <HomeTalents class="home-slide-item"
-                     :data="data.talents" />
+                     :data="dataTalent"
+                     :onRefreshT="onRefreshT"
+                     :goLiveRoom="goLiveRoom"
+        />
       </swiper-slide>
       <swiper-slide class="home-slide">
-        <HomeStar class="home-slide-item"
-                  :data="data.newstars" />
-      </swiper-slide>
-      <div class="swiper-pagination home-swiper-pagination"
-           slot="pagination"></div>
+      <HomeChannel class="home-slide-item"
+                    :data="dataCctv"
+      />
+    </swiper-slide>
+      <div class="swiper-pagination home-swiper-pagination" slot="pagination"></div>
     </swiper>
   </div>
 </template>
 
 <script>
-import HomeStar from "../HomeItem/HomeStar";
+import HomeChannel from "../HomeItem/HomeChannel";
 import HomeRecommend from "../HomeItem/HomeRecommend";
 import HomeAttention from "../HomeItem/HomeAttention";
 import HomeNearBy from "../HomeItem/HomeNearBy";
 import HomeTalents from "../HomeItem/HomeTalents";
 export default {
   name: "HomeItem",
-  props: ["data"],
+  props: [
+    "data",
+    "dataCctv",
+    "dataAttentionLivingInfo",
+    "dataTalent",
+    "dataNear",
+    "change",
+    "dataRecommend",
+    "dataReAttentionInfo",
+    "getFollow",
+    "onRefreshR",
+    "onRefreshT",
+    "onRefreshN",
+    "onRefreshA",
+     "getSlide",
+    "goLiveRoom"
+],
   components: {
     HomeNearBy,
     HomeAttention,
     HomeRecommend,
-    HomeStar,
+    HomeChannel,
     HomeTalents,
   },
   data () {
+    let that = this;
     return {
       swiperOption: {
         loop: false,
@@ -55,6 +87,7 @@ export default {
         pagination: {
           el: '.home-swiper-pagination',
           clickable: true,  // 分页器点击
+          // initialSlide: index,
           renderBullet: function (index, className) {
             let text;
             switch (index) {
@@ -71,13 +104,19 @@ export default {
                 text = "才艺";
                 break;
               case 4:
-                text = "新星";
+                text = "频道";
                 break;
             }
             return '<span class="' + className + '">' + text + '</span>';
           },
           bulletClass: 'home-bullet',//需设置.my-bullet样式
           bulletActiveClass: 'home-bullet-active', //分页器内当前活动块的指示小点的类名。
+        },
+        on:{
+          slideChangeTransitionStart: function () {
+            that.$store.dispatch('GETSLIDEINDEX',this.activeIndex)
+            that.getSlide()
+          },
         }
       }
     }
@@ -93,7 +132,7 @@ export default {
 }
 .swiper-slide {
   height: 1px;
-} /* 随意指定一个height值即可 */
+}
 .swiper-slide-active {
   height: auto;
 }

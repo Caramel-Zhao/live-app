@@ -36,7 +36,7 @@
   </div>
 </template>
 <script>
-  import homeInfo from '../../../public/mocks/Home/Home';
+import homeInfo from '../../../public/mocks/Home/Home';
 import { Overlay, Popup} from 'vant';
 export default {
   name: "YT-footer",

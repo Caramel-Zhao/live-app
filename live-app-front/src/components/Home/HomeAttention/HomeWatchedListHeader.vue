@@ -2,7 +2,7 @@
   <p class="list-header">
     <span class="list-header-title">推荐关注</span>
     <span>
-      <span @click="changeOne">换一批</span>
+      <span @click="change(465123)">换一批</span>
       <i>
        <svg class="icon" aria-hidden="true">
       <use xlink:href="#iconhuanyipi"></use></svg>
@@ -14,11 +14,7 @@
 <script>
   export default {
     name: "HomeAttentionListHeader",
-    methods:{
-      changeOne(){
-        // console.log(123)
-      }
-    }
+    props:["change"]
   }
 </script>
 

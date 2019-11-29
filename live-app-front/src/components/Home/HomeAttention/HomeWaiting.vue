@@ -1,8 +1,8 @@
 <template>
   <div class="waiting">
-    <div v-if="data.length !=0">
+    <div v-if="data.length !==0">
       <p>-你关注的主播有 <span style="color: red">{{data.length}}</span> 位正在开播，快前往观看吧-</p>
-      <HomeWaitingList class="follow" :data="data"></HomeWaitingList>
+      <HomeWaitingList class="follow" :data="data" :goLiveRoom="goLiveRoom"></HomeWaitingList>
     </div>
     <div class="Unconcerned" v-else>
       <p>-你关注的主播还未开播-</p>
@@ -14,7 +14,7 @@
   import HomeWaitingList from "./HomeWaitingList";
   export default {
     name: "HomeWaiting",
-    props:["data"],
+    props:["data","goLiveRoom"],
     components:{
       HomeWaitingList
     }

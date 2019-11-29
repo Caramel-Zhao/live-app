@@ -4,9 +4,8 @@ import HomeRouter from './HomeRouter'
 import RankRouter from './RankRouter'
 import SearchRouter from './SearchRouter'
 import UserRouter from './UserRouter'
-
+import ChannelRouter from './ChannelRouter'
 import StartFinish from "./StartFinish"
-
 import StartLiveRouter from "./StartLiveRouter";
 import LiveRouter from "./LiveRouter";
 Vue.use(VueRouter)
@@ -22,16 +21,13 @@ const routes = [
   StartLiveRouter,
   StartFinish,
   LiveRouter,
-  {
-    path: '/test',
-    component: () => import('../components/Commom/MyPlayer.vue')
-  }
-]
+  ChannelRouter
+];
 
 const router = new VueRouter({
   mode: 'history',
   base: process.env.BASE_URL,
   routes
-})
+});
 
 export default router
