@@ -37,21 +37,18 @@
 <!--                            </svg>-->
 <!--                        </div>-->
 <!--                    </div>-->
-                    <van-radio-group v-model="radio">
+                    <van-radio-group v-model="radio" icon-size="30px">
                         <van-radio name="男" >
-                            男
-                            <img
-                                    slot="icon"
-                                    slot-scope="props"
-                                    :src="props.checked ? activeIcon : inactiveIcon"
+                            男<img slot="icon"
+                                 slot-scope="props"
+                                 :src="props.checked ? activeIcon : inactiveIcon"
                             >
                         </van-radio>
                         <van-radio name="女" >
-                            女
-                            <img
-                                    slot="icon"
-                                    slot-scope="props"
-                                    :src="props.checked ? activeIcon : inactiveIcon"
+                            女<img
+                                slot="icon"
+                                slot-scope="props"
+                                :src="props.checked ? activeIcon1 : inactiveIcon1"
                             >
                         </van-radio>
                     </van-radio-group>
@@ -77,8 +74,10 @@
             return {
                 show: false,
                 radio: this.data,
-                activeIcon: 'https://img.yzcdn.cn/vant/user-active.png',
-                inactiveIcon: 'https://img.yzcdn.cn/vant/user-inactive.png',
+                activeIcon: '/assets/xue/man.png',
+                inactiveIcon: '/assets/xue/man1.png',
+                activeIcon1: '/assets/xue/women.png',
+                inactiveIcon1: '/assets/xue/women2.png'
 				
             }
         },
@@ -115,9 +114,10 @@
         height: 100vh;
     }
     .block {
-        width: 3.2rem;
+        width: 1.8rem;
         height: 1.2rem;
         background-color: #fff;
+        border-radius: 0.1rem;
     }
     .man{
         width: 100%;
@@ -180,9 +180,13 @@
 
     .van-radio{
         height: 0.6rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 0.18rem;
     }
     .van-radio__icon img{
         width: 0.3rem;
-        padding-left: 0.2rem;
+        padding-right: 0.4rem;
     }
 </style>

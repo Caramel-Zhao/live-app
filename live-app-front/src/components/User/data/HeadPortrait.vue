@@ -3,7 +3,7 @@
        @click.stop="uploadHeadImg">
     <div class="portrait-title">头像</div>
     <div class="portrait-pic">
-      <img src="http://122.51.57.152:4000/images/user_data_pic.png"
+      <img src="http://123.57.233.41:4000/images/user_data_pic.png"
            alt="">
     </div>
     <input type="file"

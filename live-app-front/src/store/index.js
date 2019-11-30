@@ -18,6 +18,16 @@ export default new Vuex.Store({
     'VIPMU': (state, a) => {
       state.vip = a.toString();
       console.log(state.vip);
+    },
+    'GETNAME': (state, a) => {
+      // console.log(state.data.data.userid)
+      // console.log(a)
+      state.data.data.username = a
+    },
+    'GETAUTOGRAPH': (state, a) => {
+      // console.log(state.data.data.userid)
+      // console.log(a)
+      state.data.data.autograph = a
     }
   },
   actions: {
