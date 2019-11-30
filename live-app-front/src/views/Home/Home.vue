@@ -52,98 +52,86 @@
       })
     },
     //关注接口
-    async getFollowData(id,Aid){
-      let getFollow = await home.getFollow(id,Aid);
+    async getFollowData(Aid){
+      let getFollow = await home.getFollow(this.token,Aid);
       this.reAttentionInfo = getFollow.recommend;
       this.attentionLivingInfo = getFollow.allattention;
     },
     //换一批接口
-    async changeData(id){
-      let res = await home.getChangeInfo(id);
+    async changeData(){
+      let res = await home.getChangeInfo(this.token);
       this.reAttentionInfo = res.data;
     },
     //cctv接口
     async _initGetCctvInfo(){
       this.cctvLiveItem = await home.getCctvLiveInfo();
+      // console.log(this.token)
     },
-    //主页面数据渲染接口
-    // async _initGetHomeInfo(id){
-    //   let homeInfo = await home.getHomeInfo(id);
-    //   this.attentionLivingInfo = homeInfo.attention.attentionliving;
-    //   this.reAttentionInfo = homeInfo.attention.recommend;
-    //   this.talentsInfo = homeInfo.talent.talents;
-    //   this.nearByInfo = homeInfo.near.nears;
-    //   this.recommendInfo =  homeInfo.recommend;
-    //   this.changeItem(this.talentsInfo);
-    //   this.changeItem(this.nearByInfo);
-    //   this.changeItem(this.recommendInfo.specialrecommend);
-    //   this.changeItem(this.recommendInfo.generalrecommend);
-    // },
     //关注页面刷新
-    async _initGetAttentionInfo(id){
-      let attentionInfo = await home.getAttentionInfo(id);
+    async _initGetAttentionInfo(){
+      let attentionInfo = await home.getAttentionInfo(this.token);
       this.attentionLivingInfo = attentionInfo.attentionliving;
       this.reAttentionInfo = attentionInfo.recommend;
     },
     onRefreshA(){
-      this._initGetAttentionInfo(123456);
+      this._initGetAttentionInfo();
       // console.log("关注页面刷新成功")
     },
     //才艺页面刷新
-    async _initGetTalentInfo(id){
-      let talents = await home.getTalentsInfo(id);
+    async _initGetTalentInfo(){
+      let talents = await home.getTalentsInfo(this.token);
       this.talentsInfo = talents.talents;
       this.changeItem(this.talentsInfo);
     },
     onRefreshT(){
-      this._initGetTalentInfo(123456);
+      this._initGetTalentInfo();
       // console.log("才艺页面刷新成功")
     },
     //附近页面刷新
-    async _initGetNearByInfo(id){
-      let nearBy = await home.getNearByInfo(id);
+    async _initGetNearByInfo(){
+      let nearBy = await home.getNearByInfo(this.token);
       this.nearByInfo = nearBy.nears;
       this.changeItem(this.nearByInfo);
     },
     onRefreshN(){
-      this._initGetNearByInfo(123456);
+      this._initGetNearByInfo();
       // console.log("附近页面刷新成功")
     },
     //推荐页面刷新
-    async _initGetRecommendInfo(id){
-      this.recommendInfo =  await home.getRecommendInfo(id);
+    async _initGetRecommendInfo(){
+      this.recommendInfo =  await home.getRecommendInfo(this.token);
       this.changeItem(this.recommendInfo.specialrecommend);
       this.changeItem(this.recommendInfo.generalrecommend);
     },
     onRefreshR(){
-      this._initGetRecommendInfo(123456);
+      this._initGetRecommendInfo();
       // console.log("推荐页面刷新成功")
     },
     getTag(tag){
       switch (tag) {
         case "成熟知性":
-          return "http://122.51.57.152:4000/images/meili.png";
+          return "http://123.57.233.41:4000/images/meili.png";
           break;
         case "天籁之音":
-          return "http://122.51.57.152:4000/images/xinxiu.png";
+          return "http://123.57.233.41:4000/images/xinxiu.png";
           break;
         case "美丽动人":
-          return "http://122.51.57.152:4000/images/renqi.png";
+          return "http://123.57.233.41:4000/images/renqi.png";
           break;
         case "能歌善舞":
-          return "http://122.51.57.152:4000/images/caiyi.png";
+          return "http://123.57.233.41:4000/images/caiyi.png";
           break;
         case "温柔甜美":
-          return "http://122.51.57.152:4000/images/renmeigetian.png";
+          return "http://123.57.233.41:4000/images/renmeigetian.png";
           break;
         case "甜美可爱":
-          return "http://122.51.57.152:4000/images/xingganrewu.png";
+          return "http://123.57.233.41:4000/images/xingganrewu.png";
           break;
         case "知心小姐姐":
-          return "http://122.51.57.152:4000/images/tianlanzhiyin.png";
+          return "http://123.57.233.41:4000/images/tianlanzhiyin.png";
           break;
         case "清纯甜美":
-          return "http://122.51.57.152:4000/images/qingchun.png";
+          return "http://123.57.233.41:4000/images/qingchun.png";
           break;
       }
     },
@@ -187,17 +175,18 @@
           this._initGetCctvInfo()
         }
     },
-    goLiveRoom(id,studiono){
-      this.$router.push('/live?userid='+id+'&studiono='+studiono);
+    goLiveRoom(studiono){
+      this.$router.push('/live?userid='+this.token+'&studiono='+studiono);
     }
   },
   computed:{
     ...mapGetters({
-      slideIndex:'GETSLIDE'
+      slideIndex:'GET_SLIDE',
+      token:'GET_TOKEN'
     })
   },
   mounted() {
-    this._initGetAttentionInfo(123456)
+    this._initGetAttentionInfo();
   }
 }
 </script>
