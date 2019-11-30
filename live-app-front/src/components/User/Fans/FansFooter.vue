@@ -2,7 +2,7 @@
     <van-tabs class="van"  color="aqua" swipeable  v-if="data.fans">
         <van-tab title="关注">
             <div class="lister-one" v-for="(u,i) in data.fans.FansFooter.attention" :key="i"> 
-                <div>
+                <div @click="skip(a.userid)">
                     <img :src=u.userimage alt="">
                 </div>
                 <div>
@@ -18,7 +18,7 @@
         </van-tab>
         <van-tab title="粉丝">
             <div class="lister-one" v-for="(a,i) in data.fans.FansFooter.Fans" :key="i">
-                <div>
+                <div @click="skip(a.userid)">
                     <img :src=a.userimage alt="">
                 </div>
                 <div>
@@ -55,7 +55,13 @@ export default {
 		})
 	},
     beforeMount(){
-        this.$store.dispatch('INITDATA')  //给仓库触发事件
+        this.$store.dispatch('INITDATA',this.$route.query.token)  //给仓库触发事件
+    },
+    methods:{
+        skip(id){
+            this.$route.push("/user/fans?userid = " + id)
+            this.$store.dispatch('INITDATA',this.$route.query.userid)
+        }
     }
 }
 </script>

@@ -25,8 +25,11 @@ export default new Vuex.Store({
       // console.log(id);
       let a = await user.getUserdata(id);
       // let a = await require("../mocks/User.json")
-      console.log(a);
+      // console.log(a);
       commit('INIT', a)
+    },
+    'VIP': async ({ commit }, a) => {
+      commit('VIPMU', a)
     }
   },
   getters: {
