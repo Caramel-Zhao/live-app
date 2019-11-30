@@ -24,7 +24,7 @@
                                 <p>{{HostData.data.username}}</p>
                             </div>
                         </div>
-                        <div class="focus"@click="getFocus">
+                        <div class="focus" @click="getFocus">
                             <span v-if="focus">关注+</span>
                             <span v-else>已关注</span>
                         </div>
