@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script >
+
+</script>
+<script>
+    function getlocation() {
+        if (navigator.geolocation) {
+            var n = navigator.geolocation.getCurrentPosition(function(res){
+                let lat=res.coords.latitude;
+                let lng=res.coords.longitude;
+                document.write(lat,lng); // 需要的坐标地址就在res中
+            });
+        } else {
+            alert('该浏览器不支持定位');
+        }
+    }
+    getlocation()
+    //          getLocation(){
+    //     if (navigator.geolocation){
+    //
+    //         navigator.geolocation.getCurrentPosition(this.showPosition,this.showError);
+    //     }else{
+    //         alert("浏览器不支持地理定位。");
+    //     }
+    // },
+    // //获取用户地理位置失败时的一些错误代码处理方式
+    //  showError(error){
+    //      alert(1)
+    //     switch(error.code) {
+    //         case error.PERMISSION_DENIED:
+    //             alert("定位失败,用户拒绝请求地理定位");
+    //             break;
+    //         case error.POSITION_UNAVAILABLE:
+    //             alert("定位失败,位置信息是不可用");
+    //             break;
+    //         case error.TIMEOUT:
+    //             alert("定位失败,请求获取用户位置超时");
+    //             break;
+    //         case error.UNKNOWN_ERROR:
+    //             alert("定位失败,定位系统失效");
+    //             break;
+    //     }
+    // },
+    // showPosition(position){
+    //     var lat = position.coords.latitude; //纬度
+    //     var lag = position.coords.longitude; //经度
+    //     //alert('纬度:'+lat+',经度:'+lag);
+    //     //调用谷歌地图
+    //     //google
+    //     var url = 'http://maps.google.cn/maps/api/geocode/json?latlng='+latlon+'&language=CN';
+    //     $.ajax({
+    //         type: "GET",
+    //         url: url,
+    //         beforeSend: function(){
+    //             $("#google_geo").html('正在定位...');
+    //         },
+    //         success: function (json) {
+    //             if(json.status=='OK'){
+    //                 var results = json.results;
+    //                 $.each(results,function(index,array){
+    //                     if(index==0){
+    //                         $("#google_geo").html(array['formatted_address']);
+    //                     }
+    //                 });
+    //             }
+    //         },
+    //         error: function (XMLHttpRequest, textStatus, errorThrown) {
+    //             $("#google_geo").html(latlon+"地址位置获取失败");
+    //         }
+    //     });
+    // },
+</script>

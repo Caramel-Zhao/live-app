@@ -9,7 +9,7 @@ export default {
         "Content-Type": "application/json;charset=UTF-8"
       },
       body: JSON.stringify({
-        "userid":userid,
+        "token":userid,
         "studiono":stu,
         "id":id
       })

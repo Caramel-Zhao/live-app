@@ -1,6 +1,6 @@
 <template>
     <div class="buygift" v-if="data">
-        <div class="smallgift" v-for="(n,i) in data" @click="add(i)" :class="isclass==i?'active ':''" :key="i"  >
+        <div class="smallgift" v-for="(n,i) in data" @click="add(i,n.giftprice)" :class="isclass==i?'active ':''" :key="i"  >
             <img :src="n.image" class="smallimg">
             <span>{{n.giftname}}</span>
             <i>{{n.giftprice}}</i>
@@ -18,12 +18,12 @@
         },
         props:["data"],
         methods:{
-            add(i){
+            add(i,a){
                 this.isclass=i;
                 console.log(i)
                // this.ref=this.$el.querySelectorAll('.smallimg')[i]
                // this.$emit("gift",this.ref.src)
-                this.$emit("gift",i)
+                this.$emit("gift",i,a)
             },
         },
 

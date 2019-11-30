@@ -23,7 +23,6 @@
 
 <script>
 import {mapGetters} from "vuex"
-import Nobility from "../../../apis/Nobility"
 import { ActionSheet } from 'vant';
 import { Dialog } from 'vant';
 export default {

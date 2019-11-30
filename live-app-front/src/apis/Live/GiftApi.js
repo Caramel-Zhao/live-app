@@ -5,5 +5,4 @@ export default {
     let data = await res.json()
     return data
   },
-
 }
