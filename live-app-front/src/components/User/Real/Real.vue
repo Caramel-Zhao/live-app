@@ -1,11 +1,11 @@
 <template>
     <div class="realer">
         <div class="top">
-            <router-link :to="'/user'">
-            <svg class="righterr" aria-hidden="true">
-                <use xlink:href="#iconfanhui"></use>
-            </svg>
-            </router-link>
+            <a @click="$router.go(-1)">
+                <svg class="righterr" aria-hidden="true">
+                    <use xlink:href="#iconfanhui"></use>
+                </svg>
+            </a>
             <p class="real">实名认证</p>
         </div>
         <div class="enter">

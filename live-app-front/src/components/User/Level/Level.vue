@@ -55,7 +55,7 @@ export default {
     .cover{
         width: 100vw;
         height: 100vh;
-        background-image: url("http://123.57.233.41:4000//images/Earnings_backgroundImg.jpg");
+        background-image: url("http://123.57.233.41:4000/images/Earnings_backgroundImg.jpg");
         background-size: 100% 100%;
     }
     .top{
