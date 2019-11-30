@@ -1,5 +1,5 @@
 <template>
-  <p class="home-recommend-advertisement"><img src="http://122.51.57.152:4000/images/Advertisement.jpg" alt=""></p>
+  <p class="home-recommend-advertisement"><img src="http://123.57.233.41:4000/images/liveAd.gif" alt=""></p>
 </template>
 <script>
   export default {

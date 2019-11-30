@@ -1,6 +1,6 @@
 <template>
   <ul class="home-recommend-list">
-      <li :key="index" v-for="(item,index) in data" @click="goLiveRoom(465123,item.studiono)">
+      <li :key="index" v-for="(item,index) in data" @click="goLiveRoom(item.studiono)">
           <img :src=item.images alt=""/>
         <div class="home-recommend-list-tag">
           <p v-if="item.tag" class="tag"><img :src=item.tag alt=""></p>
@@ -25,12 +25,7 @@
 <script>
   export default {
     name: "HomeRecommendList",
-    props:["data"],
-    // methods:{
-    //   goUrl(i){
-    //       this.$router.push('/live?id=' + i)
-    //   }
-    // }
+    props:["data","goLiveRoom"],
   }
 </script>
 

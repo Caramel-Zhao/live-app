@@ -1,9 +1,9 @@
 <template>
       <swiper :options="swiperOption" ref="mySwiper" class="home-waiting-list">
       <swiper-slide :key="index" v-for="(item,index) in data" class="home-waiting-list-item">
-        <span @click="goLiveRoom(465123,item.studiono)">
+        <span @click="goLiveRoom(item.studiono)">
           <span>
-          <img class="bg" src="http://122.51.57.152:4000/images/bg-2.png" alt="">
+          <img class="bg" src="http://123.57.233.41:4000//images/bg-2.png" alt="">
           <img class="item-images" :src=item.userimage alt="已关注" >
         </span>
         </span>
@@ -14,7 +14,7 @@
 <script>
   export default {
     name: "HomeWaitingList",
-    props:["data"],
+    props:["data","goLiveRoom"],
     data() {
       return {
         swiperOption: {

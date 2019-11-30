@@ -1,9 +1,9 @@
 <template>
   <div class="footer">
     <router-link tag="span" to="/home"><i class="footer-index" :class="{'footer-index-active':$route.path === '/home'}"></i><span>首页</span></router-link>
-    <div class="live-img" @click="show = true"><img src="http://122.51.57.152:4000/images/live.png" alt=""></div>
-    <van-popup v-if="HomeInfo.paper" v-model="show" position="bottom" :style="{ height: '20%' }" class="home-popup">
-      <router-link tag="p" to="/startLive" class="go-live">
+    <div class="live-img"  @click="show = true"><img src="http://123.57.233.41:4000/images/live.png" alt=""></div>
+    <van-popup v-if="real===0" v-model="show" position="bottom" :style="{ height: '20%' }" class="home-popup">
+      <router-link to="/startLive" tag="p" class="go-live">
         <span>
           <svg class="icon" aria-hidden="true">
           <use xlink:href="#iconicon_kaishizhibo"></use>
@@ -23,7 +23,7 @@
     <van-overlay v-else class="home-overlay" :show="show"  @click="show = false">
       <div class="wrapper" @click.stop="show = false">
         <div class="block">
-          <p><img src="http://122.51.57.152:4000/images/renzhen.jpg" alt=""></p>
+          <p><img src="http://123.57.233.41:4000/images/renzhen.jpg" alt=""></p>
           <p>开播前需要实名认证</p>
           <p class="home-sure">
             <span @click="show = false">稍后</span>
@@ -36,8 +36,8 @@
   </div>
 </template>
 <script>
-import homeInfo from '../../../public/mocks/Home/Home';
 import { Overlay, Popup} from 'vant';
+import home from "../../apis/Home/home";
 export default {
   name: "YT-footer",
   components: {
@@ -47,8 +47,19 @@ export default {
   data () {
     return {
       show: false,
-      HomeInfo: homeInfo
+      real:0
     }
+  },
+  methods:{
+    //是否实名认证
+    async _initGetRealInfo(id){
+      let getRealInfo = await home.getVerficationInfo(id);
+      this.real = getRealInfo.status;
+      console.log(this.real);
+    },
+  },
+  beforeMount() {
+    // this._initGetRealInfo(999999);
   }
 }
 </script>
@@ -77,22 +88,22 @@ export default {
       margin: 0 auto;
     }
     .footer-index {
-      background: url("http://122.51.57.152:4000/images/footer.png") 0 -0.3rem no-repeat;
+      background: url("http://123.57.233.41:4000/images/footer.png") 0 -0.3rem no-repeat;
       background-size: 0.7rem 0.52rem;
     }
     .footer-user {
-      background: url("http://122.51.57.152:4000/images/footer.png") -0.48rem 0 no-repeat;
+      background: url("http://123.57.233.41:4000/images/footer.png") -0.48rem 0 no-repeat;
       background-size: 0.7rem 0.52rem;
     }
     .footer-index-active {
-      background: url("http://122.51.57.152:4000/images/footer.png") 0 0 no-repeat;
+      background: url("http://123.57.233.41:4000/images/footer.png") 0 0 no-repeat;
       background-size: 0.7rem 0.52rem;
       + span {
         color: #000;
       }
     }
     .footer-user-active {
-      background: url("http://122.51.57.152:4000/images/footer.png") -0.48rem -0.3rem
+      background: url("http://123.57.233.41:4000/images/footer.png") -0.48rem -0.3rem
         no-repeat;
       background-size: 0.7rem 0.52rem;
       + span {

@@ -1,7 +1,7 @@
 <template>
   <ul class="watchList">
     <li :key="index" v-for="(item,index) in data">
-      <p><a class="userimage" @click="goLiveRoom(465123,item.studiono)"><img :src=item.userimage alt="推荐关注列表" /></a></p>
+      <p><a class="userimage" @click="goLiveRoom(item.studiono)"><img :src=item.userimage alt="推荐关注列表" /></a></p>
       <p>{{item.username}}</p>
       <p>
         <i>
@@ -10,7 +10,7 @@
         </i>
         {{item.location}}
       </p>
-      <span class="home-button" @click="getFollow(123456,item.userid)">关注</span>
+      <span class="home-button" @click="getFollow(item.userid)">关注</span>
     </li>
   </ul>
 </template>
@@ -18,7 +18,7 @@
 <script>
   export default {
     name: "HomeRecommendList",
-    props:["data","getFollow"]
+    props:["data","getFollow","goLiveRoom"]
   }
 </script>
 

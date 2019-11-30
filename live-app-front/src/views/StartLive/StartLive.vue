@@ -16,31 +16,64 @@
         </span>
       </p>
       <div class="start-live-title">
-        <p>输入悄悄话,进入房间</p>
-        <input type="text">
+        <p>已为你生成专属直播链接<p/>
+        <p>请你使用该推流地址进行推流<p/>
+        <a class="start-live-link">{{token}}</a>
+        <p>完成推流即可点击下方按钮开启你的直播之旅</p>
       </div>
-      <router-link tag="span"
-                   to="/live"
-                   class="start-button">开启视频直播</router-link>
+      <span class="start-button" @click="goLiveRoom" >开启视频直播</span>
     </div>
   </div>
 </template>
 
 <script>
-export default {
+  import home from "../../apis/Home/home";
+  import { mapGetters } from 'vuex'
+  export default {
   name: "StartLive",
+  data(){
+    return {
+      startLiveInfo:null
+    }
+  },
   methods: {
     goBack () {
       this.$router.go(-1)
+    },
+    async _initGoLiveRoom(){
+      // this.startLiveInfo = await home.getStartLiveInfo(453453);
+      // console.log(this.startLiveInfo);
+      // {{startLiveInfo.data.room_ip}}
+      console.log(this.token)
+    },
+    goLiveRoom(){
+      console.log(this.startLiveInfo);
+      let studiono = this.startLiveInfo.data.charisma;
+      let id = this.token;
+      console.log(id);
+      console.log(studiono);
+      this.$router.push('/live?userid='+id+'&studiono='+studiono);
     }
+  },
+  computed:{
+    ...mapGetters({
+      token:'GETTOKEN'
+    })
+  },
+  beforeMount() {
+    this._initGoLiveRoom();
   }
 }
 </script>
 
 <style lang="scss" scoped>
 .start-live {
-  margin: 0 auto;
-  .start-item {
+    margin: 0 auto;
+    .start-item {
+      width: 100vw;
+      height: 100vh;
+      background: url("../../../public/assets/startLive/startLive.jpg") no-repeat;
+      background-size:cover ;
     .start-button {
       position: fixed;
       bottom: 0.8rem;
@@ -54,22 +87,23 @@ export default {
     .start-live-title {
       text-align: center;
       box-sizing: border-box;
-      position: absolute;
+      position: fixed;
       top: 1.2rem;
       left: 0.2rem;
       padding: 0.4rem 0 0.6rem;
-      background: rgba(2, 0, 0, 0.04);
+      background: rgba(0, 0, 0, 0.3);
       border-radius: 0.15rem;
       width: 90%;
       font-size: 0.16rem;
-      input {
-        border: none;
-        background: transparent;
-        border-bottom: 0.001rem solid #fff;
-        outline: none;
-        padding-top: 0.3rem;
-        width: 90%;
-        text-align: center;
+      color: #0bcdcc;
+      p{
+        padding-bottom: 0.05rem;
+      }
+      .start-live-link{
+        color: #fff;
+        display: inline-block;
+        padding: 0.1rem 0;
+        font-size: 0.14rem;
       }
     }
     .start-live-back {

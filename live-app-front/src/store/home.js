@@ -1,4 +1,3 @@
-
 export default{
   state: {
     slideIndex:0,
@@ -11,7 +10,6 @@ export default{
   },
   actions: {
     'GETSLIDEINDEX': async ({ commit },i) => {
-      // let a = await require("../mocks/User");
       // console.log(i);
       commit('MYSLIDE', i)
     },
