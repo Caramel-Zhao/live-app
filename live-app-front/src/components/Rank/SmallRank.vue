@@ -2,9 +2,9 @@
 	<div class="Ra-SmallRank">
 		<swiper :options="swiperOption1" ref="mySwiper1">
     <!-- slides -->
-    <swiper-slide  class="s1"><pages v-if="data.day" :data="data.day"/></swiper-slide>
-    <swiper-slide  class="s1"><pages :data="data.week"/></swiper-slide>
-    <swiper-slide  class="s1"><pages :data="data.month"/></swiper-slide>
+    <swiper-slide  class="s1"><pages v-if="data.day" :data="data.day" :num="num[0]" :tag="tag" /></swiper-slide>
+    <swiper-slide  class="s1"><pages v-if="data.week" :data="data.week" :num="num[1]" :tag="tag"/></swiper-slide>
+    <swiper-slide  class="s1"><pages v-if="data.month" :data="data.month" :num="num[2]" :tag="tag"/></swiper-slide>
     <!-- Optional controls -->
     <div class="swiper-pagination swiper-pagination1"  slot="pagination"></div>
   </swiper>
@@ -18,9 +18,10 @@
 	components: {
 		pages
 	},
-	props: ['data'],
+	props: ['data','tag'],
     data() {
       return {
+		num:[{"n":1,"m":"万"},{"n":1,"m":"亿"},{"n":100,"m":"亿"}],
         swiperOption1: {
           // 所有的参数同 swiper 官方 api 参数
           // ...
@@ -50,7 +51,7 @@
 .Ra-SmallRank{
   overflow-x: hidden;
   width: 100vw;
-  background: url(http://122.51.57.152:4000/images/bg.jpg);
+  background: url(http://123.57.233.41:4000/images/bg.jpg);
 	.swiper-pagination1{
 		display: flex;
 		padding: 0.05rem 0.15rem;

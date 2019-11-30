@@ -1,56 +1,60 @@
 <template>
-		<div class="Ra-pages">
-		<div v-if="data">
-			<img :src="data[0].userimage" @click="goDetail">
-			<img :src="data[1].userimage" @click="goDetail">
-			<img :src="data[2].userimage" @click="goDetail">
-			<svg class="icon" aria-hidden="true">
-			  <use xlink:href="#iconhuangguan" ></use>
-			</svg>
-			<svg class="icon" aria-hidden="true">
-			  <use xlink:href="#iconliubianxing_tianchong" ></use>
-			</svg>
-			<svg class="icon" aria-hidden="true">
-			  <use xlink:href="#iconliubianxing_tianchong" ></use>
-			</svg>
-			<i>2</i>
-			<i>3</i>
-			<div v-for="(n,index) in data.slice(0,3)">
-				<h1>{{n.userid}}</h1>
-				<span></span>
-				<h2>魅力值：{{n.charsma}}</h2>
+	<div class="Ra-pages" v-if="data">
+			<div>
+				<img :src="data[0].images" @click="goDetail(data[0].userid)">
+				<img :src="data[1].images" @click="goDetail(data[1].userid)">
+				<img :src="data[2].images" @click="goDetail(data[2].userid)">
+				<svg class="icon" aria-hidden="true">
+					<use xlink:href="#iconhuangguan" ></use>
+				</svg>
+				<svg class="icon" aria-hidden="true">
+					<use xlink:href="#iconliubianxing_tianchong" ></use>
+				</svg>
+				<svg class="icon" aria-hidden="true">
+					<use xlink:href="#iconliubianxing_tianchong" ></use>
+				</svg>
+				<i>2</i>
+				<i>3</i>
+				<div v-for="(n,index) in data.slice(0,3)">
+					<h1>{{n.username}}</h1>
+					<svg class="icon" aria-hidden="true" v-if="n.vipclass">
+					    <use :xlink:href="n.vipclass"></use>
+					</svg>
+					<h2>{{tag}}：{{n.charisma*num.n+3}}{{num.m}}</h2>
+				</div>
 			</div>
-		</div>
-		<div class="list">
-			<div v-for="(n,index) in data.slice(3,data.length)" @click="goDetail">
-				<h3>
-					<p>{{index+4}}</p>
-					<img :src="n.userimage">
-					<h1>{{n.userid}}</h1>
-					<span></span>
-				</h3>
-				<h2>魅力值：{{n.charsma}}</h2>
-			</div>
+			<div class="list">
+				<div v-for="(n,index) in data.slice(3,data.length)" @click="goDetail(n.userid)">
+					<h3>
+						<p>{{index+4}}</p>
+						<img :src="n.images">
+						<h1>{{n.username}}</h1>
+						<svg class="icon" aria-hidden="true" v-if="n.vipclass">
+								<use :xlink:href="n.vipclass"></use>
+						</svg>
+					</h3>
+					<h2>{{tag}}：{{n.charisma*num.n+3}}{{num.m}}</h2>
+				</div>
 		</div>
 	</div>
-	</template>
+</template>
 
 <script>
   export default {
     name: 'Star',
-	props: ['data'],
-	methods:{
-		goDetail(){
-			this.$router.push("/user/fans");
+		props: ['data','num','tag'],
+		methods:{
+			goDetail(id){
+				this.$router.push("/user/fans?userid="+id);
+			}
 		}
-	}
   }
 </script>
 <style lang="scss">
 	.Ra-pages{
     overflow-x: hidden;
     width: 100vw;
-		height: 5.6rem;
+		height: 5.62rem;
 		margin-top: 0.1rem;
 		display: flex;
 		flex: 1;
@@ -61,7 +65,7 @@
 		}
 		>div:first-child{
 			height: 2.45rem;
-			background: url(http://122.51.57.152:4000/images/bg2.jpg);
+			background: url(http://123.57.233.41:4000/images/bg2.jpg);
 			background-size: 100% 100%;
 			img{
 				width: 0.67rem;
@@ -81,10 +85,10 @@
 				}
 				&:nth-of-type(3){
 					top: 0.8rem;
-					left: 1.1rem;
+					left: 1.15rem;
 				}
 			}
-			svg{
+			>svg{
 				width: 0.37rem;
 				height: 0.37rem;
 				fill: gold;
@@ -101,7 +105,7 @@
 				&:nth-of-type(3){
 					fill: #ffa94e;
 					top: 0.38rem;
-					left: -0.5rem;
+					left: -0.4rem;
 				}
 			}
 			i{
@@ -117,7 +121,7 @@
 				}
 				&:nth-of-type(2){
 					top: 0.073rem;
-					left: 2.8rem;
+					left: 2.9rem;
 				}
 			}
 			div{
@@ -127,32 +131,36 @@
 					font-size: 0.12rem;
 					margin-bottom: 0.1rem;
 				}
-				span{
-					margin-bottom: 0.12rem;
+				svg{
+					width: 0.18rem;
+					height: 0.18rem;
+					position: relative;
+					top: -0.1rem;
+					left: 0.05rem;
 				}
 				&:nth-of-type(1){
-					top: 0.65rem;
+					top: 0.6rem;
 					left: 1.3rem;
 				}
 				&:nth-of-type(2){
-					top: 0.35rem;
+					top: 0.38rem;
 					left: 0.06rem;
 				}
 				&:nth-of-type(3){
-					top: -0.1rem;
+					top: 0rem;
 					left: 2.65rem;
 				}
 			}
 		}
 	}
 	.Ra-pages{
-		span{
-			display: inline-block;
-			width: 0.32rem;
-			height: 0.17rem;
-			background:url(http://122.51.57.152:4000/images/vip.png) no-repeat;
-			background-size: 0.14rem;
-			margin-left: 0.05rem;
+		>div{
+			div{
+				svg{
+					width: 0.18rem;
+					height: 0.18rem;
+				}
+			}
 		}
 		h1{
 			display: inline-block;

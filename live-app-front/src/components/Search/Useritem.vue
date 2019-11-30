@@ -1,10 +1,10 @@
 <template>
-    <div class="user-list">
+    <div class="user-list" v-if="data">
         <div class="user-item" v-for="(n,i) in data">
-            <div class="left"  @click="goDetail">
+            <div class="left"  @click="goDetail(userid)">
                 <img :src="n.userimage">
             </div>
-            <div class="center"  @click="goLive(n.live)">
+            <div class="center"  @click="goLive(n.live,userid)">
                 <div class="top">
                     <span class="title">{{n.username}}</span>
                     <i v-if="live && n.vipid" class="nolive">
@@ -15,7 +15,7 @@
 					<i v-if="!live" class="liveSearch">
 						<b :class="n.live ? 'red':'gray'">LIVE</b>
 					    <svg class="icon" aria-hidden="true">
-					        <use :xlink:href="n.vipclass"></use>
+					        <use :xlink:href="n.vipid"></use>
 					    </svg>
 					</i>
                 </div>
@@ -23,14 +23,14 @@
                     <svg class="icon" aria-hidden="true">
                         <use xlink:href="#iconguanzhuxuanzhong"></use>
                     </svg>
-                    <span>{{n.user_follow_num}}{{n.user_fans}}</span>
+                    <span>{{n.user_follow_num}}</span>
                 </div>
             </div>
-            <div class="right">
-				<svg class="icon focus" aria-hidden="true" v-if="n.focus" @click="goDetail">
+            <div class="right" >
+				<svg class="icon focus" aria-hidden="true" v-if="n.focus!==0" @click="goDetail(userid)">
 					<use xlink:href="#iconjiantou"></use>		    
 				</svg>
-				<svg class="icon nofocus" aria-hidden="true"  @click="req(i)" v-else>
+				<svg class="icon nofocus" aria-hidden="true" @click="sendFocus(n.userid)" v-else>
 				    <use xlink:href="#iconguanzhu"></use>
 				</svg>
             </div>
@@ -42,31 +42,18 @@
 <script>
     export default {
         name: "UserItem",
-        props:["data","live"],
-		data(){
-			return{
-				// focusShow:true
-			}
-		},
+        props:["data","live","sendFocus"],
 		methods:{
-			goDetail(){
-				this.$router.push("/user/fans");
+			goDetail(id){
+				this.$router.push("/user/fans/?="+id);
 			},
-			goLive(i){  // 判断是否有正在直播的字段
+			goLive(i,id){  // 判断是否有正在直播的字段
 				console.log(i)
 				if(i){
-					this.$router.push("/live");
+					this.$router.push("/live/?="+id);
 				}else{
-					this.$router.push("/user/fans");
+					this.$router.push("/user/fans/?="+id);
 				}
-			},
-			req(i){  // 向后台提交此用户以关注
-				console.log("后台提交关注"+i)
-				// if(a.status == 0){
-					console.log(this.data[i].focus)
-					this.data[i].focus = true;
-					console.log(this.data[i].focus)
-				// }
 			}
 		}
     }
