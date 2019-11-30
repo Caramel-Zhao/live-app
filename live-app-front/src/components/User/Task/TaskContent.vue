@@ -14,17 +14,17 @@
             <p>分享到</p>
             <div class="popup">
               <div>
-                <img src="http://122.51.57.152:4000/images/wei.png"
+                <img src="http://123.57.233.41:4000/images/wei.png"
                      alt="">
                 <p>微信</p>
               </div>
               <div>
-                <img src="http://122.51.57.152:4000/images/peng.png"
+                <img src="http://123.57.233.41:4000/images/peng.png"
                      alt="">
                 <p>朋友圈</p>
               </div>
               <div>
-                <img src="http://122.51.57.152:4000/images/er.png"
+                <img src="http://123.57.233.41:4000/images/er.png"
                      alt="">
                 <p>扫码</p>
               </div>
@@ -86,7 +86,7 @@ export default {
     width: 100%;
     height: 5.5rem;
     // background-color: aqua;
-    background: url(http://122.51.57.152:4000/images/2222.png);
+    background: url(http://123.57.233.41:4000/images/2222.png);
     background-repeat: no-repeat;
     background-size: cover;
     .btn {

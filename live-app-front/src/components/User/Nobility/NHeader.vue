@@ -73,7 +73,7 @@ export default {
         width: 100%;
           height: 0.5rem;
           display: flex;
-          background: url(http://122.51.57.152:4000/images/top.png);
+          background: url(http://123.57.233.41:4000/images/top.png);
           background-repeat: no-repeat;
           background-size: cover;
         svg{

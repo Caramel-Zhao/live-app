@@ -1,11 +1,11 @@
 <template>
   <div>
     <div class="header">
-      <router-link :to="'/user/setting'">
+      <a @click="$router.go(-1)">
         <svg class="icon" aria-hidden="true">
             <use xlink:href="#iconarrow-left"></use>
         </svg>
-      </router-link>
+      </a>
       <h3>修改密码</h3>
     </div>
     <div class="set-content">
