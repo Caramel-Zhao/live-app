@@ -1,18 +1,18 @@
 <template>
-    <div class="focus-top" v-if="data.fans">
-        <span class="su">{{data.fans.FansContent.user}}</span>
+    <div class="focus-top" v-if="data">
+        <span class="su">{{data.username}}</span>
         <svg class="iconer" aria-hidden="true">
-            <use xlink:href="#iconnan"></use>
+            <use :xlink:href=data.sex></use>
         </svg>
         <svg class="icon" aria-hidden="true">
-            <use xlink:href="#iconbaiyin"></use>
+            <use :xlink:href=data.vipclass></use>
         </svg>
-        <p class="su-id">{{data.fans.FansContent.userid}}</p>
-        <p class="signature">{{data.fans.FansContent.autograph}}</p>
+        <p class="su-id">{{data.userid}}</p>
+        <p class="signature">{{data.autograph}}</p>
         <span class="meg">关注</span>
-        <em class="meg-i">{{data.fans.FansContent.attention}}</em>
+        <em class="meg-i">{{data.user_attention_num}}</em>
         <span class="fan">粉丝</span>
-        <em class="fan-i">{{data.fans.FansContent.fan}}</em>
+        <em class="fan-i">{{data.user_follow_num}}</em>
     </div>
 </template>
 
@@ -26,7 +26,7 @@ export default {
 		})
 	},
     beforeMount(){
-        this.$store.dispatch('INITDATA')  //给仓库触发事件
+        this.$store.dispatch('INITDATA',"453453")  //给仓库触发事件
     }
 }
 </script>

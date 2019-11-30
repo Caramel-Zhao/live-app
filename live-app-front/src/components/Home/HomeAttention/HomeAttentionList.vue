@@ -1,7 +1,7 @@
 <template>
   <div>
-    <HomeAttentionListHeader />
-    <HomeRecommendList :data="data"/>
+    <HomeAttentionListHeader :change="change"/>
+    <HomeRecommendList :data="data" :getFollow="getFollow" :goLiveRoom="goLiveRoom"/>
   </div>
 </template>
 
@@ -10,7 +10,7 @@
   import HomeAttentionListHeader from "./HomeWatchedListHeader";
   export default {
     name: "HomeAttentionList",
-    props:["data"],
+    props:["data","change","getFollow","goLiveRoom"],
     components:{
       HomeAttentionListHeader,
       HomeRecommendList

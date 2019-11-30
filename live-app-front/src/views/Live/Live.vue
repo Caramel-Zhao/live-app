@@ -1,24 +1,32 @@
+
 <template>
     <div>
         <div class="top" >
-
         </div>
         <swiper :options="swiperOption"
                     ref="mySwiper">
-                <swiper-slide class="slide">dfdf</swiper-slide>
+                <swiper-slide class="slide"></swiper-slide>
                 <swiper-slide class="slide" >
                     <div class="header">
-                        <div class="infor" >
+                        <div class="infor" v-if="userdata">
                             <div @click="usershow=true">
-
+                                <img :src="userdata.data.userimage">
                             </div>
                             <div>
-                                <p>sdsdsd</p>
-                                <span>总人气：</span>
+                                <p>{{userdata.data.username}}</p>
                             </div>
                         </div>
-                        <div class="focus">
-                            <span>关注+</span>
+                        <div class="infor" v-if="HostData">
+                            <div @click="usershow=true">
+                                <img :src="HostData.data.userimage">
+                            </div>
+                            <div>
+                                <p>{{HostData.data.username}}</p>
+                            </div>
+                        </div>
+                        <div class="focus"@click="getFocus">
+                            <span v-if="focus">关注+</span>
+                            <span v-else>已关注</span>
                         </div>
                         <div class="user" v-if="data">
                             <div v-for="(n,i) in data.audiences">
@@ -34,10 +42,13 @@
                             <div v-if="userdata">
                                 魅力值：{{userdata.data.charisma}}亿
                             </div>
+                            <div v-if="HostData">
+                                魅力值：{{HostData.data.charisma}}亿
+                            </div>
                         </div>
                         <div class="right">
-                            <van-notice-bar  class="slidetar" >
-                                欢迎来到主播悦兔号为的房间，快去关注它把
+                            <van-notice-bar  class="slidetar" v-if="userdata">
+                                欢迎来到主播<span style="color:lightpink">{{userdata.data.username}}</span>悦兔号  {{userdata.data.userid}}  为的房间，快去关注它把！
                             </van-notice-bar>
                         </div>
                     </div>
@@ -55,7 +66,7 @@
 
                     <div class="bottom" >
                        <div class="chat">
-                           <div class="left" id="scrollleft">
+                           <div class="left" id="scrolleft">
                                <p>悦兔直播，悦兔提倡绿色直播环境，对直播内容24小时监控，
                                    任何违法违规、聚集闹事、抹黑诋毁、低俗不良行为将被封禁，传播正能量，从你我做起！</p>
                                <span>风险提示：悦兔平台严禁主播及任何人以返现、返利等诱导性方式引诱用户送礼
@@ -108,8 +119,11 @@
                     </div>
                     <div class="gold" v-if="userdata">
                         <div>ID:{{userdata.data.userid}}</div>
-                        <img src="../../assets/img/h3.png">
+                        <svg class="icon" aria-hidden="true">
+                            <use  :xlink:href="vipicon" ></use>
+                        </svg>
                     </div>
+                    <div class="endLive">结束直播</div>
                 </swiper-slide>
         </swiper>
         <!--        观众列表-->
@@ -154,14 +168,14 @@
 <!--                    <Gift :data="data.user.gifts" v-if="data.user" @gift="receivegift"></Gift>-->
                     <Gift v-if="giftdata" :data="giftdata.data.new"  @gift="receivegift"></Gift>
                     <div class="togift">
-                            <router-link tag="p" to="/user/earnings">充值：0
+                            <router-link tag="p" to="/user/phone" >充值：{{residue}}
                                     <svg class="icon" aria-hidden="true">
                                         <use  xlink:href="#iconxiangyou1" ></use>
                                     </svg>
                             </router-link>
-                        <router-link tag="span" to="/user/earnings">
+                        <router-link tag="span" to="/user/Earnings">
                              <span>
-                            积分：0
+                            收益 : **
                                 <svg class="icon" aria-hidden="true">
                                    <use  xlink:href="#iconxiangyou" ></use>
                                 </svg>
@@ -179,12 +193,14 @@
         </van-popup>
         <!--            主播详情-->
         <van-popup  v-model="usershow" class="uservant" position="bottom">
-          <UserVant :data="data.anchorid"/>
+          <UserVant v-if="userdata" :data="userdata.data" :icon="vipicon"/>
         </van-popup>
+
         </div>
 </template>
 
 <script>
+    import Vedio from "../../components/live/Vedio";
     import { NoticeBar } from 'vant';
     import { ActionSheet } from 'vant';
     import { Popup } from 'vant';
@@ -195,12 +211,16 @@
     import GiftApi from "../../apis/Live/GiftApi";
     import SendgiftApi from "../../apis/Live/SendgiftApi";
     import UserApi from "../../apis/Live/UserApi";
+    import Mainhost from "../../apis/Live/Mainhost";
     import $ from "jquery"
     export default {
         name: "Live",
         data() {
             return {
+                focus:true,
+                vipicon:null,
                 userdata:null,
+                HostData:null,
                 giftclass:"transgift",
                 enterclass:"animated bounceInLeft",
                 leaveclass:"animated bounceOutRight",
@@ -212,6 +232,8 @@
                 time:null,
                 gift:null,
                 giftindex:null,
+                giftprice:0,
+                residue:null,
                 data:null,
                 giftdata:null,
                 flagbottom:true,
@@ -229,21 +251,23 @@
                     // ...
                 }
             }
-
         },
         beforeMount() {
+            //获取路由
+            //this.$router.query.token
+            //this.$router.query.studiono
             //当前页面数据
-            this._initUserData("453453","444455")
+            // this._initUserData("453453","444444")
             //接收礼物
-            this._initGiftData()
+            // this._initGiftData("453453","444444",this.giftindex+1)
             //模拟数据
             let a=require("../../../public/mocks/Live/Live")
             this.data=a
-            console.log(this.data)
+            // console.log(this.data)
             //获取路由
-            console.log(this.$route)
+            this.getRouter()
             //创建连接
-            this.ws = new WebSocket("ws://10.36.176.135:8888/chat/?userid=453453&studiono=444444");
+            this.ws = new WebSocket("ws://10.36.176.220:8888/chat/?userid=453453&studiono=444444");
             this.ws.onopen = function (e) {
                 console.log("客户端连接成功了！")
             }
@@ -259,11 +283,12 @@
         updated(){
             // 聊天定位到底部
             this.$nextTick(() => {
-                var container = document.querySelector("#scrollleft");
+                var container = document.querySelector("#scrolleft");
                 container.scrollTop = container.scrollHeight;
             })
         },
         components:{
+            Vedio,
             [NoticeBar.name]:NoticeBar,
             [ActionSheet.name]:ActionSheet,
             [Popup.name]:Popup,
@@ -273,6 +298,36 @@
             [ShareVant.name]:ShareVant,
         },
         methods:{
+            //关注主播
+            getFocus(){
+                this.focus=false
+            },
+            //调用定位
+            getLocation(){
+                if (navigator.geolocation) {
+                    navigator.geolocation.getCurrentPosition(function(res){
+                        let lat=res.coords.latitude;
+                        let lng=res.coords.longitude;
+                        console.log(lat,lng); // 需要的坐标地址就在res中
+                    });
+                } else {
+                    alert('该浏览器不支持定位');
+                }
+            },
+            //动态路由跳转
+            goFansDetail(id){
+                this.$router.push('/user/fans?token='+id);
+            },
+            //获取路由传递信息
+            getRouter(){
+                if(this.$router.query.studiono){
+                 this._initUserData(this.$router.query.userid,this.$router.query.studiono)
+                }
+                else{
+                this._initHostData($router.query.token)
+                }
+                // console.log(this.$route.query)
+            },
             //弹出打字框
             popup(){
                 this.flagbottom=false
@@ -300,6 +355,28 @@
                         break;
                 }
             },
+           vipclassclassify(a){
+                switch (a) {
+                    case 1:
+                        return "#iconvip";
+                        break;
+                    case 2:
+                        return "#iconvip7";
+                        break;
+                    case 3:
+                        return "#iconvip8";
+                        break;
+                    case 4:
+                        return "#iconvip9";
+                        break;
+                    case 5:
+                        return "#iconvip10";
+                        break;
+                    case 6:
+                        return "#iconzhizunhuiyuan";
+                        break;
+                }
+           },
             //对话框数据
             partabc(a){
                let b=a.split(":");
@@ -330,8 +407,8 @@
                 console.log(this.giftdata)
               },
             //发送礼物接收反馈
-            async _initSendgiftData(){
-                let data=await SendgiftApi.getmessageData("453453","444444",this.giftindex+1)
+            async _initSendgiftData(a,b,c){
+                let data=await SendgiftApi.getmessageData(a,b,c)
                 console.log(data)
                 this.receiveg=data
                 console.log(this.receiveg)
@@ -340,7 +417,13 @@
             async _initUserData(id,stu){
                 let data= await  UserApi.getUserData(id,stu)
                 this.userdata=data
-                console.log(this.userdata)
+                this.vipicon=this.vipclassclassify(this.userdata.data.vipclass)
+                // console.log(this.userdata)
+            },
+            //主播进入直播间直播
+            async _initHostData(userid){
+                let data =await  Mainhost.getHostData(userid)
+                this.HostData=data
             },
             //根据下标判断礼物特效
             judgegiftstyle(a){
@@ -359,13 +442,13 @@
                     this.leaveclass="animated bounceOutRight"
                     this.giftclass="transgift"
                 }
-
             },
             //子传父接收礼物
-            receivegift(a){
+            receivegift(a,b){
                 this.judgegiftstyle(a)
                 //将下标保存起来
                 this.giftindex=a
+                this.giftprice=b
             },
             //打开礼物弹出显示
             transhow(){
@@ -375,28 +458,32 @@
             //发送礼物
             sendgift(){
                 this._initSendgiftData()
-                // if(所剩金币数>当前礼物金额){
-                //
-                // }
-                //else{
-                    // Dialog.confirm({
-                    //     title: '余额不足',
-                    //     message: '当前金币不足了呢，点击马上充值体验精彩！',
-                    //     confirmButtonText:'前往充值',
-                    // }).then(() => {
-                    //     // on confirm
-                    // }).catch(() => {
-                    //     // on cancel
-                    // });
-                    //调用发送礼物的函数
-                    //对金币数做判断
-                //}
-                this.outgift=true
-                 clearTimeout(this.time)
-                this.time=setTimeout(()=>{
-                    this.outgift=false
-                },2000)
+                let a=parseInt(this.userdata.data.user_balance)
+                let b=parseInt(this.giftprice)
+                if(a>b){
+                    this.residue=a-b
+                    this.outgift=true
+                    clearTimeout(this.time)
+                    this.time=setTimeout(()=>{
+                        this.outgift=false
+                    },2000)
+                }
+                else{
+                    Dialog.confirm({
+                        title: '余额不足',
+                        message: '当前金币不足了呢，点击马上充值体验精彩！',
+                        confirmButtonText:'前往充值',
+                    }).then(() => {
+                        this.$router.push('/user/phone')
+                    }).catch(() => {
+                        // on cancel
+                    });
+                }
+
             }
+        },
+        mounted(){
+            !function(e,t,a){function n(){c(".heart{width: 15px;height: 15px;position: fixed;background: #f00;transform: rotate(45deg);-webkit-transform: rotate(45deg);-moz-transform: rotate(45deg);}.heart:after,.heart:before{content: '';width: inherit;height: inherit;background: inherit;border-radius: 50%;-webkit-border-radius: 50%;-moz-border-radius: 50%;position: fixed;}.heart:after{top: -5px;}.heart:before{left: -5px;}"),o(),r()}function r(){for(var e=0;e<d.length;e++)d[e].alpha<=0?(t.body.removeChild(d[e].el),d.splice(e,1)):(d[e].y--,d[e].scale+=.004,d[e].alpha-=.013,d[e].el.style.cssText="left:"+d[e].x+"px;top:"+d[e].y+"px;opacity:"+d[e].alpha+";transform:scale("+d[e].scale+","+d[e].scale+") rotate(45deg);background:"+d[e].color+";z-index:99999");requestAnimationFrame(r)}function o(){var t="function"==typeof e.onclick&&e.onclick;e.onclick=function(e){t&&t(),i(e)}}function i(e){var a=t.createElement("div");a.className="heart",d.push({el:a,x:e.clientX-5,y:e.clientY-5,scale:1,alpha:1,color:s()}),t.body.appendChild(a)}function c(e){var a=t.createElement("style");a.type="text/css";try{a.appendChild(t.createTextNode(e))}catch(t){a.styleSheet.cssText=e}t.getElementsByTagName("head")[0].appendChild(a)}function s(){return"rgb("+~~(255*Math.random())+","+~~(255*Math.random())+","+~~(255*Math.random())+")"}var d=[];e.requestAnimationFrame=function(){return e.requestAnimationFrame||e.webkitRequestAnimationFrame||e.mozRequestAnimationFrame||e.oRequestAnimationFrame||e.msRequestAnimationFrame||function(e){setTimeout(e,1e3/60)}}(),n()}(window,document);
         },
         //监听组件的显示
         watch:{
@@ -411,15 +498,29 @@
 
 <style lang="scss" scoped>
     $bgcolor:rgb(8,8,8,0.3);
+    .endLive{
+        position: absolute;
+        bottom:2.6rem;
+        color:white;
+        font-weight: 600;
+        background: linear-gradient(to right,#0FE3ED,#0FE0C7);
+        width: .7rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: .3rem;
+        border-radius: .2rem;
+        left: 2.8rem;
+    }
     .top{
         position: absolute;
         top: 0;
-        background-color:rgba(#a600ff,.2) ;
+        /*background-color:rgba(#a600ff,.2) ;*/
         height: 100vh;
         width: 100%;
     }
     .slide{
-        background-color: rgba(3,255,255,.3);
+        background-color: rgba(#000,.6);
         height: 100vh;
         /*position: absolute;*/
         /*top: 0;*/
@@ -533,7 +634,7 @@
                 border-radius: 50%;
                 position: absolute;
                 top:-0.1rem;
-                left: .7rem;
+                left: .6rem;
             }
             span{
                 color: white;
@@ -581,7 +682,6 @@
     .transgift{
         height: 1rem;
         padding: .1rem;
-        /*background-color: lightgoldenrodyellow;*/
         position: absolute;
         top:2rem;
         /*display: none;*/
@@ -831,6 +931,7 @@
                 .togift{
                     color: white;
                     display: flex;
+                    justify-content: space-around;
                     align-items: center;
                     height: .4rem;
                     font-size: .14rem;
@@ -839,10 +940,9 @@
                         height: .15rem;
                     }
                     p{
+                        margin-left: .1rem;
                         display: flex;
                         align-items: center;
-                        width: .8rem;
-                        justify-content: center;
                         color: #f4ea2a;
                         svg{
 
@@ -851,13 +951,12 @@
                     span{
                         display: flex;
                         align-items: center;
-                        width: .8rem;
                         justify-content: center;
+                        margin-left: .1rem;
                     }
                     a{
                         background-color: #0CCECE;
                         padding:.05rem .15rem;
-                        margin-left: 1.4rem;
                         border-radius: .2rem;
                     }
                 }
@@ -885,10 +984,10 @@
         right:0.1rem;
         color: peru;
         font-weight: 600;
-        img{
-            width: .2rem;
-            height: .2rem;
-            margin-left: .2rem;
-        }
+       svg{
+           width: .25rem;
+           height: .25rem;
+           margin-left: .2rem;
+       }
     }
 </style>

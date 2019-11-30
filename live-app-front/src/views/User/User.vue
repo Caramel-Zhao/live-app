@@ -50,9 +50,14 @@ export default {
     "User-Service": Service,
     "User-footer":Footer
   },
-  Mounted(){
-    console.log(this.userinfo);
-  }
+   beforeMount() {
+     this.$store.dispatch("INITDATA","453453")
+    },
+    data(){
+        return{
+          data:null
+        }
+    },
 }
 </script>
 

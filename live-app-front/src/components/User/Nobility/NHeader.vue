@@ -7,35 +7,61 @@
     </a>
     <h5>特权介绍</h5>
     <div class="popups">
-        <button @click="ff" class="btn">详细内容</button>
+        <button @click="ff" class="btn">立即充值</button>
         <van-action-sheet v-model="show" title="特权详细介绍" v-if="show">
             <p>红V--开通金额:100元,同时获得500万金币,永久获得</p>
             <p>紫V--开通金额:300元,同时获得2000万金币,永久获得</p>
             <p>银冠--开通金额:3000元,同时获得3亿金币,时间:30天</p>
             <p>皇冠--开通金额:10000元,同时获得10亿金币,时间:30天</p>
             <p>钻冠--开通金额:30000元,同时获得30亿金币,时间:30天</p>
-            <p>至尊--开通金额:100000元,同时获得100亿金币,时间:30天</p>  
-            <p>累计充值办理以月累计计算，次月重新累计，达到累计额度立即升级对应的等级</p>
+            <p>至尊--开通金额:100000元,同时获得100亿金币,时间:30天</p>
+            <button class="btn1" @click="ss">立即开通</button>
         </van-action-sheet>
     </div>
   </div>
 </template>
 
 <script>
+import {mapGetters} from "vuex"
 import { ActionSheet } from 'vant';
+import { Dialog } from 'vant';
 export default {
     name:"NHeader",
      data(){
         return{
-            show:false
+            show:false,
+            backmsg:""
         }
     },
     components:{
-      [ActionSheet.name]:ActionSheet
+      [ActionSheet.name]:ActionSheet,
+      [Dialog.name]:Dialog
     },
+    computed: {
+		...mapGetters({
+			vip: 'GETVIP',
+		})
+	},
     methods:{
         ff(){
             this.show =! this.show
+        },
+        ss(){
+            this.show = false;
+            Dialog.confirm({
+                title: '充值',
+                message: '是否确定开通'
+            }).then(async () => {
+               let a = await Nobility.getvip("453453",this.vip);
+               this.backmsg = a.msg;
+               Dialog.alert({
+                message: this.backmsg
+                }).then(() => {
+                // on close
+                });             
+            }).catch(() => {
+            // on cancel
+            });
         }
     }
 }
@@ -64,7 +90,7 @@ export default {
         }   
     }
     .van-popup--bottom.van-popup--round {
-    height: 3rem;
+        height: 3rem;
     }
     .btn{
         width: 0.8rem;
@@ -82,6 +108,18 @@ export default {
             font-size: 0.13rem;
             margin: 0.1rem;
             padding: 0.05rem;
+        }
+        .btn1{
+            width: 2.3rem;
+            height: 0.4rem;
+            color: white;
+            font-weight: 700;
+            border-radius: 0.7rem;
+            border: none;
+            background-color: aqua;
+             margin-left: 0.75rem;
+            font-size: 0.15rem;
+
         }
     }
 

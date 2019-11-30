@@ -237,14 +237,13 @@
       "company": "",
 	  "src":"点击之后跳转至该直播页面"
     }
-
   ],
   "talents": [
     {
       "_comment": "才艺,下面的tag是人美歌甜、清纯可爱、天籁之音等tag图片,company传媒公司等",
       "images": "http://122.51.57.152:4000/images/images.jpg",
       "tag": "",
-      "userid": "我是才艺主播",
+      "userid": "cctv",
       "vipclass": "http://122.51.57.152:4000/images/vip.png",
       "location": "地址",
       "company": "传媒公司",
@@ -398,5 +397,5 @@
 	  "src":"点击之后跳转至该直播页面"
     }
   ],
-  "paper": false
+  "paper": true
 }

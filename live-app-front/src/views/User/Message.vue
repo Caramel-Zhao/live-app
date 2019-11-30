@@ -1,15 +1,18 @@
 <template>
     <div class="box">
         <message />
+        <Vedio/>
     </div>
 </template>
 
 <script>
     import message from "../../components/User/Message/message";
+    import Vedio from "../../components/live/Vedio";
   export default {
     name: "Message",
       components: {
-          message
+          message,
+          Vedio
       }
   }
 </script>

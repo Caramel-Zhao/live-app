@@ -7,7 +7,7 @@
                 </svg>
             </div>
             <div>
-                <p>绑定手机号</p>
+                <p>金币充值</p>
             </div>
             <div>
                 <svg class="right" aria-hidden="true">

@@ -1,7 +1,7 @@
 <template>
   <div class="footer">
     <router-link tag="span" to="/home"><i class="footer-index" :class="{'footer-index-active':$route.path === '/home'}"></i><span>首页</span></router-link>
-    <div class="live-img" @click="show = true"><img src="http://122.51.57.152:4000/images/live.png" alt=""></div>
+    <div class="live-img" @click="show=true"><img src="http://122.51.57.152:4000/images/live.png" alt="" ></div>
     <van-popup v-if="HomeInfo.paper" v-model="show" position="bottom" :style="{ height: '20%' }" class="home-popup">
       <router-link tag="p" to="/startLive" class="go-live">
         <span>
@@ -36,7 +36,7 @@
   </div>
 </template>
 <script>
-  import homeInfo from '../../../public/mocks/Home/Home';
+import homeInfo from '../../../public/mocks/Home/Home';
 import { Overlay, Popup} from 'vant';
 export default {
   name: "YT-footer",
@@ -47,9 +47,9 @@ export default {
   data () {
     return {
       show: false,
-      HomeInfo: homeInfo
+      HomeInfo: homeInfo,
     }
-  }
+  },
 }
 </script>
 

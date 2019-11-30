@@ -3,7 +3,7 @@
         <div class="top">
             <router-link :to="'/user'">
                 <svg class="righter" aria-hidden="true">
-                    <use xlink:href="#iconfanhui-copy"></use>
+                    <use xlink:href="#iconfanhui"></use>
                 </svg>
             </router-link>
             <p class="lv">等级</p>
@@ -61,13 +61,13 @@ export default {
     .top{
         width: 100vw;
         height: 0.5rem;
+        display: flex;
+        align-items: center;
     }
     .righter{
         width: 0.3rem;
         height: 0.3rem;
-        position: absolute;
-        top: 0.1rem;
-        left:-1.2rem
+        padding-left: 0.2rem;
     }
     .lv{
         font-size: 0.16rem;

@@ -1,8 +1,7 @@
 
-
 export default {
     async getUserData (userid,stu) {
-        let res = await fetch('http://10.36.176.140:8080/api/in_room',{
+        let res = await fetch('http://39.98.126.184:8080/api/in_room',{
             method:"POST",
             headers:{
                 "Content-Type": "application/json;charset=UTF-8"
@@ -15,5 +14,4 @@ export default {
         return await res.json()
 
     },
-
 }

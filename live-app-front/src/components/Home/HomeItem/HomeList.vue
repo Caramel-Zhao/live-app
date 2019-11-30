@@ -1,29 +1,36 @@
 <template>
   <ul class="home-recommend-list">
-      <li :key="index" v-for="(item,index) in data" >
-        <img :src=item.images alt="" />
+      <li :key="index" v-for="(item,index) in data" @click="goLiveRoom(465123,item.studiono)">
+          <img :src=item.images alt=""/>
         <div class="home-recommend-list-tag">
-          <p v-if="item.tag" class="tag"><img :src=item.tag alt="魅力主播"></p>
-          <p class="vipclass"><span>{{item.userid}}<i v-if="item.vipclass" class="vipclass-img"><img :src=item.vipclass alt="等级"></i></span><span class="address">
+          <p v-if="item.tag" class="tag"><img :src=item.tag alt=""></p>
+          <p class="vipclass">
+            <span>
+              <span class="vipclass-username">{{item.username}}</span>
+              <i v-if="item.vipclass" class="vipclass-img">
+                <svg class="icon" aria-hidden="true">
+                  <use :xlink:href=item.vipclass></use>
+                </svg>
+              </i>
+          </span>
+            <span class="address">
           <svg class="icon" aria-hidden="true">
-        <use xlink:href="#icondingwei2"></use>
-        </svg>{{item.location}}</span></p>
+          <use xlink:href="#icondingwei2"></use>
+          </svg>{{item.location}}</span></p>
         </div>
-        <span class="company" v-if="item.company">{{item.company}}</span>
       </li>
   </ul>
 </template>
 
 <script>
-  // import Vue from 'vue'
-  // import { Lazyload } from 'vant';
-  // Vue.use(Lazyload,{
-  //   // lazyComponent: true,
-  //   loading:"assets/HomeImg/loading.png"
-  // });
   export default {
     name: "HomeRecommendList",
     props:["data"],
+    // methods:{
+    //   goUrl(i){
+    //       this.$router.push('/live?id=' + i)
+    //   }
+    // }
   }
 </script>
 
@@ -46,6 +53,7 @@
       .tag{
         width: 0.7rem;
         text-align: center;
+        height: 0.23rem
       }
       .vipclass{
         margin-top: 0.1rem;
@@ -53,11 +61,24 @@
         display: flex;
         justify-content: space-between;
         padding-left: 0.05rem;
-        .vipclass-img{
+        .vipclass-username{
           display: inline-block;
+          max-width: 0.9rem;
+          white-space: nowrap;
+          text-overflow: ellipsis;
+          overflow: hidden;
+          vertical-align: middle;
+        }
+        .vipclass-img{
+          /*display: inlin;*/
           width: 0.2rem;
           height: 0.2rem;
           vertical-align: middle;
+          .icon{
+            width: 0.2rem;
+            height: 0.2rem;
+            fill: orange;
+          }
         }
         .address{
           padding-right:0.15rem ;
