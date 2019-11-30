@@ -1,31 +1,34 @@
 <template>
   <div class="Ra-swiper">
     <swiper :options="swiperOptionB"
-            ref="mySwiperB">
+            ref="mySwiperB"
+						v-if="loading">
       <!-- slides -->
-      <swiper-slide class="sB"
-                    :key="index"
-                    v-for="(n,index) in data">
-        <rank :data="n" />
-      </swiper-slide>
+      <swiper-slide class="sB"><rank :data="data[0]" v-if="tag" :tag="tag[0]"/></swiper-slide>
+      <swiper-slide class="sB"><rank :data="data[1]" v-if="tag" :tag="tag[1]"/></swiper-slide>
+      <swiper-slide class="sB"><rank :data="data[2]" v-if="tag" :tag="tag[2]"/></swiper-slide>
       <!-- Optional controls -->
       <div class="swiper-pagination swiper-paginationB"
            slot="pagination"></div>
     </swiper>
+		<loading v-else></loading>
   </div>
 
 </template>
 
 <script>
+import loading from '../../components/Commom/loading'
 import SmallRank from '../../components/Rank/SmallRank'
 export default {
   name: 'Star',
   components: {
     "rank": SmallRank,
+		loading
   },
-	props: ['data'],
+	props: ['data','loading'],
   data () {
     return {
+			tag:["魅力值","财富值","魅力值"],
 			info: null,
       swiperOptionB: {
         // touchReleaseOnEdges: true, // 滑动到边缘是释放滑动
@@ -49,11 +52,17 @@ export default {
   },
 }
 </script>
+<style scoped>
+	.my-loading{
+		height: 100vh;
+		background: url(../../../public/img/bangdan.jpg);
+		background-size: 100%;
+	}
+</style>
 <style lang="scss">
 .Ra-swiper {
   overflow-x: hidden;
   width: 100vw;
-
   .swiper-paginationB {
     display: flex;
     padding: 0.18rem 0.5rem 0.16rem;

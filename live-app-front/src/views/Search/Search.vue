@@ -7,7 +7,7 @@
        </svg>
      </router-link>
      <div class="center">
-       <input type="text" placeholder="用户昵称/ID" v-model="sea">
+       <input type="text" placeholder="用户昵称/ID" v-model="searchid">
        <a>
            <svg class="icon" aria-hidden="true" @click="del">
              <use xlink:href="#iconshanchu2"></use>
@@ -17,12 +17,12 @@
      <div class="search" @click="search">搜索</div>
    </div>
 	 <div class="roll" v-if="show">
-			<div class="intest">您可能感兴趣的用户</div>
-			<user-item :data="data" :live="show" v-if="data"></user-item>
+		<div class="intest">您可能感兴趣的用户</div>
+		<user-item :data="data" :live="show" v-if="data" :sendFocus="sendFocus"></user-item>
 	 </div>
    <div class="roll" v-else>
-   			<div class="intest">结果</div>
-   			<user-item :data="searchdata" :live="show" v-if="searchdata"></user-item>
+		<div class="intest" style="color: orange;">搜索结果</div>
+		<user-item :data="searchdata" :live="show" v-if="searchdata" :sendFocus="sendFocus"></user-item>
    </div>
  </div>
 </template>
@@ -30,82 +30,103 @@
 <script>
   import SearchApi from "../../apis/Search/SearchApi";
   import Useritem from "../../components/Search/Useritem";
+  import {mapGetters} from 'vuex'
   export default {
     name: "Search",
     data(){
       return{
-          data:null,
-          sea:null,
-          searchdata:[],
-					show:true,
+          data:null,   // 感兴趣的用户信息
+          searchid:null,   // 搜索的用户id
+          searchdata:[],  // 搜索到的用户数据
+			show:true,  // 控制感兴趣模块的显示隐藏
       }
     },
+	computed: {
+		...mapGetters({
+			token:'GET_TOKEN',
+		})
+	},
     components:{
       [Useritem.name]:Useritem
     },
     beforeMount() {
-			// this.AllData();
-      let a=require("../../../public/mocks/Search/Search")
-      this.data=a
+		this.AllData();
     },
     methods:{
-// 		async _getdata(){
-// 			let a = await SearchApi.getSearchData("454454",this.sea)
-// 			this.searchdata[0] = a;
-// 			console.log(a)
-// 		},
-// 		search(){
-// 			this.show = false;
-// 			this._getdata()	
-// 		},
-
-	// 获取感兴趣的信息
-// 		async AllData(){  
-// 			let a=await SearchApi.getData("454454")
-// 			this.data=a.data.new;
-// 			this.data.forEach((item) =>{
-// 			  item.vipid = this.getVipClass(item.vipid)
-// 			});
-// 			console.log(this.data[1].vipid)
-// 			console.log(this.data)
-// 		},
-		del(){
-			this.show = true;
-		},
-		getVipClass(vipClass){
-			switch (vipClass) {
-				case 1:
-					return "#iconvip";
-					break;
-				case 2:
-					return "#iconvip7";
-					break;
-				case 3:
-					return "#iconvip8";
-					break;
-				case 4:
-					return "#iconvip9";
-					break;
-				case 5:
-					return "#iconvip10";
-					break;
-				case 6:
-					return "#iconzhizunhuiyuan";
-					break;
-			}
-		},
-		search(){
+			async _getdata(){
+				this.searchdata = [];
+				let a = await SearchApi.getSearchData(this.token,this.searchid)
+				this.searchdata.push(a);  // 需要用push，不然刚开始是空的
+				this.searchdata.forEach((item) =>{
+					item.vipid = this.getVipClass(item.vipid)
+				});
+				console.log(this.searchdata)
+			},
+			search(){
 				this.show = false;
-				let a = {
-					"userimage":"http://122.51.57.152:4000/images/list.jpg",
-					"username":"丽丽",
-					"user_fans":13,
-					"vipclass":"#iconzhizunhuiyuan",
-					"focus":false,
-					"live":false,
-					"userid":""
+				this._getdata()	
+			},
+
+		// 获取感兴趣的信息
+			async AllData(){  
+				let a=await SearchApi.getData(this.token)
+				this.data=a.data.new;
+				this.data.forEach((item) =>{
+					item.vipid = this.getVipClass(item.vipid)
+				});
+			},
+			// 关闭搜索信息
+			del(){
+				this.show = true;
+				this.searchid = "";
+			},
+			//转换等级
+			getVipClass(vipClass){
+				switch (vipClass) {
+					case 1:
+						return "#iconvip";
+						break;
+					case 2:
+						return "#iconvip7";
+						break;
+					case 3:
+						return "#iconvip8";
+						break;
+					case 4:
+						return "#iconvip9";
+						break;
+					case 5:
+						return "#iconvip10";
+						break;
+					case 6:
+						return "#iconzhizunhuiyuan";
+						break;
 				}
-				this.searchdata[0] = a;
+			},
+			
+			// 向后台提交此用户已关注
+			async sendFocus(id){  
+				console.log("后台提交关注"+id)
+				let a = await SearchApi.focus(this.token,id)
+				console.log(a)
+				if(a.status == 0){
+					let focus = null;
+					// 更改感兴趣的关注
+						this.data.forEach((item)=>{
+							if(item.userid === id){
+								item.focus = 1;
+								item.user_follow_num++;
+							}
+						})
+					// 更改搜索后的关注
+						this.searchdata.forEach((item)=>{
+							if(item.userid == id){
+								item.focus = 1;
+								item.user_follow_num++;
+							}
+						})
+					
+				}
 			}
 	 }
   }

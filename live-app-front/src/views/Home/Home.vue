@@ -26,6 +26,7 @@
   import Footer from "../../components/Commom/Footer";
   import home from "../../apis/Home/home"
   import { mapGetters } from 'vuex'
+	import {_local} from '../../../localhostTime.js'
   export default {
   name: "Home",
   components: {
@@ -197,8 +198,15 @@
     })
   },
   mounted() {
-    this._initGetAttentionInfo(123456)
-  }
+    // this._initGetAttentionInfo(123456)
+		// this._initGetAttentionInfo();
+		let { token } = this.$route.query;
+		_local.set('token',token, 86400);
+		console.log(_local.get('token'));
+		// window.setInterval(()=>{
+		//   _local.clear();
+		// },5000)
+	}
 }
 </script>
 

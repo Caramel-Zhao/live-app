@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 import user from "../apis/User/user"
+import home from "./home"
 
 Vue.use(Vuex)
 
