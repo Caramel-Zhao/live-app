@@ -70,7 +70,7 @@ export default {
     });
     return await res.json()
   },
-  //
+  //点击关注数据接口
   async getFollow (id,attentionid) {
     let res = await fetch(`${BASEURL}/Attention/onclick/`,{
       method:"POST",
@@ -84,17 +84,22 @@ export default {
     });
     return await res.json()
   },
-  // async getHomeInfo (id) {
-  //   let res = await fetch(`${BASEURL}/Attention/home/`, {
-  //     method:"POST",
-  //     headers:{
-  //       "Content-Type": "application/json;charset=UTF-8"
-  //     },
-  //     body: JSON.stringify({
-  //       "userid":id
-  //     })
-  //   });
-  //   return await res.json()
-  // },
-  //
+  //开播前的实名认证接口
+  async getVerficationInfo (id) {
+    let res = await fetch(`${BASEURL}/start/live/?userid=${id}`)
+    return await res.json()
+  },
+  //开启视频直播的认证接口
+  async getStartLiveInfo (id) {
+    let res = await fetch(`${BASEURL}/live_room`, {
+      method:"POST",
+      headers:{
+        "Content-Type": "application/json;charset=UTF-8"
+      },
+      body: JSON.stringify({
+        "userid":id
+      })
+    });
+    return await res.json()
+  },
 }

@@ -36,9 +36,5 @@
 </script>
 
 <style lang="scss" scoped>
-    /*.home-near {*/
-    /*  li{*/
-    /*  background: red;*/
-    /*}*/
-    /*}*/
+
 </style>

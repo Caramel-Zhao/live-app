@@ -6,7 +6,7 @@
     </div>
     <div class="Unconcerned" v-else>
       <p>-你关注的主播还未开播-</p>
-      <p><img src="http://122.51.57.152:4000/images/waiting.jpg" alt=""></p>
+      <p><img src="http://123.57.233.41:4000//images/waiting.jpg" alt=""></p>
     </div>
   </div>
 </template>
@@ -17,7 +17,7 @@
     props:["data","goLiveRoom"],
     components:{
       HomeWaitingList
-    }
+    },
   }
 </script>
 

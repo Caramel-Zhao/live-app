@@ -28,8 +28,7 @@
         let { id } = this.$route.query;
         let a = await cctvLive.getLiveItemById(id);
         this.cctvLiveItem = a.flowaddress;
-        // this.cctvLiveItem = 'rtmp://39.98.126.184:1935/live/444455'
-      }
+      },
     },
     async beforeMount() {
       await this._initGetCctvInfo()

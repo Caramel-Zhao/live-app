@@ -8,7 +8,8 @@ import ChannelRouter from './ChannelRouter'
 import StartFinish from "./StartFinish"
 import StartLiveRouter from "./StartLiveRouter";
 import LiveRouter from "./LiveRouter";
-Vue.use(VueRouter)
+
+Vue.use(VueRouter);
 const routes = [
   {
     path: '/',
