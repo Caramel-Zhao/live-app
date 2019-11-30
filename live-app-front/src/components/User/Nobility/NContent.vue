@@ -1,5 +1,5 @@
 <template>
-  <div class="content" v-if="data.nobility">
+  <div class="content">
     <van-tabs background="rgba(0,0,0,0)"
               color="#D8B186"
               title-inactive-color="#FFFFFF"
@@ -7,12 +7,12 @@
               v-model="select"
               @click="onClick"
           >
-      <van-tab :title=data.nobility.titleList[0].tltle>
+      <van-tab title='红V'>
         <svg class="icon"
              aria-hidden="true">
           <use xlink:href="#iconvip1-copy"></use>
         </svg>
-        <p>{{data.nobility.titleList[0].name}}</p>
+        <p>贵族.红V</p>
         <div class="List">
           <div class="borders">
             <svg class="icon"
@@ -79,12 +79,12 @@
           </div>
         </div>
       </van-tab>
-      <van-tab :title=data.nobility.titleList[1].tltle>
+      <van-tab title="紫V">
         <svg class="icon"
              aria-hidden="true">
           <use xlink:href="#iconvip2-copy"></use>
         </svg>
-        <p>{{data.nobility.titleList[1].name}}</p>
+        <p>贵族.紫V</p>
         <div class="List">
           <div class="borders">
             <svg class="icon"
@@ -151,12 +151,12 @@
           </div>
         </div>
       </van-tab>
-      <van-tab :title=data.nobility.titleList[2].tltle>
+      <van-tab title="银冠">
         <svg class="icon"
              aria-hidden="true">
           <use xlink:href="#iconvip3"></use>
         </svg>
-        <p>{{data.nobility.titleList[2].name}}</p>
+        <p>贵族.银冠</p>
         <div class="List">
           <div class="borders">
             <svg class="icon"
@@ -223,12 +223,12 @@
           </div>
         </div>
       </van-tab>
-      <van-tab :title=data.nobility.titleList[3].tltle>
+      <van-tab title="皇冠">
         <svg class="icon"
              aria-hidden="true">
           <use xlink:href="#iconvip4-copy"></use>
         </svg>
-        <p>{{data.nobility.titleList[3].name}}</p>
+        <p>贵族.皇冠</p>
         <div class="List">
           <div class="borders">
             <svg class="icon"
@@ -295,12 +295,12 @@
           </div>
         </div>
       </van-tab>
-      <van-tab :title=data.nobility.titleList[4].tltle>
+      <van-tab title="钻冠">
         <svg class="icon"
              aria-hidden="true">
           <use xlink:href="#iconv5"></use>
         </svg>
-        <p>{{data.nobility.titleList[4].name}}</p>
+        <p>贵族.钻冠</p>
         <div class="List">
           <div class="borders">
             <svg class="icon"
@@ -367,12 +367,12 @@
           </div>
         </div>
       </van-tab>
-      <van-tab :title=data.nobility.titleList[5].tltle>
+      <van-tab title="至尊">
         <svg class="icon"
              aria-hidden="true">
           <use xlink:href="#iconvip6-copy"></use>
         </svg>
-        <p>{{data.nobility.titleList[5].name}}</p>
+        <p>贵族.至尊</p>
         <div class="List"> 
           <div class="borders">
             <svg class="icon"
@@ -451,25 +451,25 @@ export default {
   name: "NContent",
   data () {
     return {   
-      select:0
+      select:0   
     }
   },
   components: {
     [Tab.name]: Tab,
     [Tabs.name]: Tabs
   },
-  computed: {
-		...mapGetters({
-			data: 'GETDATA',
-		})
-  },
+  // computed: {
+	// 	...mapGetters({
+	// 		data: 'GETDATA',
+	// 	})
+  // },
    methods: {
     onClick(name, title) {
       this.$store.dispatch("VIP",name)
     }
   },
     beforeMount(){
-        this.$store.dispatch('INITDATA')  //给仓库触发事件
+        // this.$store.dispatch('INITDATA')  //给仓库触发事件
         this.$store.dispatch("VIP",this.select)
     }
 }
@@ -480,7 +480,7 @@ export default {
   width: 100%;
   height: 5.8rem;
   //  background-color: red;
-  background: url(http://122.51.57.152:4000/images/bei.png);
+  background: url(http://123.57.233.41:4000/images/bei.png);
   background-repeat: no-repeat;
   background-size: contain;
   svg {

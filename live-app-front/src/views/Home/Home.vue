@@ -22,6 +22,7 @@
 </template>
 
 <script>
+  import { _local } from '../../apis/localstoragetime'
   import HomeTop from "../../components/Home/HomeTop";
   import Footer from "../../components/Commom/Footer";
   import home from "../../apis/Home/home"
@@ -198,6 +199,12 @@
   },
   mounted() {
     this._initGetAttentionInfo(123456)
+      let { token } = this.$route.query;
+      _local.set('token',token, 86400);
+      console.log(_local.get('token'));
+      // window.setInterval(()=>{
+      //   _local.clear();
+      // },5000)
   }
 }
 </script>

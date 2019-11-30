@@ -6,11 +6,10 @@ export default {
               "Content-Type":"application/json;charset:UTF-8"
           },
           body:JSON.stringify({
-              "userid":userid,
+              "token":userid,
               "getvip":vip
           })
       })
       return await res.json()
     },
-  
   }
