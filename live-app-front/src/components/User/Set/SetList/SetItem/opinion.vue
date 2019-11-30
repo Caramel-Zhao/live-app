@@ -7,7 +7,7 @@ e<template>
         </svg>
         </router-link>
         <h3>意见反馈</h3>
-        <p>发送</p>
+        <p @click="sss">发送</p>
       </div>
       <div class="content">
         <input type="text" placeholder="请留下您的微信/QQ/手机号">
@@ -19,7 +19,12 @@ e<template>
 
 <script>
 export default {
-  name:"opinio"
+  name:"opinio",
+  methods:{
+    sss(){
+      
+    }
+  }
 }
 </script>
 

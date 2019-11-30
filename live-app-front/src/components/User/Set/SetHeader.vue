@@ -15,7 +15,7 @@
                 <svg class="icon" aria-hidden="true">
                     <use xlink:href="#icontuichu"></use>
                 </svg>
-                <p>退出登录</p>
+                <p @click="tuichu">退出登录</p>
             </div>
         </div>
     </div>
@@ -24,10 +24,24 @@
 
 <script>
 import stelist from "./SetList/SetList"
+import {_local} from "../../../apis/localstoragetime"
+import { Dialog } from 'vant';
 export default {
     name:"SetHeader",
     components:{
-        "yt-setList":stelist
+        "yt-setList":stelist,
+        [Dialog.name]:Dialog
+    },
+    methods:{
+        tuichu(){
+            Dialog.confirm({
+            message: '是否确定退出'
+            }).then(() => {
+            _local.remove()
+            }).catch(() => {
+            // on cancel
+            });
+        }
     }
 }
 </script>
