@@ -5,19 +5,23 @@
         </div>
         <div class="usershow-top">
             <div>
-                {{data.userid}}
+                {{data.username}}
                 <svg class="icon" aria-hidden="true">
                     <use  xlink:href="#iconnv1" ></use>
                 </svg>
-                <span> <img :src="data.vipclass"></span>
+                <span>
+                    <svg class="icon" aria-hidden="true">
+                       <use  :xlink:href="icon" ></use>
+                    </svg>
+                </span>
             </div>
-            <p>ID:22322552
+            <p>ID:{{data.userid}}
                 <svg class="icon" aria-hidden="true">
                     <use  xlink:href="#icondingwei2" ></use>
                 </svg>
-                <span>{{data.location}}</span>
+                <span>西安</span>
             </p>
-            <i>{{data.autograph}}</i>
+            <i>加油努力干</i>
         </div>
         <div class="usershow-center">
             <a>
@@ -43,7 +47,7 @@
 <script>
     export default {
         name: "UserVant",
-        props:["data"],
+        props:["data","icon"],
         methods:{
             add(){
              //fetch请求数据

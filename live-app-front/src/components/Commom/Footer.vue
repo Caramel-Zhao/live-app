@@ -1,42 +1,63 @@
 <template>
   <div class="footer">
-    <router-link tag="span" to="/home"><i class="footer-index" :class="{'footer-index-active':$route.path === '/home'}"></i><span>首页</span></router-link>
-    <div class="live-img"  @click="show = true"><img src="http://123.57.233.41:4000/images/live.png" alt=""></div>
-    <van-popup v-if="real===0" v-model="show" position="bottom" :style="{ height: '20%' }" class="home-popup">
-      <router-link to="/startLive" tag="p" class="go-live">
+    <router-link tag="span"
+                 to="/home"><i class="footer-index"
+         :class="{'footer-index-active':$route.path === '/home'}"></i><span>首页</span></router-link>
+    <div class="live-img"
+         @click="show = true"><img src="http://123.57.233.41:4000/images/live.png"
+           alt=""></div>
+    <van-popup v-if="real===0"
+               v-model="show"
+               position="bottom"
+               :style="{ height: '20%' }"
+               class="home-popup">
+      <router-link to="/startLive"
+                   tag="p"
+                   class="go-live">
         <span>
-          <svg class="icon" aria-hidden="true">
-          <use xlink:href="#iconicon_kaishizhibo"></use>
-        </svg>
+          <svg class="icon"
+               aria-hidden="true">
+            <use xlink:href="#iconicon_kaishizhibo"></use>
+          </svg>
         </span>
         <span>开始直播</span>
       </router-link>
       <p @click="show = false">
         <span>
-           <svg class="icon" aria-hidden="true">
-          <use xlink:href="#iconyuangongchelianglika"></use>
-        </svg>
+          <svg class="icon"
+               aria-hidden="true">
+            <use xlink:href="#iconyuangongchelianglika"></use>
+          </svg>
         </span>
         <span>下次吧</span>
       </p>
     </van-popup>
-    <van-overlay v-else class="home-overlay" :show="show"  @click="show = false">
-      <div class="wrapper" @click.stop="show = false">
+    <van-overlay v-else
+                 class="home-overlay"
+                 :show="show"
+                 @click="show = false">
+      <div class="wrapper"
+           @click.stop="show = false">
         <div class="block">
-          <p><img src="http://123.57.233.41:4000/images/renzhen.jpg" alt=""></p>
+          <p><img src="http://123.57.233.41:4000/images/renzhen.jpg"
+                 alt=""></p>
           <p>开播前需要实名认证</p>
           <p class="home-sure">
             <span @click="show = false">稍后</span>
-            <router-link class="home-go" tag="span" to="/user/real">立即认证</router-link>
+            <router-link class="home-go"
+                         tag="span"
+                         to="/user/real">立即认证</router-link>
           </p>
         </div>
       </div>
     </van-overlay>
-    <router-link tag="span" to="/user"><i class="footer-user" :class="{'footer-user-active':$route.path === '/user'}"></i><span>我的</span></router-link>
+    <router-link tag="span"
+                 to="/user"><i class="footer-user"
+         :class="{'footer-user-active':$route.path === '/user'}"></i><span>我的</span></router-link>
   </div>
 </template>
 <script>
-import { Overlay, Popup} from 'vant';
+import { Overlay, Popup } from 'vant';
 import home from "../../apis/Home/home";
 import { mapGetters } from 'vuex'
 export default {
@@ -48,23 +69,23 @@ export default {
   data () {
     return {
       show: false,
-      real:1
+      real: 1
     }
   },
-  methods:{
+  methods: {
     //是否实名认证
-    async _initGetRealInfo(){
+    async _initGetRealInfo () {
       let getRealInfo = await home.getVerficationInfo(this.token);
       this.real = getRealInfo.status;
       // console.log(this.real);
     },
   },
-  beforeMount() {
+  beforeMount () {
     this._initGetRealInfo();
   },
-  computed:{
+  computed: {
     ...mapGetters({
-      token:'GET_TOKEN'
+      token: 'GET_TOKEN'
     })
   }
 }
@@ -102,7 +123,8 @@ export default {
       background-size: 0.7rem 0.52rem;
     }
     .footer-index-active {
-      background: url("http://123.57.233.41:4000/images/footer.png") 0 0 no-repeat;
+      background: url("http://123.57.233.41:4000/images/footer.png") 0 0
+        no-repeat;
       background-size: 0.7rem 0.52rem;
       + span {
         color: #000;
@@ -161,12 +183,12 @@ export default {
     display: flex;
     justify-content: space-around;
     align-items: center;
-    .icon{
-      width:0.35rem;
+    .icon {
+      width: 0.35rem;
       height: 0.3rem;
     }
-    p{
-      span{
+    p {
+      span {
         display: block;
         padding-bottom: 0.15rem;
         font-size: 0.14rem;
