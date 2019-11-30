@@ -13,7 +13,7 @@ export default {
         "Content-Type": "application/json;charset=UTF-8"
       },
       body: JSON.stringify({
-        "userid":id
+        "token":id
       })
     });
     return await res.json()
@@ -26,7 +26,7 @@ export default {
         "Content-Type": "application/json;charset=UTF-8"
       },
       body: JSON.stringify({
-        "userid":id
+        "token":id
       })
     });
     return await res.json()
@@ -39,7 +39,7 @@ export default {
         "Content-Type": "application/json;charset=UTF-8"
       },
       body: JSON.stringify({
-        "userid":id
+        "token":id
       })
     });
     return await res.json()
@@ -52,7 +52,7 @@ export default {
         "Content-Type": "application/json;charset=UTF-8"
       },
       body: JSON.stringify({
-        "userid":id
+        "token":id
       })
     });
     return await res.json()
@@ -65,7 +65,7 @@ export default {
         "Content-Type": "application/json;charset=UTF-8"
       },
       body: JSON.stringify({
-        "userid":id
+        "token":id
       })
     });
     return await res.json()
@@ -78,7 +78,7 @@ export default {
         "Content-Type": "application/json;charset=UTF-8"
       },
       body: JSON.stringify({
-        "userid":id,
+        "token":id,
         "attentionid":attentionid
       })
     });
@@ -86,7 +86,7 @@ export default {
   },
   //开播前的实名认证接口
   async getVerficationInfo (id) {
-    let res = await fetch(`${BASEURL}/start/live/?userid=${id}`)
+    let res = await fetch(`${BASEURL}/start/live/?token=${id}`)
     return await res.json()
   },
   //开启视频直播的认证接口
@@ -97,7 +97,7 @@ export default {
         "Content-Type": "application/json;charset=UTF-8"
       },
       body: JSON.stringify({
-        "userid":id
+        "token":id
       })
     });
     return await res.json()
