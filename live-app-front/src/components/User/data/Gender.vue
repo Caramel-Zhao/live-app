@@ -37,7 +37,7 @@
 <!--                            </svg>-->
 <!--                        </div>-->
 <!--                    </div>-->
-                    <van-radio-group v-model="radio">
+                    <van-radio-group v-model="radio" icon-size="30px">
                         <van-radio name="男" >
                             男<img slot="icon"
                                  slot-scope="props"

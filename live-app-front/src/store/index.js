@@ -22,7 +22,7 @@ export default new Vuex.Store({
     'GETNAME':(state,a) => {
       // console.log(state.data.data.userid)
       // console.log(a)
-      state.data.data.userid = a
+      state.data.data.username = a
     },
     'GETAUTOGRAPH':(state,a) => {
       // console.log(state.data.data.userid)

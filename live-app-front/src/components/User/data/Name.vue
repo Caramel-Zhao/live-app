@@ -8,22 +8,7 @@
 <script>
     export default {
         name: "Name",
-        props: ["data","userid"],
-        // computed: {
-        //     getName:{
-        //         get(){
-        //             return this.$store.state.this.data.data.userid
-        //         },
-        //         set(value){
-        //             this.$store.commit('this.data.data.userid',value)
-        //         }
-        //     }
-        // }
-        // data(){
-        //     return {
-        //         name:"你大爷di"
-        //     }
-        // }
+        props: ["data","userid"]
     }
 </script>
 

@@ -17,11 +17,6 @@
                 userAutograph:''
             }
         },
-        // data(){
-        //     return {
-        //         text:'今天睡地板，明天当老板'
-        //     }
-        // }
         methods: {
             upDataAutograph(){
                 // return this.$store.state.this.data.data.userid

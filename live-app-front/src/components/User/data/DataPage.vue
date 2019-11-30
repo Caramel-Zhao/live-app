@@ -3,7 +3,7 @@
     <DataHeader :data="title.user" :click="change"/>
     <HeadPortrait :data="data.data.userimage"
                   :change="handleFile" />
-    <Name :userid="data.data.userid"
+    <Name :userid="data.data.username"
           :data="title.name" />
     <Gender :data="data.data.sex" />
     <Birthday :birData="birData"
@@ -94,13 +94,14 @@ export default {
     },
     async change(){
       let sex = "";
+      // console.log(this.data.data.sex)
       if(this.data.data.sex === "男" ){
         sex = "#iconnan1"
       } else {
         sex = "#iconnv1"
       }
-      let res = await DataApi.getDataInfo("534334",this.data.data.userid,this.data.data.userimage.sex,this.data.data.birth,this.data.data.autograph)
-      console.log(res)
+      let res = await DataApi.getDataInfo("534334",this.data.data.username,this.data.data.userimage,sex,this.data.data.birth,this.data.data.autograph)
+      // console.log(res)
       if(res.status === 0){
         console.log(res.msg)
       }
@@ -108,7 +109,8 @@ export default {
   },
   computed: {
     ...mapGetters({
-      data:"GETDATA"
+      data:"GETDATA",
+      token:"GET_TOKEN"
     })
   },
   beforeMount() {
