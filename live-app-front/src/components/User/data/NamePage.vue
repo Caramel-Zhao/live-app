@@ -1,7 +1,7 @@
 <template>
     <div class="box">
         <DataHeader :data="this.$route.params.data" />
-        <input type="text" v-model="text" class="txt">
+        <input type="text" v-model="username" class="txt" @input="upDataName">
     </div>
 </template>
 
@@ -10,12 +10,18 @@
     export default {
         name: "NamePage",
         props:["userid"],
+        data(){
+          return {
+              username:''
+          }
+        },
         components: {
             DataHeader
         },
-        data(){
-            return {
-                text:'哈哈小蛋蛋'
+        methods: {
+            upDataName(){
+                // return this.$store.state.this.data.data.userid
+                this.$store.dispatch('INITNAME',this.username)
             }
         }
     }

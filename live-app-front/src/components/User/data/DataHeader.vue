@@ -12,7 +12,7 @@
                 </div>
             </div>
             <div class="Header-Right">
-                <span>保存</span>
+                <span @click="click">保存</span>
             </div>
         </div>
     </div>
@@ -21,7 +21,7 @@
 <script>
     export default {
         name: "DataHeader",
-        props: ["data"]
+        props: ["data","click"]
     }
 </script>
 
