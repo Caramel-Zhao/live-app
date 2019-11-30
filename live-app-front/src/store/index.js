@@ -2,6 +2,7 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 import user from "../apis/User/user"
 import home from "./home";
+import token from "./token";
 
 Vue.use(Vuex)
 
@@ -37,6 +38,7 @@ export default new Vuex.Store({
     }
   },
   modules: {
-    home
+    home,
+    token
   }
 })

@@ -18,7 +18,7 @@
       <div class="start-live-title">
         <p>已为你生成专属直播链接<p/>
         <p>请你使用该推流地址进行推流<p/>
-        <a class="start-live-link">{{token}}</a>
+        <a class="start-live-link">{{startLiveInfo.data.room_ip}}</a>
         <p>完成推流即可点击下方按钮开启你的直播之旅</p>
       </div>
       <span class="start-button" @click="goLiveRoom" >开启视频直播</span>
@@ -41,17 +41,16 @@
       this.$router.go(-1)
     },
     async _initGoLiveRoom(){
-      // this.startLiveInfo = await home.getStartLiveInfo(453453);
+      this.startLiveInfo = await home.getStartLiveInfo(this.token);
       // console.log(this.startLiveInfo);
       // {{startLiveInfo.data.room_ip}}
-      console.log(this.token)
+      // console.log(this.token)
     },
     goLiveRoom(){
-      console.log(this.startLiveInfo);
       let studiono = this.startLiveInfo.data.charisma;
       let id = this.token;
-      console.log(id);
-      console.log(studiono);
+      // console.log(id);
+      // console.log(studiono);
       this.$router.push('/live?userid='+id+'&studiono='+studiono);
     }
   },

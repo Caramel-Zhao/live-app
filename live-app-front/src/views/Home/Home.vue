@@ -65,7 +65,7 @@
     //cctv接口
     async _initGetCctvInfo(){
       this.cctvLiveItem = await home.getCctvLiveInfo();
-      console.log(this.token)
+      // console.log(this.token)
     },
     //关注页面刷新
     async _initGetAttentionInfo(){
@@ -175,22 +175,18 @@
           this._initGetCctvInfo()
         }
     },
-
     goLiveRoom(studiono){
       this.$router.push('/live?userid='+this.token+'&studiono='+studiono);
     }
   },
   computed:{
     ...mapGetters({
-      slideIndex:'GETSLIDE',
-      token:'GETTOKEN'
+      slideIndex:'GET_SLIDE',
+      token:'GET_TOKEN'
     })
   },
   mounted() {
     this._initGetAttentionInfo();
-    let { token } = this.$route.query;
-    this.$store.dispatch('SENDTOKEN',token);
-    // console.log(token);
   }
 }
 </script>

@@ -1,21 +1,9 @@
 export default{
   state: {
-    token:null,
-  },
-  mutations: {
-    'MYTOKEN': (state, i) => {
-      state.token = i;
-      console.log(state.token);
-    }
-  },
-  actions: {
-    'SENDTOKEN': async ({ commit },i) => {
-      // console.log(i);
-      commit('MYTOKEN', i)
-    },
+    token:window.localStorage.getItem('token'),
   },
   getters: {
-    'GETTOKEN': ({ token }) => {
+    'GET_TOKEN': ({ token }) => {
       return token
     }
   }

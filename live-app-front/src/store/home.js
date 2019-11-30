@@ -3,19 +3,19 @@ export default{
     slideIndex:0,
   },
   mutations: {
-    'MYSLIDE': (state, i) => {
+    'MY_SLIDE': (state, i) => {
       state.slideIndex = i;
       // console.log(state.slideIndex);
     }
   },
   actions: {
-    'GETSLIDEINDEX': async ({ commit },i) => {
+    'GET_SLIDE_INDEX': async ({ commit },i) => {
       // console.log(i);
-      commit('MYSLIDE', i)
+      commit('MY_SLIDE', i)
     },
   },
   getters: {
-    'GETSLIDE': ({ slideIndex }) => {
+    'GET_SLIDE': ({ slideIndex }) => {
       return slideIndex
     }
   }

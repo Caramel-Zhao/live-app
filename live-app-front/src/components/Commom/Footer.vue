@@ -38,6 +38,7 @@
 <script>
 import { Overlay, Popup} from 'vant';
 import home from "../../apis/Home/home";
+import { mapGetters } from 'vuex'
 export default {
   name: "YT-footer",
   components: {
@@ -47,19 +48,24 @@ export default {
   data () {
     return {
       show: false,
-      real:0
+      real:1
     }
   },
   methods:{
     //是否实名认证
-    async _initGetRealInfo(id){
-      let getRealInfo = await home.getVerficationInfo(id);
+    async _initGetRealInfo(){
+      let getRealInfo = await home.getVerficationInfo(this.token);
       this.real = getRealInfo.status;
-      console.log(this.real);
+      // console.log(this.real);
     },
   },
   beforeMount() {
-    // this._initGetRealInfo(999999);
+    this._initGetRealInfo();
+  },
+  computed:{
+    ...mapGetters({
+      token:'GET_TOKEN'
+    })
   }
 }
 </script>

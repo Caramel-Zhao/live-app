@@ -114,7 +114,7 @@ export default {
         },
         on:{
           slideChangeTransitionStart: function () {
-            that.$store.dispatch('GETSLIDEINDEX',this.activeIndex);
+            that.$store.dispatch('GET_SLIDE_INDEX',this.activeIndex);
             that.getSlide()
           }
         },
