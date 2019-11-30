@@ -24,7 +24,8 @@
           fluid: true, // 当true时，Video.js player将拥有流体大小。换句话说，它将按比例缩放以适应其容器。
           sources: [{
             type: 'application/x-mpegURL',
-            src:this.cctvInfo
+            // src:this.cctvInfo
+            src: 'http://122.51.57.152:81/hls/test.m3u8'
           }],
           poster: "http://static.smartisanos.cn/pr/img/video/video_03_cc87ce5bdb.jpg", //你的封面地址
           width: document.documentElement.clientWidth,
