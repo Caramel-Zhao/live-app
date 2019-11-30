@@ -1,7 +1,7 @@
 <template>
     <div class="box">
         <DataHeader :data="this.$route.params.data" />
-        <input type="text" v-model="text" class="txt">
+        <input type="text" v-model="userAutograph" class="txt" @input="upDataAutograph">
     </div>
 </template>
 
@@ -14,7 +14,18 @@
         },
         data(){
             return {
-                text:'今天睡地板，明天当老板'
+                userAutograph:''
+            }
+        },
+        // data(){
+        //     return {
+        //         text:'今天睡地板，明天当老板'
+        //     }
+        // }
+        methods: {
+            upDataAutograph(){
+                // return this.$store.state.this.data.data.userid
+                this.$store.dispatch('INITAUTOGRAPH',this.userAutograph)
             }
         }
     }
