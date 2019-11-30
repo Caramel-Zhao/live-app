@@ -1,6 +1,6 @@
 <template>
-    <div class="details" v-if="data.fans">
-        <img :src=data.fans.FansHeader.pic alt="">
+    <div class="details">
+        <img :src=data.userimage alt="">
         <a @click="$router.back(-1)">
         <svg class="lv" aria-hidden="true">
             <use xlink:href="#iconarrow-left"></use>
@@ -15,10 +15,11 @@
                 <use xlink:href="#iconarrow-right"></use>
             </svg>
         </div>
-        <div class="gif">
+        <div class="gif" v-if="this.data.islive == 1">
             <img src="../../../../public/assets/Jin/live.gif" alt="">
             <p>LIVE</p>
         </div>
+        <div v-else></div>
     </div>
 </template>
 
@@ -32,7 +33,7 @@ export default {
 		})
 	},
     beforeMount(){
-        this.$store.dispatch('INITDATA',"453453")  //给仓库触发事件
+        this.$store.dispatch('INITDATA',this.$route.query.token)  //给仓库触发事件
     }
 }
 

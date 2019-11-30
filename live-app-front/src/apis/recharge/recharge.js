@@ -7,7 +7,7 @@ export default {
               "Content-Type":"application/json;charset:UTF-8"
           },
           body:JSON.stringify({
-              "userid":userid,
+              "token":userid,
               "r_charge":r_charge
           })
       })

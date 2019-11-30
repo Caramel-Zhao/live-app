@@ -16,21 +16,9 @@
       <div>lemon_120</div>
       <div>悦兔ID:4194051</div>
     </div>
-    <div class="finishh">
-      <div class="finishh-one">
-        <div>0</div>
-        <div>00:07:31</div>
-        <div>00:07:31</div>
-      </div>
-      <div class="finishh-two">
-        <div>获得积分</div>
-        <div>本日直播时长</div>
-        <div>本场直播时长</div>
-      </div>
-    </div>
     <div class="day">
-      <img src="../../../public/assets/Jin/su-110.png"
-           alt="">
+      <!-- <img src="../../../public/assets/Jin/su-110.png"
+           alt=""> -->
     </div>
     <div class="crown">
       <div class="crown-one">
@@ -95,7 +83,7 @@ export default {
 .finish {
   width: 100vw;
   height: 100vh;
-  background-image: url("http://122.51.57.152:4000/images/1.jpg");
+  background-image: url("http://123.57.233.41:4000/images/1.jpg");
   background-size: 100% 100%;
 }
 .finisher {
@@ -216,6 +204,7 @@ export default {
   height: 1.7rem;
   margin-left: 0.25rem;
   margin-right: 0.25rem;
+  margin-top: 0.5rem;
   display: flex;
   justify-content: space-around;
 }
@@ -329,8 +318,8 @@ export default {
 .footer {
   width: 2.5rem;
   height: 1.2rem;
-  margin-left: 0.5rem;
-  margin-top: 0.7rem;
+  margin-left: 0.65rem;
+  margin-top: 1.15rem;
 }
 .footer-one {
   width: 2.5rem;
@@ -344,7 +333,7 @@ export default {
   line-height: 0.2rem;
   position: absolute;
   top: 5.43rem;
-  left: 1.35rem;
+  left: 1.45rem;
   height: 0.2rem;
   background-color: #181319;
   font-size: 0.1rem;

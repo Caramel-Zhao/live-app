@@ -113,7 +113,7 @@
     },
     "earnings":{
         "_comment":"integral是剩余积分  icon为图标  integral为使用的积分  gold为兑换的金币",
-        "earn":{"integral":"0"},
+        "earn":{"integral":0},
         "conversion":[
             {
                 "icon":"iconjinbi",
