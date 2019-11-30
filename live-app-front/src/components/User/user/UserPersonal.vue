@@ -40,7 +40,7 @@ export default {
 		})
 	},
     beforeMount(){
-        this.$store.dispatch('INITDATA',"453453")  //给仓库触发事件
+        this.$store.dispatch('INITDATA',this.$route.query.userid)  //给仓库触发事件
     }
 }
 </script>

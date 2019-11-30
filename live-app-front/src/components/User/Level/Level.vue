@@ -10,10 +10,10 @@
         </div>
         <div class="next">
             <div>
-                <img src="http://122.51.57.152:4000/images/2.jpg" alt="">
+                <img src="http://123.57.233.41:4000/images/2.jpg" alt="">
             </div>
             <div>
-                <img src="http://122.51.57.152:4000/images/s-113.png" alt="">
+                <img src="http://123.57.233.41:4000/images/s-113.png" alt="">
             </div>
         </div>
         <div class="experience">
@@ -55,7 +55,7 @@ export default {
     .cover{
         width: 100vw;
         height: 100vh;
-        background-image: url("http://122.51.57.152:4000/images/Earnings_backgroundImg.jpg");
+        background-image: url("http://123.57.233.41:4000//images/Earnings_backgroundImg.jpg");
         background-size: 100% 100%;
     }
     .top{
@@ -63,18 +63,17 @@ export default {
         height: 0.5rem;
         display: flex;
         align-items: center;
+        display: flex;
     }
     .righter{
         width: 0.3rem;
         height: 0.3rem;
-        padding-left: 0.2rem;
+        padding-left: 0.1rem;
     }
     .lv{
         font-size: 0.16rem;
         color: #E1C192;
-        position: absolute;
-        top: 0.17rem;
-        left: 1rem;
+        margin-left: 1.4rem;
     }
     .next div:nth-child(1){
         width: 0.7rem;

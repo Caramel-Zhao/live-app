@@ -1,6 +1,6 @@
 <template>
     <div class="details" v-if="data.fans">
-        <img :src=data.fans.FansHeader.pic alt="">
+        <img :src=data.userimage alt="">
         <a @click="$router.back(-1)">
         <svg class="lv" aria-hidden="true">
             <use xlink:href="#iconarrow-left"></use>
@@ -32,7 +32,7 @@ export default {
 		})
 	},
     beforeMount(){
-        this.$store.dispatch('INITDATA',"453453")  //给仓库触发事件
+        this.$store.dispatch('INITDATA',this.$route.query.userid)  //给仓库触发事件
     }
 }
 
